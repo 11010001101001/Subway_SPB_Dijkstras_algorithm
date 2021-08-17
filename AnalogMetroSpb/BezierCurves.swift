@@ -51,7 +51,7 @@ class BezierCurves: UIView {
         edgeRed.addLine(to: CGPoint(x: 247,y: 350)) // Владимирская
         edgeRed.addLine(to: CGPoint(x: 225,y: 410)) // Пушкинская
         edgeRed.addLine(to: CGPoint(x: 160,y: 465)) // Техн инст 1
-        edgeRed.addLine(to: CGPoint(x: 85,y: 485)) // Балтийская
+        edgeRed.addLine(to: CGPoint(x: 85,y: 490)) // Балтийская
         edgeRed.addLine(to: CGPoint(x: 85,y: 510))
         edgeRed.addLine(to: CGPoint(x: 85,y: 535))
         edgeRed.addLine(to: CGPoint(x: 85,y: 570))

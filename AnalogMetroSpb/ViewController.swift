@@ -15,14 +15,12 @@ class ViewController: UIViewController {
     @IBAction func someButton(_ sender: Any) {
     }
     
+    @IBOutlet weak var mapScrollView: MapScrollView!
     @IBOutlet weak var map: UIView!
-    @IBOutlet weak var scrollView: UIScrollView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        scrollView.addSubview(map)
-//        view.addSubview(scrollView)
-        
         
         // мал станции
         func drawSmallStations(name: String,x:CGFloat, y:CGFloat, color: UIColor) -> CGRect {
@@ -162,8 +160,7 @@ class ViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewWillLayoutSubviews()
-//        scrollView.isScrollEnabled = true
-//        scrollView.contentSize = CGSize(width: 300,height: 600)
+
     }
 }
 
