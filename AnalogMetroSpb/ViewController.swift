@@ -9,18 +9,22 @@ import UIKit
 import Foundation
 
 class ViewController: UIViewController {
-
     
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBAction func someButton(_ sender: Any) {
-    }
-    
-    @IBOutlet weak var mapScrollView: MapScrollView!
+//    @IBOutlet weak var mapScrollView: MapScrollView!
     @IBOutlet weak var map: UIView!
-
+    
+    var mapScrollView : MapScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mapScrollView = MapScrollView(frame: view.bounds)
+        view.addSubview(mapScrollView)
+        setupMapScrollView()
+        
+        let image = map
+        self.mapScrollView.set(image: image)
+        
         
         // мал станции
         func drawSmallStations(name: String,x:CGFloat, y:CGFloat, color: UIColor) -> CGRect {
@@ -158,10 +162,14 @@ class ViewController: UIViewController {
         drawSmallStations(name: "Дыбенко",x: 310,y: 540, color: .orange)
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-
+    func setupMapScrollView() {
+        mapScrollView.translatesAutoresizingMaskIntoConstraints = false
+        mapScrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        mapScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        mapScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        mapScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
     }
+    
 }
 
 
