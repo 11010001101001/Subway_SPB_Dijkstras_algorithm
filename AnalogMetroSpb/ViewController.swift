@@ -55,7 +55,7 @@ class ViewController: UIViewController {
             map.addSubview(stationName)
             return stationName.frame
         }
-        // лейблы поуже в ширину иногда надо
+        // лейблы поуже в ширину иногда надо где не влазит
         func drawLabelMin(name:String,x:CGFloat,y:CGFloat,color: UIColor ) -> CGRect {
             let stationName = UILabel(frame: CGRect(x: x, y: y, width: 50, height: 10))
             stationName.text = name
@@ -259,8 +259,9 @@ extension AdjacencyList: CustomStringConvertible {
 
 let graph = AdjacencyList<String>()
 
-let spiderMan = graph.createVertex(data: "Spider Man")
-let ironMan = graph.createVertex(data: "Iron Man")
+let parnas = graph.createVertex(data: "Парнас")
+let prospectProsvesheniya = graph.createVertex(data: "Проспект Просвещения")
+
 let captainAmerica = graph.createVertex(data: "Captain America")
 let antMan = graph.createVertex(data: "Ant Man")
 let civilWar = graph.createVertex(data: "Civil War")
@@ -269,7 +270,7 @@ let thor = graph.createVertex(data: "Thor")
 let ragnarok = graph.createVertex(data: "Ragnarok")
 let hulk = graph.createVertex(data: "Hulk")
 
-//graph.add(.undirected, from: spiderMan, to: ironMan)
+graph.add(.undirected, from: parnas, to: prospectProsvesheniya)
 //graph.add(.undirected, from: spiderMan, to: civilWar)
 //graph.add(.undirected, from: spiderMan, to: avengers)
 //graph.add(.undirected, from: ironMan, to: avengers)
