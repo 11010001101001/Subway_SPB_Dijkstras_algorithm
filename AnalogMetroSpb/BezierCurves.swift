@@ -85,7 +85,37 @@ class BezierCurves: UIView {
         edgePurple.lineWidth = 3.0
         edgePurple.stroke()
         // рисуем зеленую ветку
-        
+        let edgeGreen = UIBezierPath()
+        edgeGreen.move(to: CGPoint(x: 12, y: 224)) // Беговая
+        edgeGreen.addLine(to: CGPoint(x: 22, y: 244))
+        edgeGreen.addLine(to: CGPoint(x: 33, y: 266))
+        edgeGreen.addLine(to: CGPoint(x: 43, y: 294))
+        edgeGreen.addLine(to: CGPoint(x: 160, y: 303))
+        edgeGreen.addLine(to: CGPoint(x: 255, y: 303)) // Маяковская
+        edgeGreen.addLine(to: CGPoint(x: 305, y: 380))
+        edgeGreen.addLine(to: CGPoint(x: 305, y: 560)) // елизаровская
+        edgeGreen.addLine(to: CGPoint(x: 305, y: 590))
+        edgeGreen.addLine(to: CGPoint(x: 305, y: 620))
+        edgeGreen.addLine(to: CGPoint(x: 305, y: 650))
+        edgeGreen.addLine(to: CGPoint(x: 305, y: 680)) // рыбацкое
+        UIColor.green.setFill()
+        UIColor.green.setStroke()
+        edgeGreen.lineWidth = 3.0
+        edgeGreen.stroke()
+        // рисуем оранжевую ветку
+        let edgeOrange = UIBezierPath()
+        edgeOrange.move(to: CGPoint(x: 160, y: 354)) // Спасская
+        edgeOrange.addLine(to: CGPoint(x: 245, y: 354)) // Достоевская
+        edgeOrange.addLine(to: CGPoint(x: 270, y: 380)) // Лиговский проспект
+        edgeOrange.addLine(to: CGPoint(x: 305, y: 385)) // площадь Ал Невского 2
+        edgeOrange.addLine(to: CGPoint(x: 315, y: 450))
+        edgeOrange.addLine(to: CGPoint(x: 315, y: 480))
+        edgeOrange.addLine(to: CGPoint(x: 315, y: 500))
+        edgeOrange.addLine(to: CGPoint(x: 315, y: 540))
+        UIColor.orange.setFill()
+        UIColor.orange.setStroke()
+        edgeOrange.lineWidth = 3.0
+        edgeOrange.stroke()
     }
     
     
