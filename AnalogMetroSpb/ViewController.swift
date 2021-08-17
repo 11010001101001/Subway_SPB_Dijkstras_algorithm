@@ -10,11 +10,18 @@ import Foundation
 
 class ViewController: UIViewController {
 
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBAction func someButton(_ sender: Any) {
+    }
+    
     @IBOutlet weak var map: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        scrollView.addSubview(map)
+//        view.addSubview(scrollView)
         
         
         // мал станции
@@ -151,6 +158,12 @@ class ViewController: UIViewController {
         drawSmallStations(name: "Ладожская",x: 310,y: 480, color: .orange)
         drawSmallStations(name: "Проспект Большевиков",x: 310,y: 500, color: .orange)
         drawSmallStations(name: "Дыбенко",x: 310,y: 540, color: .orange)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+//        scrollView.isScrollEnabled = true
+//        scrollView.contentSize = CGSize(width: 300,height: 600)
     }
 }
 
