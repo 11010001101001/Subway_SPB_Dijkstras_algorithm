@@ -14,9 +14,8 @@
 		845E5D0E26C692E9009BFB0B /* AnalogMetroSpb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 845E5D0C26C692E9009BFB0B /* AnalogMetroSpb.xcdatamodeld */; };
 		845E5D1026C692EC009BFB0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845E5D0F26C692EC009BFB0B /* Assets.xcassets */; };
 		845E5D1326C692EC009BFB0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845E5D1126C692EC009BFB0B /* LaunchScreen.storyboard */; };
-		84A7B37126CB9A4400476A60 /* Графы и тд .swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A7B37026CB9A4400476A60 /* Графы и тд .swift */; };
+		84A7B37126CB9A4400476A60 /* Graphs .swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A7B37026CB9A4400476A60 /* Graphs .swift */; };
 		84A7B39826CBAF8300476A60 /* BezierCurves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A7B39726CBAF8300476A60 /* BezierCurves.swift */; };
-		84A7B39A26CBD99B00476A60 /* MapScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A7B39926CBD99B00476A60 /* MapScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,9 +28,8 @@
 		845E5D0F26C692EC009BFB0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		845E5D1226C692EC009BFB0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		845E5D1426C692EC009BFB0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84A7B37026CB9A4400476A60 /* Графы и тд .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Графы и тд .swift"; sourceTree = "<group>"; };
+		84A7B37026CB9A4400476A60 /* Graphs .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graphs .swift"; sourceTree = "<group>"; };
 		84A7B39726CBAF8300476A60 /* BezierCurves.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezierCurves.swift; sourceTree = "<group>"; };
-		84A7B39926CBD99B00476A60 /* MapScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,14 +65,13 @@
 				845E5D0326C692E8009BFB0B /* AppDelegate.swift */,
 				845E5D0526C692E8009BFB0B /* SceneDelegate.swift */,
 				845E5D0726C692E8009BFB0B /* ViewController.swift */,
-				84A7B37026CB9A4400476A60 /* Графы и тд .swift */,
+				84A7B37026CB9A4400476A60 /* Graphs .swift */,
 				84A7B39726CBAF8300476A60 /* BezierCurves.swift */,
 				845E5D0926C692E9009BFB0B /* Main.storyboard */,
 				845E5D0F26C692EC009BFB0B /* Assets.xcassets */,
 				845E5D1126C692EC009BFB0B /* LaunchScreen.storyboard */,
 				845E5D1426C692EC009BFB0B /* Info.plist */,
 				845E5D0C26C692E9009BFB0B /* AnalogMetroSpb.xcdatamodeld */,
-				84A7B39926CBD99B00476A60 /* MapScrollView.swift */,
 			);
 			path = AnalogMetroSpb;
 			sourceTree = "<group>";
@@ -153,8 +150,7 @@
 				845E5D0826C692E8009BFB0B /* ViewController.swift in Sources */,
 				845E5D0E26C692E9009BFB0B /* AnalogMetroSpb.xcdatamodeld in Sources */,
 				845E5D0426C692E8009BFB0B /* AppDelegate.swift in Sources */,
-				84A7B37126CB9A4400476A60 /* Графы и тд .swift in Sources */,
-				84A7B39A26CBD99B00476A60 /* MapScrollView.swift in Sources */,
+				84A7B37126CB9A4400476A60 /* Graphs .swift in Sources */,
 				845E5D0626C692E8009BFB0B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
