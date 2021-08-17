@@ -107,6 +107,7 @@ extension AdjacencyList: CustomStringConvertible {
     
 }
 
+
 let graph = AdjacencyList<String>()
 
 let parnas = graph.createVertex(data: "Парнас")
@@ -120,6 +121,8 @@ let thor = graph.createVertex(data: "Thor")
 let ragnarok = graph.createVertex(data: "Ragnarok")
 let hulk = graph.createVertex(data: "Hulk")
 
+
+func drawGraph() {
 graph.add(.undirected, from: parnas, to: prospectProsvesheniya)
 //graph.add(.undirected, from: spiderMan, to: civilWar)
 //graph.add(.undirected, from: spiderMan, to: avengers)
@@ -135,8 +138,7 @@ graph.add(.undirected, from: parnas, to: prospectProsvesheniya)
 //graph.add(.undirected, from: hulk, to: avengers)
 //graph.add(.undirected, from: hulk, to: ragnarok)
 //
-//print(graph)
 
-
+}
 
 

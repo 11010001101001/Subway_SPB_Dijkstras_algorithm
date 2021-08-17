@@ -19,7 +19,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EaW-YL-cbH">
                                 <rect key="frame" x="0.0" y="44" width="414" height="1422"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TAs-Kc-KCs">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TAs-Kc-KCs" customClass="BezierCurves" customModule="AnalogMetroSpb" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="824"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>

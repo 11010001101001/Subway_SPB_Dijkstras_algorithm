@@ -14,6 +14,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
         // мал станции
         func drawSmallStations(name: String,x:CGFloat, y:CGFloat, color: UIColor) -> CGRect {
             let station = UIButton(frame: CGRect(x: x, y: y, width: 10, height: 10))
