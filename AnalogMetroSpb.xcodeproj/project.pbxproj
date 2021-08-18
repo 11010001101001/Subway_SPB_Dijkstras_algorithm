@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		843F17BA26CCE32400E1B23E /* MapScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F17B926CCE32300E1B23E /* MapScrollView.swift */; };
 		845E5D0426C692E8009BFB0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E5D0326C692E8009BFB0B /* AppDelegate.swift */; };
 		845E5D0626C692E8009BFB0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E5D0526C692E8009BFB0B /* SceneDelegate.swift */; };
 		845E5D0826C692E8009BFB0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E5D0726C692E8009BFB0B /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		843F17B926CCE32300E1B23E /* MapScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScrollView.swift; sourceTree = "<group>"; };
 		845E5D0026C692E8009BFB0B /* AnalogMetroSpb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnalogMetroSpb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		845E5D0326C692E8009BFB0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		845E5D0526C692E8009BFB0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				845E5D1126C692EC009BFB0B /* LaunchScreen.storyboard */,
 				845E5D1426C692EC009BFB0B /* Info.plist */,
 				845E5D0C26C692E9009BFB0B /* AnalogMetroSpb.xcdatamodeld */,
+				843F17B926CCE32300E1B23E /* MapScrollView.swift */,
 			);
 			path = AnalogMetroSpb;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 				845E5D0E26C692E9009BFB0B /* AnalogMetroSpb.xcdatamodeld in Sources */,
 				845E5D0426C692E8009BFB0B /* AppDelegate.swift in Sources */,
 				84A7B37126CB9A4400476A60 /* Graphs .swift in Sources */,
+				843F17BA26CCE32400E1B23E /* MapScrollView.swift in Sources */,
 				845E5D0626C692E8009BFB0B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,17 +16,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EaW-YL-cbH">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EaW-YL-cbH" customClass="MapScrollView" customModule="AnalogMetroSpb" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="1422"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TAs-Kc-KCs" customClass="BezierCurves" customModule="AnalogMetroSpb" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="824"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="409" height="800"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="800" id="CK1-rJ-lFt"/>
+                                            <constraint firstAttribute="width" constant="409" id="Cfa-BN-sdG"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="TAs-Kc-KCs" firstAttribute="height" secondItem="EaW-YL-cbH" secondAttribute="height" multiplier="0.579333" priority="250" id="EAj-tP-Dui"/>
-                                    <constraint firstItem="TAs-Kc-KCs" firstAttribute="width" secondItem="EaW-YL-cbH" secondAttribute="width" id="T9K-vu-Qhh"/>
                                     <constraint firstAttribute="bottom" secondItem="TAs-Kc-KCs" secondAttribute="bottom" constant="10" id="eOj-6w-YuZ"/>
                                     <constraint firstItem="TAs-Kc-KCs" firstAttribute="top" secondItem="EaW-YL-cbH" secondAttribute="top" id="kiz-5w-nCo"/>
                                     <constraint firstItem="TAs-Kc-KCs" firstAttribute="leading" secondItem="EaW-YL-cbH" secondAttribute="leading" id="uKI-vo-rN1"/>

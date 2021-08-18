@@ -8,7 +8,7 @@
 import UIKit
 import Foundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIScrollViewDelegate {
     
 
     @IBOutlet weak var mapScrollView: UIScrollView!
@@ -18,9 +18,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mapScrollView.minimumZoomScale = 1.0
+        mapScrollView.maximumZoomScale = 6.0
+        
+    }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return map
     }
     
 }
-
 
 
