@@ -8,7 +8,7 @@
 import UIKit
 
 class BezierCurves: UIView {
-
+    
     override func draw(_ rect: CGRect) {
         
         //  рисуем мал станции
@@ -168,7 +168,7 @@ class BezierCurves: UIView {
         edgeBlue.addLine(to: CGPoint(x: 165, y: 660))
             UIColor.blue.setFill()
             UIColor.blue.setStroke()
-        edgeBlue.lineWidth = 3.0
+        edgeBlue.lineWidth = 4.0
         edgeBlue.stroke()
         // рисуем красную ветку - пути
         let edgeRed = UIBezierPath()
@@ -193,7 +193,7 @@ class BezierCurves: UIView {
         edgeRed.addLine(to: CGPoint(x: 85,y: 630))
         UIColor.red.setFill()
         UIColor.red.setStroke()
-        edgeRed.lineWidth = 3.0
+        edgeRed.lineWidth = 4.0
         edgeRed.stroke()
         // рисуем фиолетовую ветку - пути
         let edgePurple = UIBezierPath()
@@ -214,7 +214,7 @@ class BezierCurves: UIView {
         edgePurple.addLine(to: CGPoint(x: 241, y: 660)) // шушары
         UIColor.purple.setFill()
         UIColor.purple.setStroke()
-        edgePurple.lineWidth = 3.0
+        edgePurple.lineWidth = 4.0
         edgePurple.stroke()
         // рисуем зеленую ветку - пути
         let edgeGreen = UIBezierPath()
@@ -232,7 +232,7 @@ class BezierCurves: UIView {
         edgeGreen.addLine(to: CGPoint(x: 305, y: 680)) // рыбацкое
         UIColor.green.setFill()
         UIColor.green.setStroke()
-        edgeGreen.lineWidth = 3.0
+        edgeGreen.lineWidth = 4.0
         edgeGreen.stroke()
         // рисуем оранжевую ветку - пути
         let edgeOrange = UIBezierPath()
@@ -246,7 +246,7 @@ class BezierCurves: UIView {
         edgeOrange.addLine(to: CGPoint(x: 315, y: 540))
         UIColor.orange.setFill()
         UIColor.orange.setStroke()
-        edgeOrange.lineWidth = 3.0
+        edgeOrange.lineWidth = 4.0
         edgeOrange.stroke()
     }
 }

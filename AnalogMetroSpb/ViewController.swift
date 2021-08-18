@@ -10,10 +10,8 @@ import Foundation
 
 class ViewController: UIViewController, UIScrollViewDelegate {
     
-
     @IBOutlet weak var mapScrollView: UIScrollView!
     @IBOutlet weak var map: UIView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
