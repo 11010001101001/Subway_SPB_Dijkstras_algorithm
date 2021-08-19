@@ -64,7 +64,7 @@ class BezierCurves: UIView {
             stationName.text = name
             stationName.numberOfLines = 0
             stationName.tintColor = UIColor.black
-            stationName.font = UIFont.systemFont(ofSize: 10)
+            stationName.font = UIFont.systemFont(ofSize: 6)
             stationName.sizeToFit()
             self.addSubview(station)
             self.addSubview(stationName)
@@ -92,7 +92,7 @@ class BezierCurves: UIView {
             stationName.text = name
             stationName.numberOfLines = 0
             stationName.textColor = color
-            stationName.font = UIFont.systemFont(ofSize: 10)
+            stationName.font = UIFont.systemFont(ofSize: 6)
             stationName.sizeToFit()
             self.addSubview(stationName)
         }
@@ -102,7 +102,7 @@ class BezierCurves: UIView {
             stationName.text = name
             stationName.numberOfLines = 0
             stationName.textColor = color
-            stationName.font = UIFont.systemFont(ofSize: 10)
+            stationName.font = UIFont.systemFont(ofSize: 6)
             stationName.sizeToFit()
             self.addSubview(stationName)
         }
@@ -172,7 +172,7 @@ class BezierCurves: UIView {
         drawSmallStations(name: "Беговая",x: 10,y: 224, color: .green, id: 53)
         drawSmallStations(name: "Зенит",x: 20,y: 244, color: .green, id: 54)
         drawSmallStations(name: "Приморская",x: 30,y: 266, color: .green, id: 55)
-        drawSmallStations(name: "Василеостровская",x: 40,y: 290, color: .green, id: 56)
+        drawSmallStations(name: "Василеостровская",x: 40,y: 288, color: .green, id: 56)
         drawBigStations(name: "",x: 155, y: 294, color: .green, id: 57)
         drawLabelMin(name: "Гостиный двор", x: 105, y: 294, color: .green)
         drawBigStations(name: "", x: 245, y: 294, color: .green, id: 58)
@@ -202,7 +202,7 @@ class BezierCurves: UIView {
         
         // рисуем синюю ветку - пути
         let edgeBlue = UIBezierPath()
-        edgeBlue.move(to: CGPoint(x: 165,y: 24))
+        edgeBlue.move(to: CGPoint(x: 165,y: 26))
         edgeBlue.addLine(to: CGPoint(x: 165,y: 54))
         edgeBlue.addLine(to: CGPoint(x: 165,y: 84))
         edgeBlue.addLine(to: CGPoint(x: 165,y: 114))
@@ -226,7 +226,7 @@ class BezierCurves: UIView {
         edgeBlue.stroke()
         // рисуем красную ветку - пути
         let edgeRed = UIBezierPath()
-        edgeRed.move(to: CGPoint(x: 255,y: 50))
+        edgeRed.move(to: CGPoint(x: 255,y: 52))
         edgeRed.addLine(to: CGPoint(x: 255,y: 80))
         edgeRed.addLine(to: CGPoint(x: 255,y: 110))
         edgeRed.addLine(to: CGPoint(x: 255,y: 140))
@@ -251,7 +251,7 @@ class BezierCurves: UIView {
         edgeRed.stroke()
         // рисуем фиолетовую ветку - пути
         let edgePurple = UIBezierPath()
-        edgePurple.move(to: CGPoint(x: 85, y: 120))
+        edgePurple.move(to: CGPoint(x: 85, y: 122))
         edgePurple.addLine(to: CGPoint(x: 85, y: 150))
         edgePurple.addLine(to: CGPoint(x: 85, y: 170))
         edgePurple.addLine(to: CGPoint(x: 85, y: 190))
@@ -272,10 +272,10 @@ class BezierCurves: UIView {
         edgePurple.stroke()
         // рисуем зеленую ветку - пути
         let edgeGreen = UIBezierPath()
-        edgeGreen.move(to: CGPoint(x: 12, y: 224)) // Беговая
+        edgeGreen.move(to: CGPoint(x: 13, y: 226)) // Беговая
         edgeGreen.addLine(to: CGPoint(x: 22, y: 244))
         edgeGreen.addLine(to: CGPoint(x: 33, y: 266))
-        edgeGreen.addLine(to: CGPoint(x: 43, y: 294))
+        edgeGreen.addLine(to: CGPoint(x: 45, y: 294))
         edgeGreen.addLine(to: CGPoint(x: 160, y: 303))
         edgeGreen.addLine(to: CGPoint(x: 255, y: 303)) // Маяковская
         edgeGreen.addLine(to: CGPoint(x: 305, y: 380))
