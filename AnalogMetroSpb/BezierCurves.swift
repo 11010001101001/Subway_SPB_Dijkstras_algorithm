@@ -69,7 +69,7 @@ class BezierCurves: UIView {
             self.addSubview(stationName)
             return stationName.frame
         }
-        func bigStationsUnions(id: Int) -> UIStackView { // делаем стэквью из больших станций
+        func bigStationsUnion() { // делаем стэквью из больших станций по id
             let bigStations = UIStackView()
             let stationToAdd1 = Station()
             let stationToAdd2 = Station()
@@ -80,8 +80,6 @@ class BezierCurves: UIView {
             bigStations.axis = .horizontal
             bigStations.distribution = .fillProportionally
             self.addSubview(bigStations)
-            
-            return bigStations
         }
         
         // рисуем синюю ветку - станции
@@ -174,6 +172,7 @@ class BezierCurves: UIView {
         drawSmallStations(name: "Проспект Большевиков",x: 310,y: 500, color: .orange, id: 71)
         drawSmallStations(name: "Дыбенко",x: 310,y: 540, color: .orange, id: 72)
         
+        bigStationsUnion()
         
         
         // рисуем синюю ветку - пути
