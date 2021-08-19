@@ -22,13 +22,43 @@ class BezierCurves: UIView {
         stackView1.spacing = 2.0
         stackView1.distribution = .fillEqually
         stackView1.backgroundColor = .white
-        stackView1.layer.cornerRadius = stackView1.frame.height/2
+//        stackView1.layer.cornerRadius = stackView1.frame.height/2
         let stackView2 = UIStackView(frame: CGRect(x: 247, y: 286, width: 15, height: 32))
         stackView2.axis = .vertical
         stackView2.spacing = 2.0
         stackView2.distribution = .fillEqually
         stackView2.backgroundColor = .white
-        stackView2.layer.cornerRadius = stackView1.frame.height/2
+        stackView2.layer.cornerRadius = stackView2.frame.height/2
+        let stackView3 = UIStackView(frame: CGRect(x: 157.5, y: 330, width: 15, height: 49))
+        stackView3.axis = .vertical
+        stackView3.spacing = 2.0
+        stackView3.distribution = .fillEqually
+        stackView3.backgroundColor = .white
+//        stackView3.layer.cornerRadius = stackView3.frame.height/2
+        let stackView4 = UIStackView(frame: CGRect(x: 239, y: 337, width: 15, height: 32))
+        stackView4.axis = .vertical
+        stackView4.spacing = 2.0
+        stackView4.distribution = .fillEqually
+        stackView4.backgroundColor = .white
+        stackView4.layer.cornerRadius = stackView4.frame.height/2
+        let stackView5 = UIStackView(frame: CGRect(x: 298, y: 370, width: 15, height: 32))
+        stackView5.axis = .vertical
+        stackView5.spacing = 2.0
+        stackView5.distribution = .fillEqually
+        stackView5.backgroundColor = .white
+        stackView5.layer.cornerRadius = stackView5.frame.height/2
+        let stackView6 = UIStackView(frame: CGRect(x: 215, y: 390, width: 15, height: 32))
+        stackView6.axis = .vertical
+        stackView6.spacing = 2.0
+        stackView6.distribution = .fillEqually
+        stackView6.backgroundColor = .white
+        stackView6.layer.cornerRadius = stackView6.frame.height/2
+        let stackView7 = UIStackView(frame: CGRect(x: 157.5, y: 445, width: 15, height: 32))
+        stackView7.axis = .vertical
+        stackView7.spacing = 2.0
+        stackView7.distribution = .fillEqually
+        stackView7.backgroundColor = .white
+        stackView7.layer.cornerRadius = stackView7.frame.height/2
         
         //  рисуем мал станции
         func drawSmallStations(name: String,x:CGFloat, y:CGFloat, color: UIColor, id: Int) {
@@ -69,22 +99,56 @@ class BezierCurves: UIView {
             self.addSubview(station)
             self.addSubview(stationName)
             
-            if station.id == 9 {
+            switch station.id {
+            case 9:
                 stackView1.addArrangedSubview(station)
                 self.addSubview(stackView1)
-            }
-            if station.id == 57 {
+            case 57:
                 stackView1.addArrangedSubview(station)
                 self.addSubview(stackView1)
-            }
-            if station.id == 28 {
+            case 28:
                 stackView2.addArrangedSubview(station)
                 self.addSubview(stackView2)
-            }
-            if station.id == 58 {
+            case 58:
                 stackView2.addArrangedSubview(station)
                 self.addSubview(stackView2)
+            case 10:
+                stackView3.addArrangedSubview(station)
+                self.addSubview(stackView3)
+            case 44:
+                stackView3.addArrangedSubview(station)
+                self.addSubview(stackView3)
+            case 65:
+                stackView3.addArrangedSubview(station)
+                self.addSubview(stackView3)
+            case 29:
+                stackView4.addArrangedSubview(station)
+                self.addSubview(stackView4)
+            case 66:
+                stackView4.addArrangedSubview(station)
+                self.addSubview(stackView4)
+            case 59:
+                stackView5.addArrangedSubview(station)
+                self.addSubview(stackView5)
+            case 68:
+                stackView5.addArrangedSubview(station)
+                self.addSubview(stackView5)
+            case 30:
+                stackView6.addArrangedSubview(station)
+                self.addSubview(stackView6)
+            case 45:
+                stackView6.addArrangedSubview(station)
+                self.addSubview(stackView6)
+            case 11:
+                stackView7.addArrangedSubview(station)
+                self.addSubview(stackView7)
+            case 31:
+                stackView7.addArrangedSubview(station)
+                self.addSubview(stackView7)
+            default:
+                break
             }
+            
         }
         // вспомогательные лейблы там, где пересечение станций и нет смысла рисовать новую станцию
         func drawLabel(name:String,x:CGFloat,y:CGFloat,color: UIColor ) {
@@ -158,7 +222,7 @@ class BezierCurves: UIView {
         drawSmallStations(name: "",x: 120,y: 320, color: .purple, id: 43)
         drawLabel(name: "Адмиралтейская", x: 40, y: 320, color: .black)
         drawBigStations(name: "",x: 155, y: 344, color: .purple, id: 44)
-        drawLabel(name: "Садовая", x: 110, y: 344, color: .purple)
+        drawLabel(name: "Садовая", x: 125, y: 350, color: .purple)
         drawBigStations(name: "", x: 215, y: 400, color: .purple, id: 45)
         drawLabel(name: "Звенигородская", x: 135, y: 400, color: .purple)
         drawSmallStations(name: "Обводный канал",x: 236,y: 440, color: .purple, id: 46)
@@ -186,7 +250,7 @@ class BezierCurves: UIView {
         drawSmallStations(name: "Рыбацкое",x: 300,y: 680, color: .green, id: 64)
         // рисуем оранжевую ветку - станции
         drawBigStations(name: "",x: 155, y: 344, color: .orange, id: 65)
-        drawLabel(name: "Спасская", x: 108, y: 357, color: .orange)
+        drawLabel(name: "Спасская", x: 122, y: 358, color: .orange)
         drawBigStations(name: "", x: 235, y: 344, color: .orange, id: 66)
         drawLabel(name: "Достоевская", x: 310, y: 344, color: .orange)
         drawSmallStations(name: "",x: 265,y: 375, color: .orange, id: 67)
