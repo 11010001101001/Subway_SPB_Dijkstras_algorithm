@@ -71,9 +71,11 @@ class BezierCurves: UIView {
         }
         func bigStationsUnions(id: Int) -> UIStackView { // делаем стэквью из больших станций
             let bigStations = UIStackView()
-            let stationToAdd = Station()
-            if stationToAdd.id == 9 && stationToAdd.id == 57 {
-                bigStations.addArrangedSubview(stationToAdd)
+            let stationToAdd1 = Station()
+            let stationToAdd2 = Station()
+            if stationToAdd1.id == 9 && stationToAdd2.id == 57 {
+                bigStations.addArrangedSubview(stationToAdd1)
+                bigStations.addArrangedSubview(stationToAdd2)
             }
             bigStations.axis = .horizontal
             bigStations.distribution = .fillProportionally
