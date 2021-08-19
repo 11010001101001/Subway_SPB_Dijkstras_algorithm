@@ -12,11 +12,17 @@ import UIKit
 
 class BezierCurves: UIView {
     
+    
+    
     override func draw(_ rect: CGRect) {
         
         //  рисуем мал станции
-        func drawSmallStations(name: String,x:CGFloat, y:CGFloat, color: UIColor, id: Int) -> CGRect {
-            let station = UIButton(frame: CGRect(x: x, y: y, width: 10, height: 10))
+        func drawSmallStations(name: String,x:CGFloat, y:CGFloat, color: UIColor, id: Int) {
+            
+            let station = Station(frame: CGRect(x: x, y: y, width: 10, height: 10))
+            station.id = id
+            station.tag = id
+            station.name = name
             let stationName = UILabel(frame: CGRect(x: x+12, y: y, width: 50, height: 10))
             station.backgroundColor = color
             station.layer.cornerRadius = station.frame.size.height/2
@@ -25,16 +31,15 @@ class BezierCurves: UIView {
             stationName.tintColor = UIColor.black
             stationName.font = UIFont.systemFont(ofSize: 9)
             stationName.sizeToFit()
-            station.tag = id
-            let stationId = Station()
-            stationId.id = id
             self.addSubview(station)
             self.addSubview(stationName)
-            return station.frame
         }
         // рисуем большие станции с переходами
-        func drawBigStations(name: String,x: CGFloat, y:CGFloat,color: UIColor, id: Int) -> CGRect {
-            let station = UIButton(frame: CGRect(x: x, y: y, width: 20, height: 20))
+        func drawBigStations(name: String,x: CGFloat, y:CGFloat,color: UIColor, id: Int) {
+            let station = Station(frame: CGRect(x: x, y: y, width: 20, height: 20))
+            station.id = id
+            station.tag = id
+            station.name = name
             let stationName = UILabel(frame: CGRect(x: x+22, y: y-2, width: 50, height: 10))
             station.backgroundColor = color
             station.layer.cornerRadius = station.frame.size.height/2
@@ -45,10 +50,18 @@ class BezierCurves: UIView {
             stationName.sizeToFit()
             self.addSubview(station)
             self.addSubview(stationName)
-            return station.frame
+            
+            if station.id == 9 && station.id == 57 {
+                let stackView1 = UIStackView(frame: x,y)
+                stackView1.axis = .horizontal
+                stackView1.spacing = 8.0
+                stackView1.distribution = .fillEqually
+                stackView1.addSubview(station)
+                self.addSubview(stackView1)
+            }
         }
         // вспомогательные лейблы там, где пересечение станций и нет смысла рисовать новую станцию
-        func drawLabel(name:String,x:CGFloat,y:CGFloat,color: UIColor ) -> CGRect {
+        func drawLabel(name:String,x:CGFloat,y:CGFloat,color: UIColor ) {
             let stationName = UILabel(frame: CGRect(x: x, y: y, width: 75, height: 10))
             stationName.text = name
             stationName.numberOfLines = 0
@@ -56,10 +69,9 @@ class BezierCurves: UIView {
             stationName.font = UIFont.systemFont(ofSize: 10)
             stationName.sizeToFit()
             self.addSubview(stationName)
-            return stationName.frame
         }
         // вспомогательные лейблы поуже в ширину иногда надо где не влазит
-        func drawLabelMin(name:String,x:CGFloat,y:CGFloat,color: UIColor ) -> CGRect {
+        func drawLabelMin(name:String,x:CGFloat,y:CGFloat,color: UIColor ) {
             let stationName = UILabel(frame: CGRect(x: x, y: y, width: 50, height: 10))
             stationName.text = name
             stationName.numberOfLines = 0
@@ -67,20 +79,8 @@ class BezierCurves: UIView {
             stationName.font = UIFont.systemFont(ofSize: 10)
             stationName.sizeToFit()
             self.addSubview(stationName)
-            return stationName.frame
         }
-        func bigStationsUnion() { // делаем стэквью из больших станций по id
-            let bigStations = UIStackView()
-            let stationToAdd1 = Station()
-            let stationToAdd2 = Station()
-            if stationToAdd1.id == 9 && stationToAdd2.id == 57 {
-                bigStations.addArrangedSubview(stationToAdd1)
-                bigStations.addArrangedSubview(stationToAdd2)
-            }
-            bigStations.axis = .horizontal
-            bigStations.distribution = .fillProportionally
-            self.addSubview(bigStations)
-        }
+        
         
         // рисуем синюю ветку - станции
         drawSmallStations(name: "Парнас",x: 160,y: 24,color: .blue, id: 1)
@@ -172,7 +172,6 @@ class BezierCurves: UIView {
         drawSmallStations(name: "Проспект Большевиков",x: 310,y: 500, color: .orange, id: 71)
         drawSmallStations(name: "Дыбенко",x: 310,y: 540, color: .orange, id: 72)
         
-        bigStationsUnion()
         
         
         // рисуем синюю ветку - пути

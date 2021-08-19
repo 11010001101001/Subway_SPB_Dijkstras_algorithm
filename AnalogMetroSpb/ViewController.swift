@@ -18,7 +18,6 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         
         mapScrollView.minimumZoomScale = 1.0
         mapScrollView.maximumZoomScale = 6.0
-        
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {

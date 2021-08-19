@@ -7,8 +7,11 @@ class Graph {
     
 }
 
-class Station : UIView  {
+
+class Station : UIButton  {
     var id : Int = 0
+    var name : String = ""
+    
     
     
 }
