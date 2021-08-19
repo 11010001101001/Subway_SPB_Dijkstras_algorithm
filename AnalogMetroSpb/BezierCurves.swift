@@ -22,7 +22,7 @@ class BezierCurves: UIView {
         stackView1.spacing = 2.0
         stackView1.distribution = .fillEqually
         stackView1.backgroundColor = .white
-//        stackView1.layer.cornerRadius = stackView1.frame.height/2
+        stackView1.layer.cornerRadius = stackView1.frame.height/2
         let stackView2 = UIStackView(frame: CGRect(x: 247, y: 286, width: 15, height: 32))
         stackView2.axis = .vertical
         stackView2.spacing = 2.0
@@ -34,7 +34,7 @@ class BezierCurves: UIView {
         stackView3.spacing = 2.0
         stackView3.distribution = .fillEqually
         stackView3.backgroundColor = .white
-//        stackView3.layer.cornerRadius = stackView3.frame.height/2
+        stackView3.layer.cornerRadius = stackView3.frame.height/2
         let stackView4 = UIStackView(frame: CGRect(x: 239, y: 337, width: 15, height: 32))
         stackView4.axis = .vertical
         stackView4.spacing = 2.0
@@ -70,7 +70,7 @@ class BezierCurves: UIView {
             let stationName = UILabel(frame: CGRect(x: x+12, y: y, width: 60, height: 10))
             station.backgroundColor = color
             station.layer.cornerRadius = station.frame.size.height/2
-            station.layer.borderWidth = 1
+            station.layer.borderWidth = 2
             station.layer.borderColor = UIColor.white.cgColor
             stationName.text = name
             stationName.numberOfLines = 0
@@ -89,7 +89,7 @@ class BezierCurves: UIView {
             let stationName = UILabel(frame: CGRect(x: x+22, y: y-2, width: 50, height: 10))
             station.backgroundColor = color
             station.layer.cornerRadius = station.frame.size.height/2
-            station.layer.borderWidth = 1
+            station.layer.borderWidth = 2
             station.layer.borderColor = UIColor.white.cgColor
             stationName.text = name
             stationName.numberOfLines = 0
