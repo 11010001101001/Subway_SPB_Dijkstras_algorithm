@@ -37,7 +37,7 @@ class BezierCurves: UIView {
             station.id = id
             station.tag = id
             station.name = name
-            let stationName = UILabel(frame: CGRect(x: x+12, y: y, width: 50, height: 10))
+            let stationName = UILabel(frame: CGRect(x: x+12, y: y, width: 60, height: 10))
             station.backgroundColor = color
             station.layer.cornerRadius = station.frame.size.height/2
             station.layer.borderWidth = 1
@@ -45,7 +45,7 @@ class BezierCurves: UIView {
             stationName.text = name
             stationName.numberOfLines = 0
             stationName.tintColor = UIColor.black
-            stationName.font = UIFont.systemFont(ofSize: 9)
+            stationName.font = UIFont.systemFont(ofSize: 6)
             stationName.sizeToFit()
             self.addSubview(station)
             self.addSubview(stationName)
