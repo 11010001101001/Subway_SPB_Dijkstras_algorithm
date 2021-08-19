@@ -16,6 +16,20 @@ class BezierCurves: UIView {
     
     override func draw(_ rect: CGRect) {
         
+        
+        let stackView1 = UIStackView(frame: CGRect(x: 157.5, y: 286, width: 15, height: 32))
+        stackView1.axis = .vertical
+        stackView1.spacing = 2.0
+        stackView1.distribution = .fillEqually
+        stackView1.backgroundColor = .white
+        stackView1.layer.cornerRadius = stackView1.frame.height/2
+        let stackView2 = UIStackView(frame: CGRect(x: 247, y: 286, width: 15, height: 32))
+        stackView2.axis = .vertical
+        stackView2.spacing = 2.0
+        stackView2.distribution = .fillEqually
+        stackView2.backgroundColor = .white
+        stackView2.layer.cornerRadius = stackView1.frame.height/2
+        
         //  рисуем мал станции
         func drawSmallStations(name: String,x:CGFloat, y:CGFloat, color: UIColor, id: Int) {
             
@@ -26,6 +40,8 @@ class BezierCurves: UIView {
             let stationName = UILabel(frame: CGRect(x: x+12, y: y, width: 50, height: 10))
             station.backgroundColor = color
             station.layer.cornerRadius = station.frame.size.height/2
+            station.layer.borderWidth = 1
+            station.layer.borderColor = UIColor.white.cgColor
             stationName.text = name
             stationName.numberOfLines = 0
             stationName.tintColor = UIColor.black
@@ -36,13 +52,15 @@ class BezierCurves: UIView {
         }
         // рисуем большие станции с переходами
         func drawBigStations(name: String,x: CGFloat, y:CGFloat,color: UIColor, id: Int) {
-            let station = Station(frame: CGRect(x: x, y: y, width: 20, height: 20))
+            let station = Station(frame: CGRect(x: x, y: y, width: 15, height: 15))
             station.id = id
             station.tag = id
             station.name = name
             let stationName = UILabel(frame: CGRect(x: x+22, y: y-2, width: 50, height: 10))
             station.backgroundColor = color
             station.layer.cornerRadius = station.frame.size.height/2
+            station.layer.borderWidth = 1
+            station.layer.borderColor = UIColor.white.cgColor
             stationName.text = name
             stationName.numberOfLines = 0
             stationName.tintColor = UIColor.black
@@ -51,13 +69,21 @@ class BezierCurves: UIView {
             self.addSubview(station)
             self.addSubview(stationName)
             
-            if station.id == 9 && station.id == 57 {
-                let stackView1 = UIStackView(frame: x,y)
-                stackView1.axis = .horizontal
-                stackView1.spacing = 8.0
-                stackView1.distribution = .fillEqually
-                stackView1.addSubview(station)
+            if station.id == 9 {
+                stackView1.addArrangedSubview(station)
                 self.addSubview(stackView1)
+            }
+            if station.id == 57 {
+                stackView1.addArrangedSubview(station)
+                self.addSubview(stackView1)
+            }
+            if station.id == 28 {
+                stackView2.addArrangedSubview(station)
+                self.addSubview(stackView2)
+            }
+            if station.id == 58 {
+                stackView2.addArrangedSubview(station)
+                self.addSubview(stackView2)
             }
         }
         // вспомогательные лейблы там, где пересечение станций и нет смысла рисовать новую станцию
