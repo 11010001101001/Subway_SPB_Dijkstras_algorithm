@@ -7,7 +7,7 @@ class Graph {
     
 }
 
-class Station  {
+class Station : UIView  {
     var id : Int = 0
     
     
