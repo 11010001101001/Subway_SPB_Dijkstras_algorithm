@@ -160,8 +160,7 @@ class BezierCurves: UIView {
             stationName.sizeToFit()
             self.addSubview(stationName)
         }
-        // вспомогательные лейблы поуже в ширину иногда надо где не влазит
-        func drawLabelMin(name:String,x:CGFloat,y:CGFloat,color: UIColor ) {
+        func drawLigovskyProspectStation(name:String,x:CGFloat,y:CGFloat,color: UIColor ) {
             let stationName = UILabel(frame: CGRect(x: x, y: y, width: 50, height: 10))
             stationName.text = name
             stationName.numberOfLines = 0
@@ -170,7 +169,6 @@ class BezierCurves: UIView {
             stationName.sizeToFit()
             self.addSubview(stationName)
         }
-        
         
         // рисуем синюю ветку - станции
         drawSmallStations(name: "Парнас",x: 160,y: 24,color: .blue, id: 1)
@@ -181,10 +179,12 @@ class BezierCurves: UIView {
         drawSmallStations(name: "Черная речка",x: 160,y: 174, color: .blue, id: 6)
         drawSmallStations(name: "Петроградская",x: 160,y: 224, color: .blue, id: 7)
         drawSmallStations(name: "Горьковская",x: 160,y: 254, color: .blue, id: 8)
-        drawBigStations(name: "Невский проспект",x: 155, y: 294, color: .blue, id: 9)
-        drawBigStations(name: "Сенная площадь",x: 155, y: 344, color: .blue, id: 10)
+        drawBigStations(name: "",x: 155, y: 294, color: .blue, id: 9)
+        drawLabel(name: "Невский проспект", x: 175, y: 290, color: .blue)
+        drawBigStations(name: "",x: 155, y: 344, color: .blue, id: 10)
+        drawLabel(name: "Сенная площадь", x: 175, y: 335, color: .blue)
         drawBigStations(name: "",x: 155, y: 450, color: .blue, id: 11)
-        drawLabel(name: "Технологический институт 2", x: 75, y: 448, color: .blue)
+        drawLabel(name: "Технологический институт 2", x: 95, y: 440, color: .blue)
         drawSmallStations(name: "Фрунзенская",x: 160,y: 480, color: .blue, id: 12)
         drawSmallStations(name: "Московские ворота",x: 160,y: 510, color: .blue, id: 13)
         drawSmallStations(name: "Электросила",x: 160,y: 540, color: .blue, id: 14)
@@ -202,12 +202,16 @@ class BezierCurves: UIView {
         drawSmallStations(name: "Выборгская",x: 250, y: 220,color: .red, id: 25)
         drawSmallStations(name: "Площадь Ленина",x: 250, y: 240,color: .red, id: 26)
         drawSmallStations(name: "Чернышевская",x: 250, y: 260,color: .red, id: 27)
-        drawBigStations(name: "Площадь восстания", x: 245, y: 294, color: .red, id: 28)
-        drawBigStations(name: "Владимирская", x: 235, y: 344, color: .red, id: 29)
-        drawBigStations(name: "Пушкинская", x: 215, y: 400, color: .red, id: 30)
+        drawBigStations(name: "", x: 245, y: 294, color: .red, id: 28)
+        drawLabel(name: "Площадь восстания", x: 265, y: 290, color: .red)
+        drawBigStations(name: "", x: 235, y: 344, color: .red, id: 29)
+        drawLabel(name: "Владимирская", x: 257, y: 340, color: .red)
+        drawBigStations(name: "", x: 215, y: 400, color: .red, id: 30)
+        drawLabel(name: "Пушкинская", x: 235, y: 400, color: .red)
         drawBigStations(name: "", x: 155, y: 450, color: .red, id: 31)
-        drawLabel(name: "Технологический институт 1", x: 75, y: 425, color: .red)
-        drawSmallStations(name: "Балтийская",x: 80, y: 485,color: .red, id: 32)
+        drawLabel(name: "Технологический институт 1", x: 95, y: 455, color: .red)
+        drawSmallStations(name: "",x: 80, y: 485,color: .red, id: 32)
+        drawLabel(name: "Балтийская", x: 90, y: 490, color: .black)
         drawSmallStations(name: "Нарвская",x: 80, y: 510,color: .red, id: 33)
         drawSmallStations(name: "Кировский завод",x: 80, y: 535,color: .red, id: 34)
         drawSmallStations(name: "Автово",x: 80, y: 570,color: .red, id: 35)
@@ -220,11 +224,11 @@ class BezierCurves: UIView {
         drawSmallStations(name: "Чкаловская",x: 80,y: 190, color: .purple, id: 41)
         drawSmallStations(name: "Спортивная",x: 80,y: 210, color: .purple, id: 42)
         drawSmallStations(name: "",x: 120,y: 320, color: .purple, id: 43)
-        drawLabel(name: "Адмиралтейская", x: 40, y: 320, color: .black)
+        drawLabel(name: "Адмиралтейская", x: 63, y: 322, color: .black)
         drawBigStations(name: "",x: 155, y: 344, color: .purple, id: 44)
         drawLabel(name: "Садовая", x: 125, y: 350, color: .purple)
         drawBigStations(name: "", x: 215, y: 400, color: .purple, id: 45)
-        drawLabel(name: "Звенигородская", x: 135, y: 400, color: .purple)
+        drawLabel(name: "Звенигородская", x: 235, y: 410, color: .purple)
         drawSmallStations(name: "Обводный канал",x: 236,y: 440, color: .purple, id: 46)
         drawSmallStations(name: "Волховская",x: 236,y: 510, color: .purple, id: 47)
         drawSmallStations(name: "Бухарестская",x: 236,y: 540, color: .purple, id: 48)
@@ -236,11 +240,12 @@ class BezierCurves: UIView {
         drawSmallStations(name: "Беговая",x: 10,y: 224, color: .green, id: 53)
         drawSmallStations(name: "Зенит",x: 20,y: 244, color: .green, id: 54)
         drawSmallStations(name: "Приморская",x: 30,y: 266, color: .green, id: 55)
-        drawSmallStations(name: "Василеостровская",x: 40,y: 288, color: .green, id: 56)
+        drawSmallStations(name: "",x: 40,y: 288, color: .green, id: 56)
+        drawLabel(name: "Василеостровская", x: 46, y: 281, color: .black)
         drawBigStations(name: "",x: 155, y: 294, color: .green, id: 57)
-        drawLabelMin(name: "Гостиный двор", x: 105, y: 294, color: .green)
+        drawLabel(name: "Гостиный двор", x: 175, y: 308, color: .green)
         drawBigStations(name: "", x: 245, y: 294, color: .green, id: 58)
-        drawLabelMin(name: "Маяковская", x: 320, y: 294, color: .green)
+        drawLabel(name: "Маяковская", x: 265, y: 306, color: .green)
         drawBigStations(name: "", x: 295, y: 375, color: .green, id: 59)
         drawLabel(name: "Площадь Александра Невского 1", x: 320, y: 375, color: .green)
         drawSmallStations(name: "Елизаровская",x: 300,y: 560, color: .green, id: 60)
@@ -250,13 +255,13 @@ class BezierCurves: UIView {
         drawSmallStations(name: "Рыбацкое",x: 300,y: 680, color: .green, id: 64)
         // рисуем оранжевую ветку - станции
         drawBigStations(name: "",x: 155, y: 344, color: .orange, id: 65)
-        drawLabel(name: "Спасская", x: 122, y: 358, color: .orange)
+        drawLabel(name: "Спасская", x: 122, y: 368, color: .orange)
         drawBigStations(name: "", x: 235, y: 344, color: .orange, id: 66)
-        drawLabel(name: "Достоевская", x: 310, y: 344, color: .orange)
+        drawLabel(name: "Достоевская", x: 257, y: 356, color: .orange)
         drawSmallStations(name: "",x: 265,y: 375, color: .orange, id: 67)
-        drawLabel(name: "Лиговский проспект", x: 210, y: 370, color: .orange)
+        drawLigovskyProspectStation(name: "Лиговский проспект", x: 237, y: 385, color: .orange)
         drawBigStations(name: "", x: 295, y: 375, color: .orange, id: 68)
-        drawLabel(name: "Площадь Александра Невского 2", x: 320, y: 410, color: .orange)
+        drawLabel(name: "Площадь Александра Невского 2", x: 320, y: 390, color: .orange)
         drawSmallStations(name: "Новочеркасская",x: 310,y: 450, color: .orange, id: 69)
         drawSmallStations(name: "Ладожская",x: 310,y: 480, color: .orange, id: 70)
         drawSmallStations(name: "Проспект Большевиков",x: 310,y: 500, color: .orange, id: 71)
@@ -265,7 +270,7 @@ class BezierCurves: UIView {
         
         
         // рисуем синюю ветку - пути
-        let edgeBlue = UIBezierPath()
+        let edgeBlue = Edges()
         edgeBlue.move(to: CGPoint(x: 165,y: 26))
         edgeBlue.addLine(to: CGPoint(x: 165,y: 54))
         edgeBlue.addLine(to: CGPoint(x: 165,y: 84))
@@ -289,7 +294,7 @@ class BezierCurves: UIView {
         edgeBlue.lineWidth = 4.0
         edgeBlue.stroke()
         // рисуем красную ветку - пути
-        let edgeRed = UIBezierPath()
+        let edgeRed = Edges()
         edgeRed.move(to: CGPoint(x: 255,y: 52))
         edgeRed.addLine(to: CGPoint(x: 255,y: 80))
         edgeRed.addLine(to: CGPoint(x: 255,y: 110))
@@ -314,7 +319,7 @@ class BezierCurves: UIView {
         edgeRed.lineWidth = 4.0
         edgeRed.stroke()
         // рисуем фиолетовую ветку - пути
-        let edgePurple = UIBezierPath()
+        let edgePurple = Edges()
         edgePurple.move(to: CGPoint(x: 85, y: 122))
         edgePurple.addLine(to: CGPoint(x: 85, y: 150))
         edgePurple.addLine(to: CGPoint(x: 85, y: 170))
@@ -335,7 +340,7 @@ class BezierCurves: UIView {
         edgePurple.lineWidth = 4.0
         edgePurple.stroke()
         // рисуем зеленую ветку - пути
-        let edgeGreen = UIBezierPath()
+        let edgeGreen = Edges()
         edgeGreen.move(to: CGPoint(x: 13, y: 226)) // Беговая
         edgeGreen.addLine(to: CGPoint(x: 22, y: 244))
         edgeGreen.addLine(to: CGPoint(x: 33, y: 266))
@@ -353,7 +358,7 @@ class BezierCurves: UIView {
         edgeGreen.lineWidth = 4.0
         edgeGreen.stroke()
         // рисуем оранжевую ветку - пути
-        let edgeOrange = UIBezierPath()
+        let edgeOrange = Edges()
         edgeOrange.move(to: CGPoint(x: 160, y: 354)) // Спасская
         edgeOrange.addLine(to: CGPoint(x: 245, y: 354)) // Достоевская
         edgeOrange.addLine(to: CGPoint(x: 270, y: 380)) // Лиговский проспект
