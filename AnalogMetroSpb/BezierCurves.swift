@@ -7,15 +7,9 @@
 
 import UIKit
 
-
-
-
 class BezierCurves: UIView {
     
-    
-    
     override func draw(_ rect: CGRect) {
-        
         
         let stackView1 = UIStackView(frame: CGRect(x: 157.5, y: 286, width: 15, height: 32))
         stackView1.axis = .vertical
@@ -63,10 +57,8 @@ class BezierCurves: UIView {
         //  рисуем мал станции
         func drawSmallStations(name: String,x:CGFloat, y:CGFloat, color: UIColor, id: Int) {
             
-            let station = Station(frame: CGRect(x: x, y: y, width: 10, height: 10))
-            station.id = id
+            let station = UIButton(frame: CGRect(x: x, y: y, width: 10, height: 10))
             station.tag = id
-            station.name = name
             let stationName = UILabel(frame: CGRect(x: x+12, y: y, width: 65, height: 10))
             station.backgroundColor = color
             station.layer.cornerRadius = station.frame.size.height/2
@@ -82,10 +74,8 @@ class BezierCurves: UIView {
         }
         // рисуем большие станции с переходами
         func drawBigStations(name: String,x: CGFloat, y:CGFloat,color: UIColor, id: Int) {
-            let station = Station(frame: CGRect(x: x, y: y, width: 15, height: 15))
-            station.id = id
+            let station = UIButton(frame: CGRect(x: x, y: y, width: 15, height: 15))
             station.tag = id
-            station.name = name
             let stationName = UILabel(frame: CGRect(x: x+22, y: y-2, width: 50, height: 10))
             station.backgroundColor = color
             station.layer.cornerRadius = station.frame.size.height/2
@@ -99,7 +89,7 @@ class BezierCurves: UIView {
             self.addSubview(station)
             self.addSubview(stationName)
             
-            switch station.id {
+            switch station.tag {
             case 9:
                 stackView1.addArrangedSubview(station)
                 self.addSubview(stackView1)
@@ -270,7 +260,7 @@ class BezierCurves: UIView {
         
         
         // рисуем синюю ветку - пути
-        let edgeBlue = Edges()
+        let edgeBlue = UIBezierPath()
         edgeBlue.move(to: CGPoint(x: 165,y: 26))
         edgeBlue.addLine(to: CGPoint(x: 165,y: 54))
         edgeBlue.addLine(to: CGPoint(x: 165,y: 84))
@@ -294,7 +284,7 @@ class BezierCurves: UIView {
         edgeBlue.lineWidth = 4.0
         edgeBlue.stroke()
         // рисуем красную ветку - пути
-        let edgeRed = Edges()
+        let edgeRed = UIBezierPath()
         edgeRed.move(to: CGPoint(x: 255,y: 52))
         edgeRed.addLine(to: CGPoint(x: 255,y: 80))
         edgeRed.addLine(to: CGPoint(x: 255,y: 110))
@@ -319,7 +309,7 @@ class BezierCurves: UIView {
         edgeRed.lineWidth = 4.0
         edgeRed.stroke()
         // рисуем фиолетовую ветку - пути
-        let edgePurple = Edges()
+        let edgePurple = UIBezierPath()
         edgePurple.move(to: CGPoint(x: 85, y: 122))
         edgePurple.addLine(to: CGPoint(x: 85, y: 150))
         edgePurple.addLine(to: CGPoint(x: 85, y: 170))
@@ -340,7 +330,7 @@ class BezierCurves: UIView {
         edgePurple.lineWidth = 4.0
         edgePurple.stroke()
         // рисуем зеленую ветку - пути
-        let edgeGreen = Edges()
+        let edgeGreen = UIBezierPath()
         edgeGreen.move(to: CGPoint(x: 13, y: 226)) // Беговая
         edgeGreen.addLine(to: CGPoint(x: 22, y: 244))
         edgeGreen.addLine(to: CGPoint(x: 33, y: 266))
@@ -358,7 +348,7 @@ class BezierCurves: UIView {
         edgeGreen.lineWidth = 4.0
         edgeGreen.stroke()
         // рисуем оранжевую ветку - пути
-        let edgeOrange = Edges()
+        let edgeOrange = UIBezierPath()
         edgeOrange.move(to: CGPoint(x: 160, y: 354)) // Спасская
         edgeOrange.addLine(to: CGPoint(x: 245, y: 354)) // Достоевская
         edgeOrange.addLine(to: CGPoint(x: 270, y: 380)) // Лиговский проспект
@@ -372,5 +362,5 @@ class BezierCurves: UIView {
         edgeOrange.lineWidth = 4.0
         edgeOrange.stroke()
     }
-    
+     
 }
