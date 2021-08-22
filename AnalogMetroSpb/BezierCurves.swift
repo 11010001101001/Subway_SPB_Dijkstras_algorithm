@@ -377,7 +377,7 @@ class BezierCurves: UIView {
             
         // вершины графа создали, теперь добавляем ребра между ними
         // ребра зеленой ветки
-        graph.add(.undirected, from: Vertex(data: Station(id: 53, name: "Беговая")), to: Vertex(data: Station(id: 53, name: "Зенит")), weight: 6)
+        graph.add(.undirected, from: Vertex(data: Station(id: 53, name: "Беговая"), index: 0), to: Vertex(data: Station(id: 53, name: "Зенит"), index: 6), weight: 6)
 
     }
     
