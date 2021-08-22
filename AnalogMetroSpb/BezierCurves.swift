@@ -62,7 +62,7 @@ class BezierCurves: UIView {
             
             //  создаем вершины графа 
             let stationX = Station(id: id, name: name)
-            let stationGraph = graph.createVertex(data: stationX)
+            let stationVertex = graph.createVertex(data: stationX)
             
             let stationName = UILabel(frame: CGRect(x: x+12, y: y, width: 65, height: 10))
             station.backgroundColor = color
@@ -85,7 +85,7 @@ class BezierCurves: UIView {
             
             //  создаем вершины графа
             let stationX = Station(id: id, name: name)
-            let stationGraph = graph.createVertex(data: stationX)
+            let stationVertex = graph.createVertex(data: stationX)
             
             let stationName = UILabel(frame: CGRect(x: x+22, y: y-2, width: 50, height: 10))
             station.backgroundColor = color
