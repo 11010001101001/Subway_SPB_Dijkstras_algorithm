@@ -59,6 +59,11 @@ class BezierCurves: UIView {
             
             let station = UIButton(frame: CGRect(x: x, y: y, width: 10, height: 10))
             station.tag = id
+            
+            //  создаем вершины графа 
+            let stationX = Station(id: id, name: name)
+            let stationGraph = graph.createVertex(data: stationX)
+            
             let stationName = UILabel(frame: CGRect(x: x+12, y: y, width: 65, height: 10))
             station.backgroundColor = color
             station.layer.cornerRadius = station.frame.size.height/2
@@ -74,8 +79,14 @@ class BezierCurves: UIView {
         }
         // рисуем большие станции с переходами
         func drawBigStations(name: String,x: CGFloat, y:CGFloat,color: UIColor, id: Int) {
+            
             let station = UIButton(frame: CGRect(x: x, y: y, width: 15, height: 15))
             station.tag = id
+            
+            //  создаем вершины графа
+            let stationX = Station(id: id, name: name)
+            let stationGraph = graph.createVertex(data: stationX)
+            
             let stationName = UILabel(frame: CGRect(x: x+22, y: y-2, width: 50, height: 10))
             station.backgroundColor = color
             station.layer.cornerRadius = station.frame.size.height/2
@@ -140,6 +151,7 @@ class BezierCurves: UIView {
             }
             
         }
+        
         // вспомогательные лейблы там, где пересечение станций и нет смысла рисовать новую станцию
         func drawLabel(name:String,x:CGFloat,y:CGFloat,color: UIColor ) {
             let stationName = UILabel(frame: CGRect(x: x, y: y, width: 75, height: 10))
@@ -361,6 +373,7 @@ class BezierCurves: UIView {
         UIColor.orange.setStroke()
         edgeOrange.lineWidth = 4.0
         edgeOrange.stroke()
+        
+        
     }
-     
 }
