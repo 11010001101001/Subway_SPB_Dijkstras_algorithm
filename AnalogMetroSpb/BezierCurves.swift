@@ -9,6 +9,11 @@ import UIKit
 
 class BezierCurves: UIView {
     
+    var nameEx : [String] = []
+    var idEx : [Int] = []
+    //  массив весов с 1 по 72 станцию
+    var weightStore : [Int] = [5,4,5,5,5,6,4,6,4,4,4,5,4,4,5,7,5] // первое значение для чикла ниже - произвольное чтобы потом поставить +1 и использовать нужные величины
+    
     override func draw(_ rect: CGRect) {
         
         let stackView1 = UIStackView(frame: CGRect(x: 157.5, y: 286, width: 15, height: 32))
@@ -59,11 +64,12 @@ class BezierCurves: UIView {
             
             let station = UIButton(frame: CGRect(x: x, y: y, width: 10, height: 10))
             station.tag = id
-            
-            //  создаем вершины графа 
+            nameEx.append(name)
+            idEx.append(id)
+            //  создаем вершины графа
             let stationX = Station(id: id, name: name)
             let stationVertex = graph.createVertex(data: stationX)
-            
+
             let stationName = UILabel(frame: CGRect(x: x+12, y: y, width: 65, height: 10))
             station.backgroundColor = color
             station.layer.cornerRadius = station.frame.size.height/2
@@ -82,7 +88,8 @@ class BezierCurves: UIView {
             
             let station = UIButton(frame: CGRect(x: x, y: y, width: 15, height: 15))
             station.tag = id
-            
+            nameEx.append(name)
+            idEx.append(id)
             //  создаем вершины графа
             let stationX = Station(id: id, name: name)
             let stationVertex = graph.createVertex(data: stationX)
@@ -149,7 +156,6 @@ class BezierCurves: UIView {
             default:
                 break
             }
-            
         }
         
         // вспомогательные лейблы там, где пересечение станций и нет смысла рисовать новую станцию
@@ -172,7 +178,7 @@ class BezierCurves: UIView {
             self.addSubview(stationName)
         }
         
-        // рисуем синюю ветку - станции
+        // рисуем синюю ветку - станции и графы
         drawSmallStations(name: "Парнас",x: 160,y: 24,color: .blue, id: 1)
         drawSmallStations(name: "Проспект просвещения",x: 160,y: 54, color: .blue, id: 2)
         drawSmallStations(name: "Озерки",x: 160,y: 84, color: .blue, id: 3)
@@ -268,8 +274,6 @@ class BezierCurves: UIView {
         drawSmallStations(name: "Ладожская",x: 310,y: 480, color: .orange, id: 70)
         drawSmallStations(name: "Проспект Большевиков",x: 310,y: 500, color: .orange, id: 71)
         drawSmallStations(name: "Дыбенко",x: 310,y: 540, color: .orange, id: 72)
-        
-        
         
         // рисуем синюю ветку - пути
         let edgeBlue = UIBezierPath()
@@ -376,9 +380,15 @@ class BezierCurves: UIView {
         
             
         // вершины графа создали, теперь добавляем ребра между ними
-        // ребра зеленой ветки
-        graph.add(.undirected, from: Vertex(data: Station(id: 53, name: "Беговая"), index: 0), to: Vertex(data: Station(id: 53, name: "Зенит"), index: 6), weight: 6)
-
+        for (index,_) in idEx.enumerated() {
+            var someValue = 0
+            for (_,value) in weightStore.enumerated() {
+                someValue = value
+            }
+            graph.add(from: Vertex(data: Station(id: index, name: "")), to: Vertex(data: Station(id: index + 1, name: "")), weight: someValue)
+        }
+        
+        print(graph)
     }
     
 }
