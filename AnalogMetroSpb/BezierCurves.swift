@@ -9,6 +9,9 @@ import UIKit
 
 class BezierCurves: UIView {
     
+    var nameForEx = ""
+    var idForEx = 0
+    
     override func draw(_ rect: CGRect) {
         
         let stackView1 = UIStackView(frame: CGRect(x: 157.5, y: 286, width: 15, height: 32))
@@ -63,6 +66,8 @@ class BezierCurves: UIView {
             //  создаем вершины графа 
             let stationX = Station(id: id, name: name)
             let stationVertex = graph.createVertex(data: stationX)
+            nameForEx = name
+            idForEx = id
             
             let stationName = UILabel(frame: CGRect(x: x+12, y: y, width: 65, height: 10))
             station.backgroundColor = color
@@ -86,6 +91,9 @@ class BezierCurves: UIView {
             //  создаем вершины графа
             let stationX = Station(id: id, name: name)
             let stationVertex = graph.createVertex(data: stationX)
+            nameForEx = name
+            idForEx = id
+            
             
             let stationName = UILabel(frame: CGRect(x: x+22, y: y-2, width: 50, height: 10))
             station.backgroundColor = color
@@ -374,6 +382,15 @@ class BezierCurves: UIView {
         edgeOrange.lineWidth = 4.0
         edgeOrange.stroke()
         
+            
+        // вершины графа создали, теперь добавляем ребра между ними
         
+        for iteration in 0...72 where iteration % 2 != 0 {
+            graph.add(.undirected, from: Vertex(data: Station(id: idForEx, name: nameForEx), index: 1), to: Vertex(data: Station(id: idForEx+1, name: ""), index: 1))
+        }
+        
+//        graph.add(.undirected, from: Vertex(data: Station(id: 1, name: "Парнас"), index: 1), to: Vertex(data: Station(id: 2, name: "Проспект просвещения"), index: 1))
+
     }
+    
 }

@@ -88,8 +88,6 @@ extension AdjacencyList: CustomStringConvertible { // визуализация �
 
 let graph = AdjacencyList<Station>()  // это граф
 
-// вершины графа создали, теперь добавляем ребра между ними
-
 
 
 
