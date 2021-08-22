@@ -20,6 +20,7 @@ struct Vertex<T> { // вершины графа - станции
 struct Edge<T> { // ребра графа - ж/д пути
     let source : Vertex<T>  // станция от которой берет начало путь
     let destination : Vertex<T>  // станция к которой прибудем
+    let weight : Int
 }
 
 extension Vertex : Hashable where T : Hashable {}
@@ -35,7 +36,7 @@ protocol Graph {
     associatedtype Element
     func createVertex(data: Element) -> Vertex<Element>
     func addUndirectedEdge(betweenSource: Vertex<Element>, and destination: Vertex<Element>)
-    func add(_ edge: EdgeType, from source: Vertex<Element>, to destination: Vertex<Element>)
+    func add(_ edge: EdgeType, from source: Vertex<Element>, to destination: Vertex<Element>, weight : Int )
     func edges(from source: Vertex<Element>) -> [Edge<Element>]
 }
 
@@ -54,7 +55,7 @@ class AdjacencyList <T:Hashable>: Graph {
         addUndirectedEdge(betweenSource: betweenSource, and: destination)
     }
     
-    func add(_ edge: EdgeType, from source:Vertex<T>, to destination: Vertex<T>) {
+    func add(_ edge: EdgeType, from source:Vertex<T>, to destination: Vertex<T>, weight: Int) {
         switch edge {
         case .undirected:
             addUndirectedEdge(betweenSource: source, and: destination)
