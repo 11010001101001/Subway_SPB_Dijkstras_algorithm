@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		843F17BA26CCE32400E1B23E /* MapScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F17B926CCE32300E1B23E /* MapScrollView.swift */; };
+		8444A06626D3739300876AD9 /* Second.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8444A06526D3739300876AD9 /* Second.swift */; };
 		845E5D0426C692E8009BFB0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E5D0326C692E8009BFB0B /* AppDelegate.swift */; };
 		845E5D0626C692E8009BFB0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E5D0526C692E8009BFB0B /* SceneDelegate.swift */; };
 		845E5D0826C692E8009BFB0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E5D0726C692E8009BFB0B /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		843F17B926CCE32300E1B23E /* MapScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScrollView.swift; sourceTree = "<group>"; };
+		8444A06526D3739300876AD9 /* Second.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Second.swift; sourceTree = "<group>"; };
 		845E5D0026C692E8009BFB0B /* AnalogMetroSpb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnalogMetroSpb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		845E5D0326C692E8009BFB0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		845E5D0526C692E8009BFB0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				845E5D0726C692E8009BFB0B /* ViewController.swift */,
 				84A7B37026CB9A4400476A60 /* Graphs.swift */,
 				84A7B39726CBAF8300476A60 /* BezierCurves.swift */,
+				8444A06526D3739300876AD9 /* Second.swift */,
 				845E5D0926C692E9009BFB0B /* Main.storyboard */,
 				845E5D0F26C692EC009BFB0B /* Assets.xcassets */,
 				845E5D1126C692EC009BFB0B /* LaunchScreen.storyboard */,
@@ -152,6 +155,7 @@
 				84A7B39826CBAF8300476A60 /* BezierCurves.swift in Sources */,
 				845E5D0826C692E8009BFB0B /* ViewController.swift in Sources */,
 				845E5D0E26C692E9009BFB0B /* AnalogMetroSpb.xcdatamodeld in Sources */,
+				8444A06626D3739300876AD9 /* Second.swift in Sources */,
 				845E5D0426C692E8009BFB0B /* AppDelegate.swift in Sources */,
 				84A7B37126CB9A4400476A60 /* Graphs.swift in Sources */,
 				843F17BA26CCE32400E1B23E /* MapScrollView.swift in Sources */,
