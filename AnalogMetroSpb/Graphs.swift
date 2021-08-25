@@ -45,7 +45,9 @@ class AdjacencyList <T:Hashable>: Graph {
     }
     
     func add(from source:Vertex<T>, to destination: Vertex<T>, weight: Int) {
-        
+        let weightZ = 0
+        let edge = Edge(source: source, destination: destination, weight: weightZ)
+        adjacencies[source]?.append(edge)
     }
     
     func edges(from source: Vertex<T>) -> [Edge<T>] {
@@ -75,53 +77,5 @@ let graph = AdjacencyList<Station>()  // это граф
 
 // АЛГОРИТМ ДЕЙКСТРЫ 
 
-//extension Graphable {
-//    public func route(to destination: Vertex<Element>, in tree: [Vertex<Element> : Visit<Element>]) -> [Edge<Element>] { // 1
-//
-//      var vertex = destination // 2
-//      var path : [Edge<Element>] = [] // 3
-//
-//      while let visit = tree[vertex],
-//        case .edge(let edge) = visit { // 4
-//
-//        path = [edge] + path
-//        vertex = edge.source // 5
-//      }
-//      return path // 6
-//    }
-//    public func distance(to destination: Vertex<Element>, in tree: [Vertex<Element> : Visit<Element>]) -> Double { // 1
-//      let path = route(to: destination, in: tree) // 2
-//      let distances = path.flatMap{ $0.weight } // 3
-//      return distances.reduce(0.0, { $0 + $1 }) // 4
-//    }
-//    public func dijkstra(from source: Vertex<Element>, to destination: Vertex<Element>) -> [Edge<Element>]? {
-//        var visits : [Vertex<Element> : Visit<Element>] = [source: .source]
-//        var priorityQueue = PriorityQueue<Vertex<Element>>(sort: { self.distance(to: $0, in: visits) < self.distance(to: $1, in: visits) })
-//        priorityQueue.enqueue(source)
-//        while let visitedVertex = priorityQueue.dequeue() { // 1
-//          if visitedVertex == destination { // 2
-//            return route(to: destination, in: visits) // 3
-//          }
-//            let neighbourEdges = edges(from: visitedVertex) ?? [] // 1
-//            for edge in neighbourEdges { // 2
-//              if let weight = edge.weight { // 3
-//                if visits[edge.destination] != nil { // 1
-//                  if distance(to: visitedVertex, in: visits) + weight < distance(to: edge.destination, in: visits) { // 2
-//                    visits[edge.destination] = .edge(edge) // 3
-//                    priorityQueue.enqueue(edge.destination) // 4
-//                  }
-//                } else { // 1
-//                  visits[edge.destination] = .edge(edge) // 3
-//                  priorityQueue.enqueue(edge.destination) // 4
-//                }              }
-//            }
-//        }
-//      return nil
-//    }
-//}
-//
-//public enum Visit<Element>: Hashable {
-//    case source
-//    case edge(Edge<Element>)
-//}
+
 
