@@ -82,62 +82,71 @@ let graph = AdjacencyList<Station>()  // это граф
 func findPath(from: Vertex<Station>, to: Vertex<Station>) -> [Vertex<Station>] {
     
     var shortestPath : [Vertex<Station>] = [] //кратчайший путь
-    var tempStatus : Bool = false
-    tempStatus = from.isVisited
-    tempStatus = true
-    shortestPath.append(from)
+    var tempA = 0
+    var tempB = 0
+    var tempC = 0
+    var tempD = 0
+    var tempE = 0
+    var tempF = 0
+    var tempG = 0
+    var tempH = 0
+    var tempArr = [Int]()
+    var sortedTempArr = [Int]()
+    var winnerTempEdge : Edge<Station> = Edge(source: Vertex(data: Station(id: 0, name: ""), isVisited: false), destination: Vertex(data: Station(id: 0, name: ""), isVisited: false), weight: 0)
     
-    for (vertexes,edges) in graph.adjacencies {
+    for (vertexes,edges) in graph.adjacencies where vertexes.isVisited == false {
         
         for edge in edges {
             
-            var tempVertex1 : Vertex<Station> = Vertex(data: Station(id: 0, name: ""), isVisited: false)
-            var tempVertex2 : Vertex<Station> = Vertex(data: Station(id: 0, name: ""), isVisited: false)
-            var tempVertex3 : Vertex<Station> = Vertex(data: Station(id: 0, name: ""), isVisited: false)
-            var tempVertex4 : Vertex<Station> = Vertex(data: Station(id: 0, name: ""), isVisited: false)
-            var tempVertex5 : Vertex<Station> = Vertex(data: Station(id: 0, name: ""), isVisited: false)
-            var tempVertex6 : Vertex<Station> = Vertex(data: Station(id: 0, name: ""), isVisited: false)
-            var tempVertex7 : Vertex<Station> = Vertex(data: Station(id: 0, name: ""), isVisited: false)
-            var weight1 = 0
-            var weight2 = 0
-            var weight3 = 0
-            var weight4 = 0
-            var weight5 = 0
-            var weight6 = 0
-            var weight7 = 0
-            
+            var firstVertex = edge.source
+            var nextVertex = edge.destination
             
             switch edge.weight {
             case 0:
-                weight1 = edge.weight
-                tempVertex1.isVisited = true
+                tempA = edge.weight
+                tempArr.append(tempA)
             case 1:
-                weight2 = edge.weight
-                tempVertex2.isVisited = true
+                tempB = edge.weight
+                tempArr.append(tempB)
             case 2:
-                weight3 = edge.weight
-                tempVertex3.isVisited = true
+                tempC = edge.weight
+                tempArr.append(tempC)
             case 3:
-                weight4 = edge.weight
-                tempVertex4.isVisited = true
+                tempD = edge.weight
+                tempArr.append(tempD)
             case 4:
-                weight5 = edge.weight
-                tempVertex5.isVisited = true
+                tempE = edge.weight
+                tempArr.append(tempE)
             case 5:
-                weight6 = edge.weight
-                tempVertex6.isVisited = true
+                tempF = edge.weight
+                tempArr.append(tempF)
             case 6:
-                weight7 = edge.weight
-                tempVertex7.isVisited = true
+                tempG = edge.weight
+                tempArr.append(tempG)
+            case 7:
+                tempH = edge.weight
+                tempArr.append(tempH)
             default:
                 break
             }
-            if edge.destination
+            sortedTempArr = tempArr.sorted(by: <)
+            if let integer = sortedTempArr.first {
+                winnerTempEdge = Edge(source: firstVertex, destination: nextVertex, weight: integer)
+                firstVertex.isVisited = true
+                nextVertex.isVisited = true
+                shortestPath.append(firstVertex)
+                shortestPath.append(nextVertex)
+            }
+            if winnerTempEdge.destination == to {
+                shortestPath.append(to)
+                break
+            }
         }
-        
     }
     return shortestPath
 }
+
+
 
 
 

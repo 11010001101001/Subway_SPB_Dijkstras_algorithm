@@ -653,7 +653,7 @@ class BezierCurves: UIView {
         edgeOrange.lineWidth = 4.0
         edgeOrange.stroke()
         
-        print(findPath(from: parnasV, to: ozerkiV))
+        print(findPath(from: parnasV, to: udelnajaV))
     }
     
 }
