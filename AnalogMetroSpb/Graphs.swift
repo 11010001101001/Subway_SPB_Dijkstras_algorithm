@@ -9,8 +9,9 @@ struct Station : Hashable {
 
 struct Vertex<T> { // вершины графа - станции
     let data : T
-    var isVisited : Bool
+    var visited = false
 }
+
 
 struct Edge<T> { // ребра графа - ж/д пути
     let source : Vertex<T>  // станция от которой берет начало путь
@@ -40,7 +41,7 @@ class AdjacencyList <T:Hashable>: Graph {
     init() {}
     
     func createVertex(data: T) -> Vertex<T> {
-        let vertex = Vertex(data: data, isVisited: false)
+        let vertex = Vertex(data: data, visited: false)
         adjacencies[vertex] = []
         return vertex
     }
@@ -81,74 +82,52 @@ let graph = AdjacencyList<Station>()  // это граф
 
 func findPath(from: Vertex<Station>, to: Vertex<Station>) -> [Vertex<Station>] {
     
-    var shortestPath : [Vertex<Station>] = [] //кратчайший путь
-    var tempA = 0
-    var tempB = 0
-    var tempC = 0
-    var tempD = 0
-    var tempE = 0
-    var tempF = 0
-    var tempG = 0
-    var tempH = 0
-    var tempArr = [Int]()
-    var sortedTempArr = [Int]()
-    var winnerTempEdge : Edge<Station> = Edge(source: Vertex(data: Station(id: 0, name: ""), isVisited: false), destination: Vertex(data: Station(id: 0, name: ""), isVisited: false), weight: 0)
+    var shortestPath : [Vertex<Station>] = []
+    var tempV = Vertex(data: Station(id: 0, name: ""))
     
-    for (vertexes,edges) in graph.adjacencies where vertexes.isVisited == false {
+    for (vertexes,edges) in graph.adjacencies where vertexes.visited == false {
         
-        for edge in edges {
+        repeat {
+            for edge in edges {
+                
+                if edge.source == from {
+                    shortestPath.append(edge.source)
+                    var temp = edge.source
+                    temp.visited = true
+                }
+                for (index,edge) in edges.enumerated() where edge.source == from {
+                    // надо понять сколько ребер и какой длинны выходят из нашей стартовой вершины
+                    var tempDict : [Int:Vertex<Station>] = [:]
+                    // допустим возможных ребер максимум 4 
+                    if index == 0 {
+                        tempDict.updateValue(edge.destination, forKey: edge.weight)
+                    }
+                    if index == 1 {
+                        tempDict.updateValue(edge.destination, forKey: edge.weight)
+                    }
+                    if index == 2 {
+                        tempDict.updateValue(edge.destination, forKey: edge.weight)
+                    }
+                    if index == 3 {
+                        tempDict.updateValue(edge.destination, forKey: edge.weight)
+                    }
+                    print("Ребра и их длины: \(tempDict)")
+                    // надо записать value которому соотв-вует наименьшая длина в edge.destination и пометить как visited и добавить в массив кратчайшего пути при след итерации цикл пойдет дальше - надо прописать эту логику по непосещенным вершинами и будет чекать смежные с вершинами ребра наименьшей длины и вершины этих ребер будет добавлять в массив кратчайшего пути
+                    let sortedDict = tempDict.sorted(by: {$0.key < $1.key })
+                    if let unwrapped = sortedDict.first?.value {
+                        tempV = unwrapped
+                    }
+                    tempV.visited = true
+                    shortestPath.append(tempV)
+                    print("Конец ребра с кратчайшей длинной в вершине: \(tempV)")
+                    // теперь надо так написать код чтобы следующая итерация начиналась с нашего tempV в качестве нового edge.source чтобы анализировались следующие ребра которые берут в нем начало
+                    
+                }
+                
+            }
             
-            var firstVertex = edge.source
-            var nextVertex = edge.destination
-            
-            switch edge.weight {
-            case 0:
-                tempA = edge.weight
-                tempArr.append(tempA)
-            case 1:
-                tempB = edge.weight
-                tempArr.append(tempB)
-            case 2:
-                tempC = edge.weight
-                tempArr.append(tempC)
-            case 3:
-                tempD = edge.weight
-                tempArr.append(tempD)
-            case 4:
-                tempE = edge.weight
-                tempArr.append(tempE)
-            case 5:
-                tempF = edge.weight
-                tempArr.append(tempF)
-            case 6:
-                tempG = edge.weight
-                tempArr.append(tempG)
-            case 7:
-                tempH = edge.weight
-                tempArr.append(tempH)
-            default:
-                break
-            }
-            sortedTempArr = tempArr.sorted(by: <)
-            if let integer = sortedTempArr.first {
-                winnerTempEdge = Edge(source: firstVertex, destination: nextVertex, weight: integer)
-                firstVertex.isVisited = true
-                nextVertex.isVisited = true
-                shortestPath.append(firstVertex)
-                shortestPath.append(nextVertex)
-            }
-            if winnerTempEdge.destination == to {
-                shortestPath.append(to)
-                break
-            }
-        }
+        } while tempV == to // теперь это работает и нам надо повторять цикл пока tempV не станет равно to - думаю использовать repeat while для этого
+        
     }
     return shortestPath
 }
-
-
-
-
-
-
-
