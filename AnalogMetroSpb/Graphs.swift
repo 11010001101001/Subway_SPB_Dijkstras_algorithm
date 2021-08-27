@@ -98,7 +98,7 @@ func findPath(from: Vertex<Station>, to: Vertex<Station>) -> [Vertex<Station>] {
                 for (index,edge) in edges.enumerated() where edge.source == from {
                     // надо понять сколько ребер и какой длинны выходят из нашей стартовой вершины
                     var tempDict : [Int:Vertex<Station>] = [:]
-                    // допустим возможных ребер максимум 4 
+                    // допустим возможных ребер максимум 4
                     if index == 0 {
                         tempDict.updateValue(edge.destination, forKey: edge.weight)
                     }
@@ -123,11 +123,8 @@ func findPath(from: Vertex<Station>, to: Vertex<Station>) -> [Vertex<Station>] {
                     // теперь надо так написать код чтобы следующая итерация начиналась с нашего tempV в качестве нового edge.source чтобы анализировались следующие ребра которые берут в нем начало
                     
                 }
-                
             }
-            
         } while tempV == to // теперь это работает и нам надо повторять цикл пока tempV не станет равно to - думаю использовать repeat while для этого
-        
     }
     return shortestPath
 }
