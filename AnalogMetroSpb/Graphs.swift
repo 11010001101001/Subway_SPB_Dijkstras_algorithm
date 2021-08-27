@@ -84,6 +84,7 @@ func findPath(from: Vertex<Station>, to: Vertex<Station>) -> [Vertex<Station>] {
     
     var shortestPath : [Vertex<Station>] = []
     var tempV = Vertex(data: Station(id: 0, name: ""))
+    var tempV2 = Vertex(data: Station(id: 0, name: ""))
     
     for (vertexes,edges) in graph.adjacencies where vertexes.visited == false {
         
@@ -99,17 +100,16 @@ func findPath(from: Vertex<Station>, to: Vertex<Station>) -> [Vertex<Station>] {
                     // надо понять сколько ребер и какой длинны выходят из нашей стартовой вершины
                     var tempDict : [Int:Vertex<Station>] = [:]
                     // допустим возможных ребер максимум 4
-                    if index == 0 {
+                    switch index {
+                    case 0:
                         tempDict.updateValue(edge.destination, forKey: edge.weight)
-                    }
-                    if index == 1 {
+                    case 1:
                         tempDict.updateValue(edge.destination, forKey: edge.weight)
-                    }
-                    if index == 2 {
+                    case 2:
                         tempDict.updateValue(edge.destination, forKey: edge.weight)
-                    }
-                    if index == 3 {
+                    case 3:
                         tempDict.updateValue(edge.destination, forKey: edge.weight)
+                    default : break
                     }
                     print("Ребра и их длины: \(tempDict)")
                     // надо записать value которому соотв-вует наименьшая длина в edge.destination и пометить как visited и добавить в массив кратчайшего пути при след итерации цикл пойдет дальше - надо прописать эту логику по непосещенным вершинами и будет чекать смежные с вершинами ребра наименьшей длины и вершины этих ребер будет добавлять в массив кратчайшего пути
@@ -123,8 +123,11 @@ func findPath(from: Vertex<Station>, to: Vertex<Station>) -> [Vertex<Station>] {
                     // теперь надо так написать код чтобы следующая итерация начиналась с нашего tempV в качестве нового edge.source чтобы анализировались следующие ребра которые берут в нем начало
                     
                 }
+                
+                
             }
-        } while tempV == to // теперь это работает и нам надо повторять цикл пока tempV не станет равно to - думаю использовать repeat while для этого
+        
+        } while tempV == to // повторяем цикл, пока tempV не станет равно to
     }
     return shortestPath
 }
