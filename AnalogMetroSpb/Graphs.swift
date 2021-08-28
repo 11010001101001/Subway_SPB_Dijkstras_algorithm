@@ -84,8 +84,9 @@ func findPath(from: Vertex<Station>, to: Vertex<Station>) -> [Vertex<Station>] {
     
     var shortestPath : [Vertex<Station>] = []
     var tempV = Vertex(data: Station(id: 0, name: ""))
+    var tempV2 = Vertex(data: Station(id: 0, name: ""))
     
-    for (vertex,edges) in graph.adjacencies where vertex.visited == false {
+    for (vertex,edges) in graph.adjacencies {
         
         if vertex == from {
             shortestPath.append(vertex)
@@ -117,6 +118,38 @@ func findPath(from: Vertex<Station>, to: Vertex<Station>) -> [Vertex<Station>] {
                 print("Конец ребра с кратчайшей длинной в вершине: \(tempV)")
             }
         }
+        repeat {
+            for (vertex,edges) in graph.adjacencies {
+                
+                if vertex == tempV {
+                    tempV.visited = true
+                    shortestPath.append(tempV)
+                    
+                    for (index,edge) in edges.enumerated() where edge.source == vertex {
+                        
+                        var tempDict : [Int:Vertex<Station>] = [:]
+                        
+                        switch index {
+                        case 0:
+                            tempDict.updateValue(edge.destination, forKey: edge.weight)
+                        case 1:
+                            tempDict.updateValue(edge.destination, forKey: edge.weight)
+                        case 2:
+                            tempDict.updateValue(edge.destination, forKey: edge.weight)
+                        case 3:
+                            tempDict.updateValue(edge.destination, forKey: edge.weight)
+                        default : break
+                        }
+                        let sortedDict = tempDict.sorted(by: {$0.key < $1.key })
+                        if let unwrapped = sortedDict.first?.value {
+                            tempV2 = unwrapped
+                        }
+                        tempV2.visited = true
+                        shortestPath.append(tempV2)
+                    }
+                }
+            }
+        } while tempV2 == to
     }
     return shortestPath
 }
