@@ -78,56 +78,45 @@ extension AdjacencyList: CustomStringConvertible { // визуализация �
 
 let graph = AdjacencyList<Station>()  // это граф
 
-//Алгоритм Дейкстры
+// Алгоритм Дейкстры
 
 func findPath(from: Vertex<Station>, to: Vertex<Station>) -> [Vertex<Station>] {
     
     var shortestPath : [Vertex<Station>] = []
     var tempV = Vertex(data: Station(id: 0, name: ""))
-    var tempV2 = Vertex(data: Station(id: 0, name: ""))
     
-    for (vertexes,edges) in graph.adjacencies where vertexes.visited == false {
+    for (vertex,edges) in graph.adjacencies where vertex.visited == false {
         
-        repeat {
-            for edge in edges {
+        if vertex == from {
+            shortestPath.append(vertex)
+            var temp = vertex
+            temp.visited = true
+            
+            for (index,edge) in edges.enumerated() where edge.source == vertex {
                 
-                if edge.source == from {
-                    shortestPath.append(edge.source)
-                    var temp = edge.source
-                    temp.visited = true
+                var tempDict : [Int:Vertex<Station>] = [:]
+                
+                switch index {
+                case 0:
+                    tempDict.updateValue(edge.destination, forKey: edge.weight)
+                case 1:
+                    tempDict.updateValue(edge.destination, forKey: edge.weight)
+                case 2:
+                    tempDict.updateValue(edge.destination, forKey: edge.weight)
+                case 3:
+                    tempDict.updateValue(edge.destination, forKey: edge.weight)
+                default : break
                 }
-                for (index,edge) in edges.enumerated() where edge.source == from {
-                    // надо понять сколько ребер и какой длинны выходят из нашей стартовой вершины
-                    var tempDict : [Int:Vertex<Station>] = [:]
-                    // допустим возможных ребер максимум 4
-                    switch index {
-                    case 0:
-                        tempDict.updateValue(edge.destination, forKey: edge.weight)
-                    case 1:
-                        tempDict.updateValue(edge.destination, forKey: edge.weight)
-                    case 2:
-                        tempDict.updateValue(edge.destination, forKey: edge.weight)
-                    case 3:
-                        tempDict.updateValue(edge.destination, forKey: edge.weight)
-                    default : break
-                    }
-                    print("Ребра и их длины: \(tempDict)")
-                    // надо записать value которому соотв-вует наименьшая длина в edge.destination и пометить как visited и добавить в массив кратчайшего пути при след итерации цикл пойдет дальше - надо прописать эту логику по непосещенным вершинами и будет чекать смежные с вершинами ребра наименьшей длины и вершины этих ребер будет добавлять в массив кратчайшего пути
-                    let sortedDict = tempDict.sorted(by: {$0.key < $1.key })
-                    if let unwrapped = sortedDict.first?.value {
-                        tempV = unwrapped
-                    }
-                    tempV.visited = true
-                    shortestPath.append(tempV)
-                    print("Конец ребра с кратчайшей длинной в вершине: \(tempV)")
-                    // теперь надо так написать код чтобы следующая итерация начиналась с нашего tempV в качестве нового edge.source чтобы анализировались следующие ребра которые берут в нем начало
-                    
+                print("Длины, ребра и их конечные вершины: \(tempDict)")
+                let sortedDict = tempDict.sorted(by: {$0.key < $1.key })
+                if let unwrapped = sortedDict.first?.value {
+                    tempV = unwrapped
                 }
-                
-                
+                tempV.visited = true
+                shortestPath.append(tempV)
+                print("Конец ребра с кратчайшей длинной в вершине: \(tempV)")
             }
-        
-        } while tempV == to // повторяем цикл, пока tempV не станет равно to
+        }
     }
     return shortestPath
 }
