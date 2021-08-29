@@ -78,78 +78,69 @@ extension AdjacencyList: CustomStringConvertible { // визуализация �
 
 let graph = AdjacencyList<Station>()  // это граф
 
+var shortestPath : [Vertex<Station>] = [] // массив кратчайшего пути станции вершины
+
+func findVertexViaShortestEdge(from: Vertex<Station>, edges: [Edge<Station>]) -> Vertex<Station> {
+    
+    var tempV = Vertex(data: Station(id: 0, name: ""), visited: false)
+    
+    for (index,edge) in edges.enumerated() {
+        
+        var tempDict : [Int:Vertex<Station>] = [:]
+        
+        switch index {
+        case 0:
+            tempDict.updateValue(edge.destination, forKey: edge.weight)
+        case 1:
+            tempDict.updateValue(edge.destination, forKey: edge.weight)
+        case 2:
+            tempDict.updateValue(edge.destination, forKey: edge.weight)
+        case 3:
+            tempDict.updateValue(edge.destination, forKey: edge.weight)
+        default : break
+        }
+        let sortedDict = tempDict.sorted(by: {$0.key < $1.key })
+        if let unwrapped = sortedDict.first?.value {
+            tempV = unwrapped
+        }
+    }
+    return tempV
+}
+
+var visitedVertexes : [Vertex<Station>] = [] // массив посещенных вершин
+var tempV = Vertex(data: Station(id: 0, name: ""))
+var tempV2 = Vertex(data: Station(id: 0, name: ""))
+
 // Алгоритм Дейкстры
 
 func findPath(from: Vertex<Station>, to: Vertex<Station>) -> [Vertex<Station>] {
     
-    var shortestPath : [Vertex<Station>] = []
-    var tempV = Vertex(data: Station(id: 0, name: ""))
-    var tempV2 = Vertex(data: Station(id: 0, name: ""))
-    
-    for (vertex,edges) in graph.adjacencies {
-        // сначала надо из всех вершин стартовать путь с from -
+    for (vertex,edges) in graph.adjacencies where vertex.visited == false {
+        
         if vertex == from {
             shortestPath.append(vertex)
             var temp = vertex
             temp.visited = true
-            // тут мы смотрим сколько ребер выходит из стартовой вершины
-            for (index,edge) in edges.enumerated() where edge.source == vertex {
-                
-                var tempDict : [Int:Vertex<Station>] = [:]
-                // допустим их максимум 4 - реализация норм тк по условию их не может быть более 4 и даже если бы было добавили бы кейсы - да криво но верно
-                switch index {
-                case 0:
-                    tempDict.updateValue(edge.destination, forKey: edge.weight)
-                case 1:
-                    tempDict.updateValue(edge.destination, forKey: edge.weight)
-                case 2:
-                    tempDict.updateValue(edge.destination, forKey: edge.weight)
-                case 3:
-                    tempDict.updateValue(edge.destination, forKey: edge.weight)
-                default : break
-                }
-                print("Длины, ребра и их конечные вершины: \(tempDict)")
-                let sortedDict = tempDict.sorted(by: {$0.key < $1.key })
-                if let unwrapped = sortedDict.first?.value {
-                    tempV = unwrapped
-                }
-                tempV.visited = true
-                shortestPath.append(tempV) // добавляем вершину чье ребро меньшее в кратчайший путь
-                print("Конец ребра с кратчайшей длинной в вершине: \(tempV)")
+            tempV = findVertexViaShortestEdge(from: vertex, edges: edges)
+            tempV.visited = true
+            shortestPath.append(tempV)
+            if tempV == to {
+                break
             }
-        } // и теперь тут загвостка - мне надо чтобы следующая итерация в поисках to пошла с последней добавленной вершины то есть с tempV - и так далее пока не найдем to и на этом цикл прервать типа - все кратчайший путь построен 
-        repeat {
-            for (vertex,edges) in graph.adjacencies {
-                
-                if vertex == tempV {
-                    tempV.visited = true
-                    shortestPath.append(tempV)
-                    
-                    for (index,edge) in edges.enumerated() where edge.source == vertex {
-                        
-                        var tempDict : [Int:Vertex<Station>] = [:]
-                        
-                        switch index {
-                        case 0:
-                            tempDict.updateValue(edge.destination, forKey: edge.weight)
-                        case 1:
-                            tempDict.updateValue(edge.destination, forKey: edge.weight)
-                        case 2:
-                            tempDict.updateValue(edge.destination, forKey: edge.weight)
-                        case 3:
-                            tempDict.updateValue(edge.destination, forKey: edge.weight)
-                        default : break
-                        }
-                        let sortedDict = tempDict.sorted(by: {$0.key < $1.key })
-                        if let unwrapped = sortedDict.first?.value {
-                            tempV2 = unwrapped
-                        }
-                        tempV2.visited = true
-                        shortestPath.append(tempV2)
-                    }
-                }
+        }
+        if vertex == tempV {
+                tempV2 = findVertexViaShortestEdge(from: vertex, edges: edges)
+                tempV2.visited = true
+                shortestPath.append(tempV2)
+                if tempV2 == to {
+                    break
+            
             }
-        } while tempV2 == to
+        }
     }
     return shortestPath
 }
+
+
+
+
