@@ -87,16 +87,16 @@ func findPath(from: Vertex<Station>, to: Vertex<Station>) -> [Vertex<Station>] {
     var tempV2 = Vertex(data: Station(id: 0, name: ""))
     
     for (vertex,edges) in graph.adjacencies {
-        
+        // сначала надо из всех вершин стартовать путь с from -
         if vertex == from {
             shortestPath.append(vertex)
             var temp = vertex
             temp.visited = true
-            
+            // тут мы смотрим сколько ребер выходит из стартовой вершины
             for (index,edge) in edges.enumerated() where edge.source == vertex {
                 
                 var tempDict : [Int:Vertex<Station>] = [:]
-                
+                // допустим их максимум 4 - реализация норм тк по условию их не может быть более 4 и даже если бы было добавили бы кейсы - да криво но верно
                 switch index {
                 case 0:
                     tempDict.updateValue(edge.destination, forKey: edge.weight)
@@ -114,10 +114,10 @@ func findPath(from: Vertex<Station>, to: Vertex<Station>) -> [Vertex<Station>] {
                     tempV = unwrapped
                 }
                 tempV.visited = true
-                shortestPath.append(tempV)
+                shortestPath.append(tempV) // добавляем вершину чье ребро меньшее в кратчайший путь
                 print("Конец ребра с кратчайшей длинной в вершине: \(tempV)")
             }
-        }
+        } // и теперь тут загвостка - мне надо чтобы следующая итерация в поисках to пошла с последней добавленной вершины то есть с tempV - и так далее пока не найдем to и на этом цикл прервать типа - все кратчайший путь построен 
         repeat {
             for (vertex,edges) in graph.adjacencies {
                 
