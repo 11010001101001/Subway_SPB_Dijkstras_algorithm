@@ -127,7 +127,7 @@ extension Graph {
     public func distance(to destination: Vertex<Station>, in tree: [Vertex<Station> : Visit<Station>]) -> Double { // функция берет на вход вершину и словарь вершина : vertex visit и возвращает дистаницию от корневой вершины в формате double
         let path = route(to: destination, in: tree) // вызываем route функцию чтобы получить массив ребер в пути
         let distances = path.flatMap{ $0.weight } // Вы плоско наносите на карту каждое ребро по его весу. Если вес ребра каким-то образом должен быть равен нулю, здесь это ребро незаметно игнорируется.
-        return distances.reduce(0.0, { $0 + $1 }) // Вы уменьшили массив расстояний до их общего количества (предполагая, что путь без ребер имеет расстояние 0,0, а затем добавляете вес каждого ребра в пути по очереди)
+        return distances.reduce(0.0, { $0 + Double($1) }) // Вы уменьшили массив расстояний до их общего количества (предполагая, что путь без ребер имеет расстояние 0,0, а затем добавляете вес каждого ребра в пути по очереди)
     }
     public func dijkstra(from source: Vertex<Station>, to destination: Vertex<Station>) -> [Edge<Station>]? {
         var visits : [Vertex<Station> : Visit<Station>] = [source: .source]
@@ -154,7 +154,7 @@ extension Graph {
         return nil
     }
 }
-public enum Visit<Station: Hashable> {
+enum Visit<Station: Hashable> {
     case source
     case edge(Edge<Station>)
 }
