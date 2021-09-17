@@ -653,7 +653,11 @@ class BezierCurves: UIView {
         edgeOrange.lineWidth = 4.0
         edgeOrange.stroke()
         
-//        print("Кратчайший путь: \(dijkstra(from: parnasV, to: udelnajaV))")
+        
+        print(findPath(from: parnasV, to: ozerkiV))
+        
     }
     
 }
+
+
