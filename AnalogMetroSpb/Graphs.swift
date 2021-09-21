@@ -78,83 +78,29 @@ extension AdjacencyList: CustomStringConvertible { // визуализация �
 
 // Алгоритм Дейкстры
 
-//struct SomeStruct {
-//    var len : Int
-//    var v : Vertex<Station>
-//}
-
 let graph = AdjacencyList<Station>()  // это граф
+
+var shortestPathsArrayFromAllVerticiesToStart = [Int]() // массив длин кратчайших путей вершин графа до стартовой вершины
+// изначально все вершины не помечены / кратчайший путь в стартовой вершине равен 0 а для всех остальных вершин - бесконечности или оч большому числу
+var arrayOfParents = [Vertex<Station>]() // массив предков
+
 
 func findPath(from: Vertex<Station>, to: Vertex<Station>) -> [Vertex<Station>] {
     
-    var shortestPath : [Vertex<Station>] = []
-    var tempV = Vertex(data: Station(id: 0, name: ""))
-    var tempV2 = Vertex(data: Station(id: 0, name: ""))
-    
     for (vertex,edges) in graph.adjacencies {
-        
-        if vertex == from {
-            shortestPath.append(vertex)
-            var temp = vertex
-            temp.visited = true
-            
-            for (index,edge) in edges.enumerated() where edge.source == vertex {
-                
-                var tempDict : [Int:Vertex<Station>] = [:]
-                
-                switch index {
-                case 0:
-                    tempDict.updateValue(edge.destination, forKey: edge.weight)
-                case 1:
-                    tempDict.updateValue(edge.destination, forKey: edge.weight)
-                case 2:
-                    tempDict.updateValue(edge.destination, forKey: edge.weight)
-                case 3:
-                    tempDict.updateValue(edge.destination, forKey: edge.weight)
-                default : break
-                }
-                print("Длины, ребра и их конечные вершины: \(tempDict)")
-                let sortedDict = tempDict.sorted(by: {$0.key < $1.key })
-                if let unwrapped = sortedDict.first?.value {
-                    tempV = unwrapped
-                }
-                tempV.visited = true
-                shortestPath.append(tempV)
-                print("Конец ребра с кратчайшей длинной в вершине: \(tempV)")
+        var tempValue = vertex
+        tempValue.visited = true  // говорим что стартовая вершина помечена
+        for edge in edges {
+            if edge.source == vertex {  // далее просматриваем все ребра исходящие из стартовой вершины и записываем их в словарь формата [вес ребра : edge.destination]
+                arrayOfParents.append(vertex) // в массив предков добавляем стартовую вершину
+                var weightArrayDict : [Int:Vertex<Station>] = [:]
+                weightArrayDict.updateValue(vertex, forKey: edge.weight)
+                var sortedDict = weightArrayDict.sorted(by: {$0.key < $1.key}) // сортируем словарь так чтобы первый ключ - а это вес ребра был минимальный
+                var tempValue = edge.destination
+                tempValue = sortedDict.first?.value ?? vertex // говорим что edge.destination у этого ребра с минимальным весом - tempValue
+                tempValue.visited = true // помечаем эту вершину как помеченную
             }
         }
-        repeat {
-            for (vertex,edges) in graph.adjacencies {
-                
-                if vertex == tempV {
-                    tempV.visited = true
-                    shortestPath.append(tempV)
-                    
-                    for (index,edge) in edges.enumerated() where edge.source == vertex {
-                        
-                        var tempDict : [Int:Vertex<Station>] = [:]
-                        
-                        switch index {
-                        case 0:
-                            tempDict.updateValue(edge.destination, forKey: edge.weight)
-                        case 1:
-                            tempDict.updateValue(edge.destination, forKey: edge.weight)
-                        case 2:
-                            tempDict.updateValue(edge.destination, forKey: edge.weight)
-                        case 3:
-                            tempDict.updateValue(edge.destination, forKey: edge.weight)
-                        default : break
-                        }
-                        let sortedDict = tempDict.sorted(by: {$0.key < $1.key })
-                        if let unwrapped = sortedDict.first?.value {
-                            tempV2 = unwrapped
-                        }
-                        tempV2.visited = true
-                        shortestPath.append(tempV2)
-                    }
-                }
-            }
-        } while tempV2 == to
     }
-    return shortestPath
+    return shortestPathsArrayFromAllVerticiesToStart
 }
