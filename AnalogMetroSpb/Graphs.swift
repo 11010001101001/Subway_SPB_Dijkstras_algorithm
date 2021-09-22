@@ -88,6 +88,7 @@ var arrayOfParents = [Vertex<Station>]() // массив предков
 func findPath(from: Vertex<Station>, to: Vertex<Station>) -> [Vertex<Station>] {
     
     for (vertex,edges) in graph.adjacencies {
+        
         var tempValue = vertex
         tempValue.visited = true  // говорим что стартовая вершина помечена
         for edge in edges {
