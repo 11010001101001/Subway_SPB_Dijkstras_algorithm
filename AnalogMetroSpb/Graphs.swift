@@ -3,7 +3,7 @@ import UIKit
 
 
 struct Station : Hashable {
-    var id : Int 
+    var id : Int
     var name : String
 }
 
@@ -76,32 +76,47 @@ extension AdjacencyList: CustomStringConvertible { // визуализация �
     }
 }
 
+
+
+
 // Алгоритм Дейкстры
 
 let graph = AdjacencyList<Station>()  // это граф
 
-var shortestPathsArrayFromAllVerticiesToStart = [Int]() // массив длин кратчайших путей вершин графа до стартовой вершины
-// изначально все вершины не помечены / кратчайший путь в стартовой вершине равен 0 а для всех остальных вершин - бесконечности или оч большому числу
-var arrayOfParents = [Vertex<Station>]() // массив предков
+var shortestPath = [Vertex<Station>]()
+var allVertexes : [(Vertex<Station>,[Edge<Station>])] = [] // массив всех вершин графа в виде массива кортежей
+
+func fillAllVertexes() {
+    for (key,value) in graph.adjacencies {
+        allVertexes.insert((key, value), at: 0)
+    }
+}
 
 
 func findPath(from: Vertex<Station>, to: Vertex<Station>) -> [Vertex<Station>] {
+    var distances = Array(repeating: 1000000, count: 71) // массив кратчайших расстояний до точки старта от всех вершин графа
+    distances[0] = 0
+    var tempV = from
+    tempV.visited = true
     
-    for (vertex,edges) in graph.adjacencies {
+    var best = -1
+    
+    for index in 0..<allVertexes.count-1 {
         
-        var tempValue = vertex
-        tempValue.visited = true  // говорим что стартовая вершина помечена
-        for edge in edges {
-            if edge.source == vertex {  // далее просматриваем все ребра исходящие из стартовой вершины и записываем их в словарь формата [вес ребра : edge.destination]
-                arrayOfParents.append(vertex) // в массив предков добавляем стартовую вершину
-                var weightArrayDict : [Int:Vertex<Station>] = [:]
-                weightArrayDict.updateValue(vertex, forKey: edge.weight)
-                var sortedDict = weightArrayDict.sorted(by: {$0.key < $1.key}) // сортируем словарь так чтобы первый ключ - а это вес ребра был минимальный
-                var tempValue = edge.destination
-                tempValue = sortedDict.first?.value ?? vertex // говорим что edge.destination у этого ребра с минимальным весом - tempValue
-                tempValue.visited = true // помечаем эту вершину как помеченную
-            }
+        if allVertexes[index].0.visited == false && (best == -1 || distances[index] < distances[best]) {
+            best = index // в best получили индекс вершины с наименьшим расстоянием
         }
+        
+        for edge in allVertexes[index].1 where edge.source == allVertexes[best].0 {
+            let k = edge.destination.data.id
+            let w = edge.weight
+            
+            distances[k] = min(distances[k],distances[best]+w)
+            
+        }
+        
     }
-    return shortestPathsArrayFromAllVerticiesToStart
+    return shortestPath
 }
+
+

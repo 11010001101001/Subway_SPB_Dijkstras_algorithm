@@ -653,8 +653,8 @@ class BezierCurves: UIView {
         edgeOrange.lineWidth = 4.0
         edgeOrange.stroke()
         
-        
-        print(findPath(from: parnasV, to: chernayaRechkaV))
+        fillAllVertexes()
+        print(allVertexes)
         
     }
     
