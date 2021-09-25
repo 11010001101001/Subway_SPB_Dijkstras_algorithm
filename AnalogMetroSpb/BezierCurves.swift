@@ -654,7 +654,7 @@ class BezierCurves: UIView {
         edgeOrange.stroke()
         
         fillAllVertexes()
-        print(allVertexes)
+        print(findPath(from: parnasV.data.id, to: prospectProsveshenijaV.data.id))
         
     }
     

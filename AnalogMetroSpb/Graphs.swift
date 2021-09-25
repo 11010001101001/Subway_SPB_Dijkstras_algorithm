@@ -83,7 +83,6 @@ extension AdjacencyList: CustomStringConvertible { // визуализация �
 
 let graph = AdjacencyList<Station>()  // это граф
 
-var shortestPath = [Int]()
 var allVertexes : [(Vertex<Station>,[Edge<Station>])] = [] // массив всех вершин графа в виде массива кортежей
 
 func fillAllVertexes() {
@@ -96,6 +95,7 @@ func fillAllVertexes() {
 func findPath(from: Int, to: Int) -> [Int] {
     var distances = Array(repeating: 1000000, count: allVertexes.count) // массив кратчайших расстояний до точки старта от всех вершин графа
     distances[from] = 0
+    var parent = Array(repeating: -1, count: allVertexes.count) // массив пути
     
     for _ in 0...allVertexes.count {
         
@@ -105,18 +105,21 @@ func findPath(from: Int, to: Int) -> [Int] {
             
             if allVertexes[index].0.visited == false && (best == -1 || distances[index] < distances[best]) {
                 best = index // в best получили индекс вершины с наименьшим расстоянием
-                allVertexes[best].0.visited = true
             }
         }
+        
+        allVertexes[best].0.visited = true
         
         for edge in allVertexes[best].1 { // цикл по ребрам найденной вершины
             let k = edge.destination.data.id
             let w = edge.weight
             
-            distances[k] = min(distances[k],distances[best]+w)
+            if distances[k] == min(distances[k],distances[best]+w) {
+            parent[k] = best // обновляем массив пути parent только если улучшили дистанцию, для конкретной вершины k устанавливаем родителя best
+            }
         }
     }
-    return shortestPath
+    return parent
 }
 
 
