@@ -91,13 +91,13 @@ func fillAllVertexes() {
     }
 }
 
+var parent = Array(repeating: -1, count: allVertexes.count) // массив пути Наш массив parent будет показывать для каждой вершины, из какой вершины нам выгоднее всего сюда приходить, чтобы путь до сюда от начальной вершины был минимальным.Тогда для любой вершины нам нужно распутывать этот массив. Каждый раз переходить в «самого выгодного родителя».А у начальной вершины родитель -1.
 
-func findPath(from: Int, to: Int) -> [Int] {
+func Deikstra(from: Int, to: Int) -> [Int] {
     var distances = Array(repeating: 1000000, count: allVertexes.count) // массив кратчайших расстояний до точки старта от всех вершин графа
     distances[from] = 0
-    var parent = Array(repeating: -1, count: allVertexes.count) // массив пути
     
-    for _ in 0...allVertexes.count {
+    for _ in 0...allVertexes.count { // цикл по кол-ву итераций
         
         var best = -1
         
@@ -121,6 +121,26 @@ func findPath(from: Int, to: Int) -> [Int] {
         }
     }
     return parent
+}
+
+var shortestWay = [Int]()
+
+func findPath(from: Int, to: Int) -> [Int] {
+    
+    var v = from // Положим в вершину (некоторую переменную v) сначала from.
+    
+    while parent[v] != -1 { // Потом запустим while (пока парент не равен -1).
+        
+        shortestWay.append(v) // Будем в путь добавлять эту вершину v.
+        
+        v = parent[v] // А потом в v класть ее родителя.
+    }
+    return shortestWay
+}
+
+func DeikstraAlgorithm(from: Int, to: Int) {
+    print(Deikstra(from: from-1, to: to-1))
+    print(findPath(from: from-1, to: to-1))
 }
 
 
