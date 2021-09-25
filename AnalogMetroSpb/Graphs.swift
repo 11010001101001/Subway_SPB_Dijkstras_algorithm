@@ -138,9 +138,10 @@ func findPath(from: Int, to: Int) -> [Int] {
     return shortestWay
 }
 
+
 func DeikstraAlgorithm(from: Int, to: Int) {
-    print(Deikstra(from: from-1, to: to-1))
-    print(findPath(from: from-1, to: to-1))
+    print(Deikstra(from: from, to: to))
+    print(findPath(from: from, to: to))
 }
 
 
