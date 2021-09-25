@@ -83,7 +83,7 @@ extension AdjacencyList: CustomStringConvertible { // визуализация �
 
 let graph = AdjacencyList<Station>()  // это граф
 
-var shortestPath = [Vertex<Station>]()
+var shortestPath = [Int]()
 var allVertexes : [(Vertex<Station>,[Edge<Station>])] = [] // массив всех вершин графа в виде массива кортежей
 
 func fillAllVertexes() {
@@ -93,28 +93,28 @@ func fillAllVertexes() {
 }
 
 
-func findPath(from: Vertex<Station>, to: Vertex<Station>) -> [Vertex<Station>] {
-    var distances = Array(repeating: 1000000, count: 71) // массив кратчайших расстояний до точки старта от всех вершин графа
-    distances[0] = 0
-    var tempV = from
-    tempV.visited = true
+func findPath(from: Int, to: Int) -> [Int] {
+    var distances = Array(repeating: 1000000, count: allVertexes.count) // массив кратчайших расстояний до точки старта от всех вершин графа
+    distances[from] = 0
     
-    var best = -1
-    
-    for index in 0..<allVertexes.count-1 {
+    for _ in 0...allVertexes.count {
         
-        if allVertexes[index].0.visited == false && (best == -1 || distances[index] < distances[best]) {
-            best = index // в best получили индекс вершины с наименьшим расстоянием
+        var best = -1
+        
+        for index in 0..<allVertexes.count-1 { // цикл который ищет лучшую вершину по расстоянию
+            
+            if allVertexes[index].0.visited == false && (best == -1 || distances[index] < distances[best]) {
+                best = index // в best получили индекс вершины с наименьшим расстоянием
+                allVertexes[best].0.visited = true
+            }
         }
         
-        for edge in allVertexes[index].1 where edge.source == allVertexes[best].0 {
+        for edge in allVertexes[best].1 { // цикл по ребрам найденной вершины
             let k = edge.destination.data.id
             let w = edge.weight
             
             distances[k] = min(distances[k],distances[best]+w)
-            
         }
-        
     }
     return shortestPath
 }
