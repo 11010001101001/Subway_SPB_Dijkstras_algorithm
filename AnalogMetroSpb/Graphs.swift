@@ -114,8 +114,9 @@ func findPath(from: Int, to: Int) -> [Int] {
             let k = edge.destination.data.id
             let w = edge.weight
             
-            if distances[k] == min(distances[k],distances[best]+w) {
-            parent[k] = best // обновляем массив пути parent только если улучшили дистанцию, для конкретной вершины k устанавливаем родителя best
+            if distances[k] < distances[best] + w { // обновляем массив пути parent только если улучшили дистанцию, для конкретной вершины k устанавливаем родителя best ; также проверим, что новая дистанция меньше старой и в таком случае обновим дистанцию и родителя для вершины k.
+                distances[k] = distances[best]+w
+                parent[k] = best
             }
         }
     }
