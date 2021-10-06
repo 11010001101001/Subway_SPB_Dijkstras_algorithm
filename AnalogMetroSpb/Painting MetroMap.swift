@@ -92,49 +92,49 @@ class BezierCurves: UIView {
             self.addSubview(stationName)
             
             switch station.tag {
-            case 9:
+            case 8:
                 stackView1.addArrangedSubview(station)
                 self.addSubview(stackView1)
+            case 56:
+                stackView1.addArrangedSubview(station)
+                self.addSubview(stackView1)
+            case 27:
+                stackView2.addArrangedSubview(station)
+                self.addSubview(stackView2)
             case 57:
-                stackView1.addArrangedSubview(station)
-                self.addSubview(stackView1)
+                stackView2.addArrangedSubview(station)
+                self.addSubview(stackView2)
+            case 9:
+                stackView3.addArrangedSubview(station)
+                self.addSubview(stackView3)
+            case 43:
+                stackView3.addArrangedSubview(station)
+                self.addSubview(stackView3)
+            case 64:
+                stackView3.addArrangedSubview(station)
+                self.addSubview(stackView3)
             case 28:
-                stackView2.addArrangedSubview(station)
-                self.addSubview(stackView2)
-            case 58:
-                stackView2.addArrangedSubview(station)
-                self.addSubview(stackView2)
-            case 10:
-                stackView3.addArrangedSubview(station)
-                self.addSubview(stackView3)
-            case 44:
-                stackView3.addArrangedSubview(station)
-                self.addSubview(stackView3)
+                stackView4.addArrangedSubview(station)
+                self.addSubview(stackView4)
             case 65:
-                stackView3.addArrangedSubview(station)
-                self.addSubview(stackView3)
+                stackView4.addArrangedSubview(station)
+                self.addSubview(stackView4)
+            case 58:
+                stackView5.addArrangedSubview(station)
+                self.addSubview(stackView5)
+            case 67:
+                stackView5.addArrangedSubview(station)
+                self.addSubview(stackView5)
             case 29:
-                stackView4.addArrangedSubview(station)
-                self.addSubview(stackView4)
-            case 66:
-                stackView4.addArrangedSubview(station)
-                self.addSubview(stackView4)
-            case 59:
-                stackView5.addArrangedSubview(station)
-                self.addSubview(stackView5)
-            case 68:
-                stackView5.addArrangedSubview(station)
-                self.addSubview(stackView5)
-            case 30:
                 stackView6.addArrangedSubview(station)
                 self.addSubview(stackView6)
-            case 45:
+            case 44:
                 stackView6.addArrangedSubview(station)
                 self.addSubview(stackView6)
-            case 11:
+            case 10:
                 stackView7.addArrangedSubview(station)
                 self.addSubview(stackView7)
-            case 31:
+            case 30:
                 stackView7.addArrangedSubview(station)
                 self.addSubview(stackView7)
             default:
@@ -162,391 +162,391 @@ class BezierCurves: UIView {
             self.addSubview(stationName)
         }
         
-        // рисуем синюю ветку - станции, графы, ребра с весами
+        // рисуем синюю ветку - станции, ребра с весами
         let parnas = Station(id: 0, name: "Парнас")
-        let parnasV = graph.createVertex(data: parnas)
+        let parnasV = graph.createVertex(data: parnas.id)
         drawSmallStations(name: parnas.name,x: 160,y: 24,color: .blue, id: parnas.id)
         
         let prospectProsveshenija = Station(id: 1, name: "Проспект просвещения")
-        let prospectProsveshenijaV = graph.createVertex(data: prospectProsveshenija)
+        let prospectProsveshenijaV = graph.createVertex(data: prospectProsveshenija.id)
         drawSmallStations(name: prospectProsveshenija.name,x: 160,y: 54, color: .blue, id: prospectProsveshenija.id)
         graph.add(from: parnasV, to: prospectProsveshenijaV, weight: 5)
         
         let ozerki = Station(id: 2, name: "Озерки")
-        let ozerkiV = graph.createVertex(data: ozerki)
+        let ozerkiV = graph.createVertex(data: ozerki.id)
         drawSmallStations(name: ozerki.name,x: 160,y: 84, color: .blue, id: ozerki.id)
         graph.add(from: prospectProsveshenijaV, to: ozerkiV, weight: 4)
         
         let udelnaja = Station(id: 3, name: "Удельная")
-        let udelnajaV = graph.createVertex(data: udelnaja)
+        let udelnajaV = graph.createVertex(data: udelnaja.id)
         drawSmallStations(name: udelnaja.name,x: 160,y: 114, color: .blue, id: udelnaja.id)
         graph.add(from: ozerkiV, to: udelnajaV, weight: 5)
         
         let pionerskaja = Station(id: 4, name: "Пионерская")
-        let pionerskajaV = graph.createVertex(data: udelnaja)
+        let pionerskajaV = graph.createVertex(data: pionerskaja.id)
         drawSmallStations(name: pionerskaja.name,x: 160,y: 144, color: .blue, id: pionerskaja.id)
         graph.add(from: udelnajaV, to: pionerskajaV, weight: 5)
         
         let chernayaRechka = Station(id: 5, name: "Черная речка")
-        let chernayaRechkaV = graph.createVertex(data: chernayaRechka)
+        let chernayaRechkaV = graph.createVertex(data: chernayaRechka.id)
         drawSmallStations(name: chernayaRechka.name,x: 160,y: 174, color: .blue, id: chernayaRechka.id)
         graph.add(from: pionerskajaV, to: chernayaRechkaV, weight: 5)
         
         let petrogradskaya = Station(id: 6, name: "Петроградская")
-        let petrogradskayaV = graph.createVertex(data: petrogradskaya)
+        let petrogradskayaV = graph.createVertex(data: petrogradskaya.id)
         drawSmallStations(name: petrogradskaya.name,x: 160,y: 224, color: .blue, id: petrogradskaya.id)
         graph.add(from: chernayaRechkaV, to: petrogradskayaV, weight: 6)
         
         let gorkovskaya = Station(id: 7, name: "Горьковская")
-        let gorkovskayaV = graph.createVertex(data: gorkovskaya)
+        let gorkovskayaV = graph.createVertex(data: gorkovskaya.id)
         drawSmallStations(name: gorkovskaya.name,x: 160,y: 254, color: .blue, id: gorkovskaya.id)
         graph.add(from: petrogradskayaV, to: gorkovskayaV, weight: 4)
         
         let nevskiyProspect = Station(id: 8, name: "Невский проспект")
-        let nevskiyProspectV = graph.createVertex(data: nevskiyProspect)
+        let nevskiyProspectV = graph.createVertex(data: nevskiyProspect.id)
         drawBigStations(name: "",x: 155, y: 294, color: .blue, id: nevskiyProspect.id)
         drawLabel(name: nevskiyProspect.name, x: 175, y: 290, color: .blue)
         graph.add(from: gorkovskayaV, to: nevskiyProspectV, weight: 6)
         
         let sennayaPloshad = Station(id: 9, name: "Сенная площадь")
-        let sennayaPloshadV = graph.createVertex(data: sennayaPloshad)
+        let sennayaPloshadV = graph.createVertex(data: sennayaPloshad.id)
         drawBigStations(name: "",x: 155, y: 344, color: .blue, id: sennayaPloshad.id)
         drawLabel(name: sennayaPloshad.name, x: 175, y: 335, color: .blue)
         graph.add(from: nevskiyProspectV, to: sennayaPloshadV, weight: 4)
         
         let technologicheskiyInstitut2 = Station(id: 10, name: "Технологический институт 2")
-        let technologicheskiyInstitut2V = graph.createVertex(data: technologicheskiyInstitut2)
+        let technologicheskiyInstitut2V = graph.createVertex(data: technologicheskiyInstitut2.id)
         drawBigStations(name: "",x: 155, y: 450, color: .blue, id: technologicheskiyInstitut2.id)
         drawLabel(name: technologicheskiyInstitut2.name, x: 95, y: 440, color: .blue)
         graph.add(from: sennayaPloshadV, to: technologicheskiyInstitut2V, weight: 4)
         
         let frunzenskaya = Station(id: 11, name: "Фрунзенская")
-        let frunzenskayaV = graph.createVertex(data: frunzenskaya)
+        let frunzenskayaV = graph.createVertex(data: frunzenskaya.id)
         drawSmallStations(name: frunzenskaya.name,x: 160,y: 480, color: .blue, id: frunzenskaya.id)
         graph.add(from: technologicheskiyInstitut2V, to: frunzenskayaV, weight: 4)
         
         let moscovskieVorota = Station(id: 12, name: "Московские ворота")
-        let moscovskieVorotaV = graph.createVertex(data: moscovskieVorota)
+        let moscovskieVorotaV = graph.createVertex(data: moscovskieVorota.id)
         drawSmallStations(name: moscovskieVorota.name,x: 160,y: 510, color: .blue, id: moscovskieVorota.id)
         graph.add(from: frunzenskayaV, to: moscovskieVorotaV, weight: 5)
         
         let elektrosila = Station(id: 13, name: "Электросила")
-        let elektrosilaV = graph.createVertex(data: elektrosila)
+        let elektrosilaV = graph.createVertex(data: elektrosila.id)
         drawSmallStations(name: elektrosila.name,x: 160,y: 540, color: .blue, id: elektrosila.id)
         graph.add(from: moscovskieVorotaV, to: elektrosilaV, weight: 4)
         
         let parkPobedy = Station(id: 14, name: "Парк Победы")
-        let parkPobedyV = graph.createVertex(data: parkPobedy)
+        let parkPobedyV = graph.createVertex(data: parkPobedy.id)
         drawSmallStations(name: parkPobedy.name,x: 160,y: 570, color: .blue, id: parkPobedy.id)
         graph.add(from: elektrosilaV, to: parkPobedyV, weight: 4)
         
         let moskovskaya = Station(id: 15, name: "Московская")
-        let moskovskayaV = graph.createVertex(data: moskovskaya)
+        let moskovskayaV = graph.createVertex(data: moskovskaya.id)
         drawSmallStations(name: moskovskaya.name,x: 160,y: 600, color: .blue, id: moskovskaya.id)
         graph.add(from: parkPobedyV, to: moskovskayaV, weight: 5)
         
         let zvezdnaya = Station(id: 16, name: "Звездная")
-        let zvezdnayaV = graph.createVertex(data: zvezdnaya)
+        let zvezdnayaV = graph.createVertex(data: zvezdnaya.id)
         drawSmallStations(name: zvezdnaya.name,x: 160,y: 630, color: .blue, id: zvezdnaya.id)
         graph.add(from: moskovskayaV, to: zvezdnayaV, weight: 7)
         
         let kupchino = Station(id: 17, name: "Купчино")
-        let kupchinoV = graph.createVertex(data: kupchino)
+        let kupchinoV = graph.createVertex(data: kupchino.id)
         drawSmallStations(name: kupchino.name,x: 160,y: 660, color: .blue, id: kupchino.id)
         graph.add(from: zvezdnayaV, to: kupchinoV, weight: 5)
         
         // рисуем красную ветку - станции
         let devyatkino = Station(id: 18, name: "Девяткино")
-        let devyatkinoV = graph.createVertex(data: devyatkino)
+        let devyatkinoV = graph.createVertex(data: devyatkino.id)
         drawSmallStations(name: devyatkino.name,x: 250, y: 50,color: .red, id: devyatkino.id)
         
         let grazhdanskiyProspect = Station(id: 19, name: "Гражданский проспект")
-        let grazhdanskiyProspectV = graph.createVertex(data: grazhdanskiyProspect)
+        let grazhdanskiyProspectV = graph.createVertex(data: grazhdanskiyProspect.id)
         drawSmallStations(name: grazhdanskiyProspect.name,x: 250, y: 80,color: .red, id: grazhdanskiyProspect.id)
         graph.add(from: devyatkinoV, to: grazhdanskiyProspectV, weight: 6)
         
         let akademicheskaya = Station(id: 20, name: "Академическая")
-        let akademicheskayaV = graph.createVertex(data: akademicheskaya)
+        let akademicheskayaV = graph.createVertex(data: akademicheskaya.id)
         drawSmallStations(name: akademicheskaya.name,x: 250, y: 110,color: .red, id: akademicheskaya.id)
         graph.add(from: grazhdanskiyProspectV, to: akademicheskayaV, weight: 6)
         
         let politechnicheskaya = Station(id: 21, name: "Политехническая")
-        let politechnicheskayaV = graph.createVertex(data: politechnicheskaya)
+        let politechnicheskayaV = graph.createVertex(data: politechnicheskaya.id)
         drawSmallStations(name: politechnicheskaya.name,x: 250, y: 140,color: .red, id: politechnicheskaya.id)
         graph.add(from: akademicheskayaV, to: politechnicheskayaV, weight: 4)
         
         let ploshadMuzhestva = Station(id: 22, name: "Площадь мужества")
-        let ploshadMuzhestvaV = graph.createVertex(data: ploshadMuzhestva)
+        let ploshadMuzhestvaV = graph.createVertex(data: ploshadMuzhestva.id)
         drawSmallStations(name: ploshadMuzhestva.name,x: 250, y: 170,color: .red, id: ploshadMuzhestva.id)
         graph.add(from: politechnicheskayaV, to: ploshadMuzhestvaV, weight: 4)
         
         let lesnaya = Station(id: 23, name: "Лесная")
-        let lesnayaV = graph.createVertex(data: lesnaya)
+        let lesnayaV = graph.createVertex(data: lesnaya.id)
         drawSmallStations(name: lesnaya.name,x: 250, y: 200,color: .red, id: lesnaya.id)
         graph.add(from: ploshadMuzhestvaV, to: lesnayaV, weight: 5)
         
         let vyborgskaya = Station(id: 24, name: "Выборгская")
-        let vyborgskayaV = graph.createVertex(data: vyborgskaya)
+        let vyborgskayaV = graph.createVertex(data: vyborgskaya.id)
         drawSmallStations(name: vyborgskaya.name,x: 250, y: 220,color: .red, id: vyborgskaya.id)
         graph.add(from: lesnayaV, to: vyborgskayaV, weight: 5)
         
         let ploshadLenina = Station(id: 25, name: "Площадь Ленина")
-        let ploshadLeninaV = graph.createVertex(data: ploshadLenina)
+        let ploshadLeninaV = graph.createVertex(data: ploshadLenina.id)
         drawSmallStations(name: ploshadLenina.name,x: 250, y: 240,color: .red, id: ploshadLenina.id)
         graph.add(from: vyborgskayaV, to: ploshadLeninaV, weight: 5)
         
         let chernyshevskaya = Station(id: 26, name: "Чернышевская")
-        let chernyshevskayaV = graph.createVertex(data: chernyshevskaya)
+        let chernyshevskayaV = graph.createVertex(data: chernyshevskaya.id)
         drawSmallStations(name: chernyshevskaya.name,x: 250, y: 260,color: .red, id: chernyshevskaya.id)
         graph.add(from: ploshadLeninaV, to: chernyshevskayaV, weight: 5)
         
         let ploshadVosstaniya = Station(id: 27, name: "Площадь восстания")
-        let ploshadVosstaniyaV = graph.createVertex(data: ploshadVosstaniya)
+        let ploshadVosstaniyaV = graph.createVertex(data: ploshadVosstaniya.id)
         drawBigStations(name: "", x: 245, y: 294, color: .red, id: ploshadVosstaniya.id)
         drawLabel(name: ploshadVosstaniya.name, x: 265, y: 290, color: .red)
         graph.add(from: chernyshevskayaV, to: ploshadVosstaniyaV, weight: 5)
         
         let vladimirskaya = Station(id: 28, name: "Владимирская")
-        let vladimirskayaV = graph.createVertex(data: vladimirskaya)
+        let vladimirskayaV = graph.createVertex(data: vladimirskaya.id)
         drawBigStations(name: "", x: 235, y: 344, color: .red, id: vladimirskaya.id)
         drawLabel(name: vladimirskaya.name, x: 257, y: 340, color: .red)
         graph.add(from: ploshadVosstaniyaV, to: vladimirskayaV, weight: 4)
         
         let pushkinskaya = Station(id: 29, name: "Пушкинская")
-        let pushkinskayaV = graph.createVertex(data: pushkinskaya)
+        let pushkinskayaV = graph.createVertex(data: pushkinskaya.id)
         drawBigStations(name: "", x: 215, y: 400, color: .red, id: pushkinskaya.id)
         drawLabel(name: pushkinskaya.name, x: 235, y: 400, color: .red)
         graph.add(from: vladimirskayaV, to: pushkinskayaV, weight: 4)
         
         let technologicheskiyInstitut1 = Station(id: 30, name: "Технологический институт 1")
-        let technologicheskiyInstitut1V = graph.createVertex(data: technologicheskiyInstitut1)
+        let technologicheskiyInstitut1V = graph.createVertex(data: technologicheskiyInstitut1.id)
         drawBigStations(name: "", x: 155, y: 450, color: .red, id: technologicheskiyInstitut1.id)
         drawLabel(name: technologicheskiyInstitut1.name, x: 95, y: 455, color: .red)
         graph.add(from: pushkinskayaV, to: technologicheskiyInstitut1V, weight: 4)
         graph.add(from: technologicheskiyInstitut2V, to: technologicheskiyInstitut1V, weight: 2)
         
         let baltiyskaya = Station(id: 31, name: "Балтийская")
-        let baltiyskayaV = graph.createVertex(data: baltiyskaya)
+        let baltiyskayaV = graph.createVertex(data: baltiyskaya.id)
         drawSmallStations(name: "",x: 80, y: 485,color: .red, id: baltiyskaya.id)
         drawLabel(name: baltiyskaya.name, x: 90, y: 490, color: .black)
         graph.add(from: technologicheskiyInstitut1V, to: baltiyskayaV, weight: 4)
         
         let narvskaya = Station(id: 32, name: "Нарвская")
-        let narvskayaV = graph.createVertex(data: narvskaya)
+        let narvskayaV = graph.createVertex(data: narvskaya.id)
         drawSmallStations(name: narvskaya.name,x: 80, y: 510,color: .red, id: narvskaya.id)
         graph.add(from: baltiyskayaV, to: narvskayaV, weight: 5)
         
         let kirovskiyZavod = Station(id: 33, name: "Кировский завод")
-        let kirovskiyZavodV = graph.createVertex(data: kirovskiyZavod)
+        let kirovskiyZavodV = graph.createVertex(data: kirovskiyZavod.id)
         drawSmallStations(name: kirovskiyZavod.name,x: 80, y: 535,color: .red, id: kirovskiyZavod.id)
         graph.add(from: narvskayaV, to: kirovskiyZavodV, weight: 6)
         
         let avtovo = Station(id: 34, name: "Автово")
-        let avtovoV = graph.createVertex(data: avtovo)
+        let avtovoV = graph.createVertex(data: avtovo.id)
         drawSmallStations(name: avtovo.name,x: 80, y: 570,color: .red, id: avtovo.id)
         graph.add(from: kirovskiyZavodV, to: avtovoV, weight: 4)
         
         let leninskiyProspect = Station(id: 35, name: "Ленинский проспект")
-        let leninskiyProspectV = graph.createVertex(data: leninskiyProspect)
+        let leninskiyProspectV = graph.createVertex(data: leninskiyProspect.id)
         drawSmallStations(name: leninskiyProspect.name,x: 80, y: 600,color: .red, id: leninskiyProspect.id)
         graph.add(from: avtovoV, to: leninskiyProspectV, weight: 5)
         
         let prospectVeteranov = Station(id: 36, name: "Проспект Ветеранов")
-        let prospectVeteranovV = graph.createVertex(data: prospectVeteranov)
+        let prospectVeteranovV = graph.createVertex(data: prospectVeteranov.id)
         drawSmallStations(name: prospectVeteranov.name,x: 80, y: 630,color: .red, id: prospectVeteranov.id)
         graph.add(from: leninskiyProspectV, to: prospectVeteranovV, weight: 4)
         
         // рисуем фиолетовую ветку - станции
         let komendantskiyProspect = Station(id: 37, name: "Комендантский проспект")
-        let komendantskiyProspectV = graph.createVertex(data: komendantskiyProspect)
+        let komendantskiyProspectV = graph.createVertex(data: komendantskiyProspect.id)
         drawSmallStations(name: komendantskiyProspect.name,x: 80,y: 120, color: .purple, id: komendantskiyProspect.id)
         
         let starayaDerevnya = Station(id: 38, name: "Старая деревня")
-        let starayaDerevnyaV = graph.createVertex(data: starayaDerevnya)
+        let starayaDerevnyaV = graph.createVertex(data: starayaDerevnya.id)
         drawSmallStations(name: starayaDerevnya.name,x: 80,y: 150, color: .purple, id: starayaDerevnya.id)
         graph.add(from: komendantskiyProspectV, to: starayaDerevnyaV, weight: 6)
         
         let krestovskiyOstrov = Station(id: 39, name: "Крестовский остров")
-        let krestovskiyOstrovV = graph.createVertex(data: krestovskiyOstrov)
+        let krestovskiyOstrovV = graph.createVertex(data: krestovskiyOstrov.id)
         drawSmallStations(name: krestovskiyOstrov.name,x: 80,y: 170, color: .purple, id: krestovskiyOstrov.id)
         graph.add(from: starayaDerevnyaV, to: krestovskiyOstrovV, weight: 5)
         
         let chkalovskaya = Station(id: 40, name: "Чкаловская")
-        let chkalovskayaV = graph.createVertex(data: chkalovskaya)
+        let chkalovskayaV = graph.createVertex(data: chkalovskaya.id)
         drawSmallStations(name: "",x: 80,y: 190, color: .purple, id: 41)
         graph.add(from: krestovskiyOstrovV, to: chkalovskayaV, weight: 5)
         
         let sportivnaya = Station(id: 41, name: "Спортивная")
-        let sportivnayaV = graph.createVertex(data: sportivnaya)
+        let sportivnayaV = graph.createVertex(data: sportivnaya.id)
         drawSmallStations(name: sportivnaya.name,x: 80,y: 210, color: .purple, id: sportivnaya.id)
         graph.add(from: chkalovskayaV, to: sportivnayaV, weight: 4)
         
         let admiralteiskaya = Station(id: 42, name: "Адмиралтейская")
-        let admiralteiskayaV = graph.createVertex(data: admiralteiskaya)
+        let admiralteiskayaV = graph.createVertex(data: admiralteiskaya.id)
         drawSmallStations(name: "",x: 120,y: 320, color: .purple, id: admiralteiskaya.id)
         drawLabel(name: admiralteiskaya.name, x: 63, y: 322, color: .black)
         graph.add(from: sportivnayaV, to: admiralteiskayaV, weight: 5)
         
         let sadovaya = Station(id: 43, name: "Садовая")
-        let sadovayaV = graph.createVertex(data: sadovaya)
+        let sadovayaV = graph.createVertex(data: sadovaya.id)
         drawBigStations(name: "",x: 155, y: 344, color: .purple, id: sadovaya.id)
         drawLabel(name: sadovaya.name, x: 125, y: 350, color: .purple)
         graph.add(from: admiralteiskayaV, to: sadovayaV, weight: 4)
         graph.add(from: sennayaPloshadV, to: sadovayaV, weight: 4)
         
         let zvenigorodskaya = Station(id: 44, name: "Звенигородская")
-        let zvenigorodskayaV = graph.createVertex(data: zvenigorodskaya)
+        let zvenigorodskayaV = graph.createVertex(data: zvenigorodskaya.id)
         drawBigStations(name: "", x: 215, y: 400, color: .purple, id: zvenigorodskaya.id)
         drawLabel(name: zvenigorodskaya.name, x: 235, y: 410, color: .purple)
         graph.add(from: sadovayaV, to: zvenigorodskayaV, weight: 5)
         graph.add(from: pushkinskayaV, to: zvenigorodskayaV, weight: 3)
         
         let obvodniyKanal = Station(id: 45, name: "Обводный канал")
-        let obvodniyKanalV = graph.createVertex(data: obvodniyKanal)
+        let obvodniyKanalV = graph.createVertex(data: obvodniyKanal.id)
         drawSmallStations(name: obvodniyKanal.name,x: 236,y: 440, color: .purple, id: obvodniyKanal.id)
         graph.add(from: zvenigorodskayaV, to: obvodniyKanalV, weight: 5)
         
         let volkovskaya = Station(id: 46, name: "Волховская")
-        let volkovskayaV = graph.createVertex(data: volkovskaya)
+        let volkovskayaV = graph.createVertex(data: volkovskaya.id)
         drawSmallStations(name: volkovskaya.name,x: 236,y: 510, color: .purple, id: volkovskaya.id)
         graph.add(from: obvodniyKanalV, to: volkovskayaV, weight: 5)
         
         let bucharestskaya = Station(id: 47, name: "Бухарестская")
-        let bucharestskayaV = graph.createVertex(data: bucharestskaya)
+        let bucharestskayaV = graph.createVertex(data: bucharestskaya.id)
         drawSmallStations(name: bucharestskaya.name,x: 236,y: 540, color: .purple, id: bucharestskaya.id)
         graph.add(from: volkovskayaV, to: bucharestskayaV, weight: 5)
         
         let mezhdunarodnaya = Station(id: 48, name: "Международная")
-        let mezhdunarodnayaV = graph.createVertex(data: mezhdunarodnaya)
+        let mezhdunarodnayaV = graph.createVertex(data: mezhdunarodnaya.id)
         drawSmallStations(name: mezhdunarodnaya.name,x: 236,y: 570, color: .purple, id: mezhdunarodnaya.id)
         graph.add(from: bucharestskayaV, to: mezhdunarodnayaV, weight: 5)
         
         let prospectSlavy = Station(id: 49, name: "Проспект Славы")
-        let prospectSlavyV = graph.createVertex(data: prospectSlavy)
+        let prospectSlavyV = graph.createVertex(data: prospectSlavy.id)
         drawSmallStations(name: prospectSlavy.name,x: 236,y: 600, color: .purple, id: prospectSlavy.id)
         graph.add(from: mezhdunarodnayaV, to: prospectSlavyV, weight: 4)
         
         let dunaiskaya = Station(id: 50, name: "Дунайская")
-        let dunaiskayaV = graph.createVertex(data: dunaiskaya)
+        let dunaiskayaV = graph.createVertex(data: dunaiskaya.id)
         drawSmallStations(name: dunaiskaya.name,x: 236,y: 630, color: .purple, id: dunaiskaya.id)
         graph.add(from: prospectSlavyV, to: dunaiskayaV, weight: 5)
         
         let shushary = Station(id: 51, name: "Шушары")
-        let shusharyV = graph.createVertex(data: shushary)
+        let shusharyV = graph.createVertex(data: shushary.id)
         drawSmallStations(name: shushary.name,x: 236,y: 660, color: .purple, id: shushary.id)
         graph.add(from: dunaiskayaV, to: shusharyV, weight: 5)
         
         // рисуем зеленую ветку - станции
         let begovaya = Station(id: 52, name: "Беговая")
-        let begovayaV = graph.createVertex(data: begovaya)
+        let begovayaV = graph.createVertex(data: begovaya.id)
         drawSmallStations(name: begovaya.name,x: 10,y: 224, color: .green, id: begovaya.id)
         
         let zenit = Station(id: 53, name: "Зенит")
-        let zenitV = graph.createVertex(data: zenit)
+        let zenitV = graph.createVertex(data: zenit.id)
         drawSmallStations(name: zenit.name,x: 20,y: 244, color: .green, id: zenit.id)
         graph.add(from: begovayaV, to: zenitV, weight: 6)
         
         let primorskaya = Station(id: 54, name: "Приморская")
-        let primorskayaV = graph.createVertex(data: primorskaya)
+        let primorskayaV = graph.createVertex(data: primorskaya.id)
         drawSmallStations(name: primorskaya.name,x: 30,y: 266, color: .green, id: primorskaya.id)
         graph.add(from: zenitV, to: primorskayaV, weight: 6)
         
         let vasileostrovskaya = Station(id: 55, name: "Василеостровская")
-        let vasileostrovskayaV = graph.createVertex(data: vasileostrovskaya)
+        let vasileostrovskayaV = graph.createVertex(data: vasileostrovskaya.id)
         drawSmallStations(name: "",x: 40,y: 288, color: .green, id: vasileostrovskaya.id)
         drawLabel(name: vasileostrovskaya.name, x: 46, y: 281, color: .black)
         graph.add(from: primorskayaV, to: vasileostrovskayaV, weight: 6)
         
         let gostiniyDvor = Station(id: 56, name: "Гостиный двор")
-        let gostiniyDvorV = graph.createVertex(data: gostiniyDvor)
+        let gostiniyDvorV = graph.createVertex(data: gostiniyDvor.id)
         drawBigStations(name: "",x: 155, y: 294, color: .green, id: gostiniyDvor.id)
         drawLabel(name: gostiniyDvor.name, x: 175, y: 308, color: .green)
         graph.add(from: vasileostrovskayaV, to: gostiniyDvorV, weight: 6)
         graph.add(from: nevskiyProspectV, to: gostiniyDvorV, weight: 4)
         
         let mayakovskaya = Station(id: 57, name: "Маяковская")
-        let mayakovskayaV = graph.createVertex(data: mayakovskaya)
+        let mayakovskayaV = graph.createVertex(data: mayakovskaya.id)
         drawBigStations(name: "", x: 245, y: 294, color: .green, id: mayakovskaya.id)
         drawLabel(name: mayakovskaya.name, x: 265, y: 306, color: .green)
         graph.add(from: gostiniyDvorV, to: mayakovskayaV, weight: 5)
         graph.add(from: ploshadVosstaniyaV, to: mayakovskayaV, weight: 3)
         
         let ploshadAlexandraNevskogo1 = Station(id: 58, name: "Площадь Александра Невского 1")
-        let ploshadAlexandraNevskogo1V = graph.createVertex(data: ploshadAlexandraNevskogo1)
+        let ploshadAlexandraNevskogo1V = graph.createVertex(data: ploshadAlexandraNevskogo1.id)
         drawBigStations(name: "", x: 295, y: 375, color: .green, id: ploshadAlexandraNevskogo1.id)
         drawLabel(name: ploshadAlexandraNevskogo1.name, x: 320, y: 375, color: .green)
         graph.add(from: mayakovskayaV, to: ploshadAlexandraNevskogo1V, weight: 5)
         
         let elizarovskaya = Station(id: 59, name: "Елизаровская")
-        let elizarovskayaV = graph.createVertex(data: elizarovskaya)
+        let elizarovskayaV = graph.createVertex(data: elizarovskaya.id)
         drawSmallStations(name: elizarovskaya.name,x: 300,y: 560, color: .green, id: elizarovskaya.id)
         graph.add(from: ploshadAlexandraNevskogo1V, to: elizarovskayaV, weight: 6)
         
         let lomonosovskaya = Station(id: 60, name: "Ломоносовская")
-        let lomonosovskayaV = graph.createVertex(data: lomonosovskaya)
+        let lomonosovskayaV = graph.createVertex(data: lomonosovskaya.id)
         drawSmallStations(name: lomonosovskaya.name,x: 300,y: 590, color: .green, id: lomonosovskaya.id)
         graph.add(from: elizarovskayaV, to: lomonosovskayaV, weight: 5)
         
         let proletarskaya = Station(id: 61, name: "Пролетарская")
-        let proletarskayaV = graph.createVertex(data: proletarskaya)
+        let proletarskayaV = graph.createVertex(data: proletarskaya.id)
         drawSmallStations(name: proletarskaya.name,x: 300,y: 620, color: .green, id: proletarskaya.id)
         graph.add(from: lomonosovskayaV, to: proletarskayaV, weight: 6)
         
         let obuhovo = Station(id: 62, name: "Обухово")
-        let obuhovoV = graph.createVertex(data: obuhovo)
+        let obuhovoV = graph.createVertex(data: obuhovo.id)
         drawSmallStations(name: obuhovo.name,x: 300,y: 650, color: .green, id: obuhovo.id)
         graph.add(from: proletarskayaV, to: obuhovoV, weight: 5)
         
         let rybatskoe = Station(id: 63, name: "Рыбацкое")
-        let rybatskoeV = graph.createVertex(data: rybatskoe)
+        let rybatskoeV = graph.createVertex(data: rybatskoe.id)
         drawSmallStations(name: rybatskoe.name,x: 300,y: 680, color: .green, id: rybatskoe.id)
         graph.add(from: obuhovoV, to: rybatskoeV, weight: 6)
         
         // рисуем оранжевую ветку - станции
         let spasskaya = Station(id: 64, name: "Спасская")
-        let spasskayaV = graph.createVertex(data: spasskaya)
+        let spasskayaV = graph.createVertex(data: spasskaya.id)
         drawBigStations(name: "",x: 155, y: 344, color: .orange, id: spasskaya.id)
         drawLabel(name: spasskaya.name, x: 122, y: 368, color: .orange)
         graph.add(from: sennayaPloshadV, to: spasskayaV, weight: 4)
         graph.add(from: sadovayaV, to: spasskayaV, weight: 3)
         
         let dostoevskaya = Station(id: 65, name: "Достоевская")
-        let dostoevskayaV = graph.createVertex(data: dostoevskaya)
+        let dostoevskayaV = graph.createVertex(data: dostoevskaya.id)
         drawBigStations(name: "", x: 235, y: 344, color: .orange, id: dostoevskaya.id)
         drawLabel(name: dostoevskaya.name, x: 257, y: 356, color: .orange)
         graph.add(from: spasskayaV, to: dostoevskayaV, weight: 6)
         graph.add(from: vladimirskayaV, to: dostoevskayaV, weight: 3)
         
         let ligovskiyProspect = Station(id: 66, name: "Лиговский проспект")
-        let ligovskiyProspectV = graph.createVertex(data: ligovskiyProspect)
+        let ligovskiyProspectV = graph.createVertex(data: ligovskiyProspect.id)
         drawSmallStations(name: "",x: 265,y: 375, color: .orange, id: ligovskiyProspect.id)
         drawLigovskyProspectStation(name: ligovskiyProspect.name, x: 237, y: 385, color: .orange)
         graph.add(from: dostoevskayaV, to: ligovskiyProspectV, weight: 4)
         
         let ploshadAlexandraNevskogo2 = Station(id: 67, name: "Площадь Александра Невского 2")
-        let ploshadAlexandraNevskogo2V = graph.createVertex(data: ploshadAlexandraNevskogo2)
+        let ploshadAlexandraNevskogo2V = graph.createVertex(data: ploshadAlexandraNevskogo2.id)
         drawBigStations(name: "", x: 295, y: 375, color: .orange, id: ploshadAlexandraNevskogo2.id)
         drawLabel(name: ploshadAlexandraNevskogo2.name, x: 320, y: 390, color: .orange)
         graph.add(from: ligovskiyProspectV, to: ploshadAlexandraNevskogo2V, weight: 4)
         graph.add(from: ploshadAlexandraNevskogo1V, to: ploshadAlexandraNevskogo2V, weight: 3)
         
         let novocherkasskaya = Station(id: 68, name: "Новочеркасская")
-        let novocherkasskayaV = graph.createVertex(data: novocherkasskaya)
+        let novocherkasskayaV = graph.createVertex(data: novocherkasskaya.id)
         drawSmallStations(name: novocherkasskaya.name,x: 310,y: 450, color: .orange, id: novocherkasskaya.id)
         graph.add(from: ploshadAlexandraNevskogo2V, to: novocherkasskayaV, weight: 5)
         
         let ladoshzkaya = Station(id: 69, name: "Ладожская")
-        let ladoshzkayaV = graph.createVertex(data: ladoshzkaya)
+        let ladoshzkayaV = graph.createVertex(data: ladoshzkaya.id)
         drawSmallStations(name: ladoshzkaya.name,x: 310,y: 480, color: .orange, id: ladoshzkaya.id)
         graph.add(from: novocherkasskayaV, to: ladoshzkayaV, weight: 5)
         
         let prospectBolshevikov = Station(id: 70, name: "Проспект Большевиков")
-        let prospectBolshevikovV = graph.createVertex(data: prospectBolshevikov)
+        let prospectBolshevikovV = graph.createVertex(data: prospectBolshevikov.id)
         drawSmallStations(name: prospectBolshevikov.name,x: 310,y: 500, color: .orange, id: prospectBolshevikov.id)
         graph.add(from: ladoshzkayaV, to: prospectBolshevikovV, weight: 5)
         
         let dybenko = Station(id: 71, name: "Дыбенко")
-        let dybenkoV = graph.createVertex(data: dybenko)
+        let dybenkoV = graph.createVertex(data: dybenko.id)
         drawSmallStations(name: dybenko.name,x: 310,y: 540, color: .orange, id: dybenko.id)
         graph.add(from: prospectBolshevikovV, to: dybenkoV, weight: 5)
         
@@ -655,7 +655,8 @@ class BezierCurves: UIView {
         edgeOrange.stroke()
         
         fillAllVertexes()
-        DeikstraAlgorithm(from: parnasV.data.id, to: chernayaRechkaV.data.id)
+        DeikstraAlgorithm(from: parnasV.data, to: chernayaRechkaV.data)
+        
         
               
         

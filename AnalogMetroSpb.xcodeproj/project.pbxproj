@@ -15,8 +15,8 @@
 		845E5D0E26C692E9009BFB0B /* AnalogMetroSpb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 845E5D0C26C692E9009BFB0B /* AnalogMetroSpb.xcdatamodeld */; };
 		845E5D1026C692EC009BFB0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845E5D0F26C692EC009BFB0B /* Assets.xcassets */; };
 		845E5D1326C692EC009BFB0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845E5D1126C692EC009BFB0B /* LaunchScreen.storyboard */; };
-		84A7B37126CB9A4400476A60 /* Graphs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A7B37026CB9A4400476A60 /* Graphs.swift */; };
-		84A7B39826CBAF8300476A60 /* BezierCurves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A7B39726CBAF8300476A60 /* BezierCurves.swift */; };
+		84A7B37126CB9A4400476A60 /* Graph and algorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A7B37026CB9A4400476A60 /* Graph and algorithm.swift */; };
+		84A7B39826CBAF8300476A60 /* Painting MetroMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A7B39726CBAF8300476A60 /* Painting MetroMap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +30,8 @@
 		845E5D0F26C692EC009BFB0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		845E5D1226C692EC009BFB0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		845E5D1426C692EC009BFB0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84A7B37026CB9A4400476A60 /* Graphs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graphs.swift; sourceTree = "<group>"; };
-		84A7B39726CBAF8300476A60 /* BezierCurves.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezierCurves.swift; sourceTree = "<group>"; };
+		84A7B37026CB9A4400476A60 /* Graph and algorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph and algorithm.swift"; sourceTree = "<group>"; };
+		84A7B39726CBAF8300476A60 /* Painting MetroMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Painting MetroMap.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +50,7 @@
 			children = (
 				845E5D0226C692E8009BFB0B /* AnalogMetroSpb */,
 				845E5D0126C692E8009BFB0B /* Products */,
+				847417B72700B22B00C0A841 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,8 +68,8 @@
 				845E5D0326C692E8009BFB0B /* AppDelegate.swift */,
 				845E5D0526C692E8009BFB0B /* SceneDelegate.swift */,
 				845E5D0726C692E8009BFB0B /* ViewController.swift */,
-				84A7B37026CB9A4400476A60 /* Graphs.swift */,
-				84A7B39726CBAF8300476A60 /* BezierCurves.swift */,
+				84A7B37026CB9A4400476A60 /* Graph and algorithm.swift */,
+				84A7B39726CBAF8300476A60 /* Painting MetroMap.swift */,
 				845E5D0926C692E9009BFB0B /* Main.storyboard */,
 				845E5D0F26C692EC009BFB0B /* Assets.xcassets */,
 				845E5D1126C692EC009BFB0B /* LaunchScreen.storyboard */,
@@ -77,6 +78,13 @@
 				843F17B926CCE32300E1B23E /* MapScrollView.swift */,
 			);
 			path = AnalogMetroSpb;
+			sourceTree = "<group>";
+		};
+		847417B72700B22B00C0A841 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,11 +157,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84A7B39826CBAF8300476A60 /* BezierCurves.swift in Sources */,
+				84A7B39826CBAF8300476A60 /* Painting MetroMap.swift in Sources */,
 				845E5D0826C692E8009BFB0B /* ViewController.swift in Sources */,
 				845E5D0E26C692E9009BFB0B /* AnalogMetroSpb.xcdatamodeld in Sources */,
 				845E5D0426C692E8009BFB0B /* AppDelegate.swift in Sources */,
-				84A7B37126CB9A4400476A60 /* Graphs.swift in Sources */,
+				84A7B37126CB9A4400476A60 /* Graph and algorithm.swift in Sources */,
 				843F17BA26CCE32400E1B23E /* MapScrollView.swift in Sources */,
 				845E5D0626C692E8009BFB0B /* SceneDelegate.swift in Sources */,
 			);

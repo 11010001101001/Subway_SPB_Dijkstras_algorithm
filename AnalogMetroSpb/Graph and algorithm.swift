@@ -7,20 +7,20 @@ struct Station : Hashable {
     var name : String
 }
 
-struct Vertex<T> { // вершины графа - станции
-    let data : T
-    var visited = false
+struct Vertex { // вершины графа - станции
+    var data : Int
+    var visited : Bool = false
 }
 
 
-struct Edge<T> { // ребра графа - ж/д пути
-    let source : Vertex<T>  // станция от которой берет начало путь
-    let destination : Vertex<T>  // станция к которой прибудем
+struct Edge { // ребра графа - ж/д пути
+    let source : Int  // станция от которой берет начало путь
+    let destination : Int  // станция к которой прибудем
     let weight : Int
 }
 
-extension Vertex : Hashable where T : Hashable {}
-extension Vertex : Equatable where T : Equatable {}
+extension Vertex : Hashable{}
+extension Vertex : Equatable{}
 extension Vertex : CustomStringConvertible {
     var description : String {
         return "\(data)"
@@ -29,30 +29,25 @@ extension Vertex : CustomStringConvertible {
 }
 
 protocol Graph {
-    associatedtype Element
-    func createVertex(data: Element) -> Vertex<Element>
-    func add(from source: Vertex<Element>, to destination: Vertex<Element>, weight: Int)
-    func edges(from source: Vertex<Element>) -> [Edge<Element>]
+
+    func createVertex(data: Int) -> Vertex
+    func add(from source: Vertex, to destination: Vertex, weight: Int)
 }
 
-class AdjacencyList <T:Hashable>: Graph {
+class AdjacencyList : Graph {
     
-    var adjacencies : [Vertex<T>:[Edge<T>]] = [:] //  словарь где ключ - вершина а значение - массив ребер или ребро у которого ( рых ) есть weight
+    var adjacencies : [Vertex:[Edge]] = [:] //  словарь где ключ - индекс вершины, а значение - массив ребер или ребро у которого ( рых ) есть weight
     init() {}
     
-    func createVertex(data: T) -> Vertex<T> {
+    func createVertex(data: Int) -> Vertex {
         let vertex = Vertex(data: data, visited: false)
         adjacencies[vertex] = []
         return vertex
     }
     
-    func add(from source:Vertex<T>, to destination: Vertex<T>, weight: Int) {
-        let edge = Edge(source: source, destination: destination, weight: weight)
+    func add(from source:Vertex, to destination: Vertex, weight: Int) {
+        let edge = Edge(source: source.data, destination: destination.data, weight: weight)
         adjacencies[source]?.append(edge)
-    }
-    
-    func edges(from source: Vertex<T>) -> [Edge<T>] {
-        return adjacencies[source] ?? []
     }
     
     
@@ -81,9 +76,9 @@ extension AdjacencyList: CustomStringConvertible { // визуализация �
 
 // Алгоритм Дейкстры
 
-let graph = AdjacencyList<Station>()  // это граф
+let graph = AdjacencyList()  // это граф
 
-var allVertexes : [(Vertex<Station>,[Edge<Station>])] = [] // массив всех вершин графа в виде массива кортежей
+var allVertexes : [(Vertex,[Edge])] = [] // массив всех вершин графа в виде массива кортежей
 
 func fillAllVertexes() {
     for (key,value) in graph.adjacencies {
@@ -101,7 +96,7 @@ func Deikstra(from: Int, to: Int) -> [Int] {
         
         var best = -1
         
-        for index in 0..<allVertexes.count-1 { // цикл который ищет лучшую вершину по расстоянию
+        for index in 0..<allVertexes.count - 1 { // цикл который ищет лучшую вершину по расстоянию
             
             if allVertexes[index].0.visited == false && (best == -1 || distances[index] < distances[best]) {
                 best = index // в best получили индекс вершины с наименьшим расстоянием
@@ -111,7 +106,7 @@ func Deikstra(from: Int, to: Int) -> [Int] {
         allVertexes[best].0.visited = true
         
         for edge in allVertexes[best].1 { // цикл по ребрам найденной вершины
-            let k = edge.destination.data.id
+            let k = edge.destination
             let w = edge.weight
             
             if distances[k] < distances[best] + w { // обновляем массив пути parent только если улучшили дистанцию, для конкретной вершины k устанавливаем родителя best ; также проверим, что новая дистанция меньше старой и в таком случае обновим дистанцию и родителя для вершины k.
