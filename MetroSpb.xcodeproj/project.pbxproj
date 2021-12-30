@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		843F17BA26CCE32400E1B23E /* MapScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F17B926CCE32300E1B23E /* MapScrollView.swift */; };
+		843C8D26277C94F70011F30E /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C8D25277C94F70011F30E /* DetailsViewController.swift */; };
 		845E5D0426C692E8009BFB0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E5D0326C692E8009BFB0B /* AppDelegate.swift */; };
 		845E5D0626C692E8009BFB0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E5D0526C692E8009BFB0B /* SceneDelegate.swift */; };
 		845E5D0826C692E8009BFB0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E5D0726C692E8009BFB0B /* ViewController.swift */; };
@@ -15,13 +15,19 @@
 		845E5D0E26C692E9009BFB0B /* AnalogMetroSpb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 845E5D0C26C692E9009BFB0B /* AnalogMetroSpb.xcdatamodeld */; };
 		845E5D1026C692EC009BFB0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845E5D0F26C692EC009BFB0B /* Assets.xcassets */; };
 		845E5D1326C692EC009BFB0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845E5D1126C692EC009BFB0B /* LaunchScreen.storyboard */; };
-		84A7B37126CB9A4400476A60 /* Graph and algorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A7B37026CB9A4400476A60 /* Graph and algorithm.swift */; };
-		84A7B39826CBAF8300476A60 /* Painting MetroMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A7B39726CBAF8300476A60 /* Painting MetroMap.swift */; };
+		8486D313277D2EBA004AED60 /* DijkstrasAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486D312277D2EBA004AED60 /* DijkstrasAlgorithm.swift */; };
+		84A7B37126CB9A4400476A60 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A7B37026CB9A4400476A60 /* Model.swift */; };
+		84A7B39826CBAF8300476A60 /* BezierCurves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A7B39726CBAF8300476A60 /* BezierCurves.swift */; };
+		84E88CFA2778A51600878C39 /* BigStationsFunc .swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E88CF92778A51600878C39 /* BigStationsFunc .swift */; };
+		84E88CFC2778A67B00878C39 /* SmallStationsFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E88CFB2778A67B00878C39 /* SmallStationsFunc.swift */; };
+		84E88D002778BB2400878C39 /* VertexesAndEdgesAddingToGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E88CFF2778BB2400878C39 /* VertexesAndEdgesAddingToGraph.swift */; };
+		84E88D022778D6D900878C39 /* GraphAndEdgesCreationFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E88D012778D6D900878C39 /* GraphAndEdgesCreationFunc.swift */; };
+		84E88D042778D80400878C39 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E88D032778D80400878C39 /* Graph.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		843F17B926CCE32300E1B23E /* MapScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScrollView.swift; sourceTree = "<group>"; };
-		845E5D0026C692E8009BFB0B /* AnalogMetroSpb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnalogMetroSpb.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		843C8D25277C94F70011F30E /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		845E5D0026C692E8009BFB0B /* MetroSpb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetroSpb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		845E5D0326C692E8009BFB0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		845E5D0526C692E8009BFB0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		845E5D0726C692E8009BFB0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -30,8 +36,14 @@
 		845E5D0F26C692EC009BFB0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		845E5D1226C692EC009BFB0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		845E5D1426C692EC009BFB0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84A7B37026CB9A4400476A60 /* Graph and algorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph and algorithm.swift"; sourceTree = "<group>"; };
-		84A7B39726CBAF8300476A60 /* Painting MetroMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Painting MetroMap.swift"; sourceTree = "<group>"; };
+		8486D312277D2EBA004AED60 /* DijkstrasAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DijkstrasAlgorithm.swift; sourceTree = "<group>"; };
+		84A7B37026CB9A4400476A60 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		84A7B39726CBAF8300476A60 /* BezierCurves.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezierCurves.swift; sourceTree = "<group>"; };
+		84E88CF92778A51600878C39 /* BigStationsFunc .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BigStationsFunc .swift"; sourceTree = "<group>"; };
+		84E88CFB2778A67B00878C39 /* SmallStationsFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallStationsFunc.swift; sourceTree = "<group>"; };
+		84E88CFF2778BB2400878C39 /* VertexesAndEdgesAddingToGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VertexesAndEdgesAddingToGraph.swift; sourceTree = "<group>"; };
+		84E88D012778D6D900878C39 /* GraphAndEdgesCreationFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphAndEdgesCreationFunc.swift; sourceTree = "<group>"; };
+		84E88D032778D80400878C39 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,14 +62,13 @@
 			children = (
 				845E5D0226C692E8009BFB0B /* AnalogMetroSpb */,
 				845E5D0126C692E8009BFB0B /* Products */,
-				847417B72700B22B00C0A841 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		845E5D0126C692E8009BFB0B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				845E5D0026C692E8009BFB0B /* AnalogMetroSpb.app */,
+				845E5D0026C692E8009BFB0B /* MetroSpb.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,32 +78,39 @@
 			children = (
 				845E5D0326C692E8009BFB0B /* AppDelegate.swift */,
 				845E5D0526C692E8009BFB0B /* SceneDelegate.swift */,
-				845E5D0726C692E8009BFB0B /* ViewController.swift */,
-				84A7B37026CB9A4400476A60 /* Graph and algorithm.swift */,
-				84A7B39726CBAF8300476A60 /* Painting MetroMap.swift */,
+				84E88CF82778A1A900878C39 /* MVC */,
 				845E5D0926C692E9009BFB0B /* Main.storyboard */,
-				845E5D0F26C692EC009BFB0B /* Assets.xcassets */,
 				845E5D1126C692EC009BFB0B /* LaunchScreen.storyboard */,
+				845E5D0F26C692EC009BFB0B /* Assets.xcassets */,
 				845E5D1426C692EC009BFB0B /* Info.plist */,
 				845E5D0C26C692E9009BFB0B /* AnalogMetroSpb.xcdatamodeld */,
-				843F17B926CCE32300E1B23E /* MapScrollView.swift */,
 			);
 			path = AnalogMetroSpb;
 			sourceTree = "<group>";
 		};
-		847417B72700B22B00C0A841 /* Frameworks */ = {
+		84E88CF82778A1A900878C39 /* MVC */ = {
 			isa = PBXGroup;
 			children = (
+				845E5D0726C692E8009BFB0B /* ViewController.swift */,
+				843C8D25277C94F70011F30E /* DetailsViewController.swift */,
+				84A7B39726CBAF8300476A60 /* BezierCurves.swift */,
+				84E88CFB2778A67B00878C39 /* SmallStationsFunc.swift */,
+				84E88CF92778A51600878C39 /* BigStationsFunc .swift */,
+				84E88CFF2778BB2400878C39 /* VertexesAndEdgesAddingToGraph.swift */,
+				84E88D012778D6D900878C39 /* GraphAndEdgesCreationFunc.swift */,
+				84A7B37026CB9A4400476A60 /* Model.swift */,
+				84E88D032778D80400878C39 /* Graph.swift */,
+				8486D312277D2EBA004AED60 /* DijkstrasAlgorithm.swift */,
 			);
-			name = Frameworks;
+			path = MVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		845E5CFF26C692E8009BFB0B /* AnalogMetroSpb */ = {
+		845E5CFF26C692E8009BFB0B /* MetroSpb */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 845E5D1726C692EC009BFB0B /* Build configuration list for PBXNativeTarget "AnalogMetroSpb" */;
+			buildConfigurationList = 845E5D1726C692EC009BFB0B /* Build configuration list for PBXNativeTarget "MetroSpb" */;
 			buildPhases = (
 				845E5CFC26C692E8009BFB0B /* Sources */,
 				845E5CFD26C692E8009BFB0B /* Frameworks */,
@@ -102,9 +120,9 @@
 			);
 			dependencies = (
 			);
-			name = AnalogMetroSpb;
+			name = MetroSpb;
 			productName = AnalogMetroSpb;
-			productReference = 845E5D0026C692E8009BFB0B /* AnalogMetroSpb.app */;
+			productReference = 845E5D0026C692E8009BFB0B /* MetroSpb.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -121,7 +139,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 845E5CFB26C692E8009BFB0B /* Build configuration list for PBXProject "AnalogMetroSpb" */;
+			buildConfigurationList = 845E5CFB26C692E8009BFB0B /* Build configuration list for PBXProject "MetroSpb" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -134,7 +152,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				845E5CFF26C692E8009BFB0B /* AnalogMetroSpb */,
+				845E5CFF26C692E8009BFB0B /* MetroSpb */,
 			);
 		};
 /* End PBXProject section */
@@ -157,13 +175,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84A7B39826CBAF8300476A60 /* Painting MetroMap.swift in Sources */,
+				84E88D022778D6D900878C39 /* GraphAndEdgesCreationFunc.swift in Sources */,
+				84A7B39826CBAF8300476A60 /* BezierCurves.swift in Sources */,
 				845E5D0826C692E8009BFB0B /* ViewController.swift in Sources */,
 				845E5D0E26C692E9009BFB0B /* AnalogMetroSpb.xcdatamodeld in Sources */,
 				845E5D0426C692E8009BFB0B /* AppDelegate.swift in Sources */,
-				84A7B37126CB9A4400476A60 /* Graph and algorithm.swift in Sources */,
-				843F17BA26CCE32400E1B23E /* MapScrollView.swift in Sources */,
+				84E88D042778D80400878C39 /* Graph.swift in Sources */,
+				84E88CFA2778A51600878C39 /* BigStationsFunc .swift in Sources */,
+				8486D313277D2EBA004AED60 /* DijkstrasAlgorithm.swift in Sources */,
+				84E88D002778BB2400878C39 /* VertexesAndEdgesAddingToGraph.swift in Sources */,
+				84A7B37126CB9A4400476A60 /* Model.swift in Sources */,
+				84E88CFC2778A67B00878C39 /* SmallStationsFunc.swift in Sources */,
 				845E5D0626C692E8009BFB0B /* SceneDelegate.swift in Sources */,
+				843C8D26277C94F70011F30E /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,7 +370,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		845E5CFB26C692E8009BFB0B /* Build configuration list for PBXProject "AnalogMetroSpb" */ = {
+		845E5CFB26C692E8009BFB0B /* Build configuration list for PBXProject "MetroSpb" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				845E5D1526C692EC009BFB0B /* Debug */,
@@ -355,7 +379,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		845E5D1726C692EC009BFB0B /* Build configuration list for PBXNativeTarget "AnalogMetroSpb" */ = {
+		845E5D1726C692EC009BFB0B /* Build configuration list for PBXNativeTarget "MetroSpb" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				845E5D1826C692EC009BFB0B /* Debug */,
