@@ -15,7 +15,7 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
         stack.distribution = .fillEqually
         return stack
     }()
-    // MARK: построение кратчайшего пути и его анимация:
+    // MARK: building the shortest way plus launching its animation
     private let builtPathbutton: UIButton = {
         let btn = UIButton()
         btn.setTitle("Построить", for: .normal)
@@ -59,6 +59,7 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
         Singleton.graph.path.removeAll()
         Singleton.graph.detailsInfoArr.removeAll()
     }
+    // MARK: if we make popover presenting without NavVC - its one behavior, but for now - another, you can play with that by yourself 
     private let detailsButton: UIButton = {
         let btn = UIButton()
         btn.setTitle("Подробнее (ಠ_ಠ)", for: .normal)

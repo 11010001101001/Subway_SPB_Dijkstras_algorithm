@@ -30,9 +30,9 @@ extension Vertex : CustomStringConvertible {
 struct Singleton {
     
     static let vc = ViewController()
-    // MARK: граф
+    // MARK: graph
     static let graph = AdjacencyList<Station>()
-    // MARK: все вершины
+    // MARK: all vertexes array 
     static var allVertexes: [Vertex<Station>] = []
     static var pathWay: [Int] = [] { 
         didSet {

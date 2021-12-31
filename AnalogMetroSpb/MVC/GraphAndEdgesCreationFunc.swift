@@ -4,19 +4,19 @@ import Foundation
 
 @available(iOS 15.0, *)
 extension BezierCurves {
-    // MARK: объединяем все графы и ребра в единый граф вместе с переходами
+    // MARK: "union" func for all stuff
     func createGraph() {
-        // MARK: добавляем вершины графа и ребра между ними для синей ветки
+        // MARK: adding vertexes and edges for blue line
         addVertexesAndEdgesToGraph(arrStations: blueStationsArr, arrWeights: weightStoreBlueLine)
-        // MARK: добавляем вершины графа и ребра между ними для красной ветки
+        // MARK: adding vertexes and edges for red line
         addVertexesAndEdgesToGraph(arrStations: redStationsArr, arrWeights: weightStoreRedLine)
-        // MARK: добавляем вершины графа и ребра между ними для фиолетовой ветки
+        // MARK: adding vertexes and edges for purple line
         addVertexesAndEdgesToGraph(arrStations: purpleStationsArr, arrWeights: weightStorePurpleLine)
-        // MARK: добавляем вершины графа и ребра между ними для зеленой ветки
+        // MARK: adding vertexes and edges for green line
         addVertexesAndEdgesToGraph(arrStations: greenStationsArr, arrWeights: weightStoreGreenLine)
-        // MARK: добавляем вершины графа и ребра между ними для оранжевой ветки
+        // MARK: adding vertexes and edges for orange line
         addVertexesAndEdgesToGraph(arrStations: orangeStationsArr, arrWeights: weightStoreOrangeLine)
-        // MARK: добавляем переходы для каждой вершины прямым вызовом метода
+        // MARK: adding stations connections 
         addTransitionWays()
     }
 }

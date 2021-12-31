@@ -3,13 +3,13 @@ import UIKit
 @available(iOS 15.0, *)
 final class BezierCurves: UIView {
     
-    // MARK: массив весов с 1 по 72 станцию по порядку - списал в яндекс картах не поленился =) (длительность в пути в минутах)
+    // MARK: weights arrays from 1 to 72nd station - real data  from yandex maps in minutes
     lazy var weightStoreBlueLine : [Int] = [5,4,5,5,5,6,4,6,4,4,4,5,4,4,5,7,5]
     lazy var weightStoreRedLine: [Int] = [6,4,4,5,5,5,5,5,4,4,4,4,5,6,4,5,4,6]
     lazy var weightStorePurpleLine: [Int] = [5,4,5,4,5,5,5,5,5,4,5,5,6,6]
     lazy var weightStoreGreenLine: [Int] = [6,5,5,6,5,6,5,6,6,4,4]
     lazy var weightStoreOrangeLine: [Int] = [5,5,5,4,4,5,6]
-    // MARK: массив станций, созданный при отрисовке
+    // MARK: stations arrays devided on lines
     lazy var blueStationsArr: [Station] = []
     lazy var redStationsArr: [Station] = []
     lazy var purpleStationsArr: [Station] = []
@@ -19,7 +19,7 @@ final class BezierCurves: UIView {
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         
-        // MARK: рисуем синюю ветку - станции
+        // MARK: draw blue line - stations
         drawSmallStations(name: "Парнас",x: 160,y: 24,color: .blue, id: 1)
         drawSmallStations(name: "Проспект просвещения",x: 160,y: 54, color: .blue, id: 2)
         drawSmallStations(name: "Озерки",x: 160,y: 84, color: .blue, id: 3)
@@ -38,7 +38,7 @@ final class BezierCurves: UIView {
         drawSmallStations(name: "Московская",x: 160,y: 600, color: .blue, id: 16)
         drawSmallStations(name: "Звездная",x: 160,y: 630, color: .blue, id: 17)
         drawSmallStations(name: "Купчино",x: 160,y: 660, color: .blue, id: 18)
-        // MARK: рисуем красную ветку - станции
+        // MARK: draw red line - stations
         drawSmallStations(name: "Девяткино",x: 250, y: 50,color: .red, id: 19)
         drawSmallStations(name: "Гражданский проспект",x: 250, y: 80,color: .red, id: 20)
         drawSmallStations(name: "Академическая",x: 250, y: 110,color: .red, id: 21)
@@ -58,7 +58,7 @@ final class BezierCurves: UIView {
         drawSmallStations(name: "Автово",x: 80, y: 570,color: .red, id: 35)
         drawSmallStations(name: "Ленинский проспект",x: 80, y: 600,color: .red, id: 36)
         drawSmallStations(name: "Проспект Ветеранов",x: 80, y: 630,color: .red, id: 37)
-        // MARK: рисуем фиолетовую ветку - станции
+        // MARK: draw purple line - stations
         drawSmallStations(name: "Комендантский проспект",x: 80,y: 120, color: .purple, id: 38)
         drawSmallStations(name: "Старая деревня",x: 80,y: 150, color: .purple, id: 39)
         drawSmallStations(name: "Крестовский остров",x: 80,y: 170, color: .purple, id: 40)
@@ -74,7 +74,7 @@ final class BezierCurves: UIView {
         drawSmallStations(name: "Проспект Славы",x: 236,y: 600, color: .purple, id: 50)
         drawSmallStations(name: "Дунайская",x: 236,y: 630, color: .purple, id: 51)
         drawSmallStations(name: "Шушары",x: 236,y: 660, color: .purple, id: 52)
-        // MARK: рисуем зеленую ветку - станции
+        // MARK: draw green line - stations
         drawSmallStations(name: "Беговая",x: 10,y: 224, color: .green, id: 53)
         drawSmallStations(name: "Зенит",x: 20,y: 244, color: .green, id: 54)
         drawSmallStations(name: "Приморская",x: 30,y: 266, color: .green, id: 55)
@@ -87,7 +87,7 @@ final class BezierCurves: UIView {
         drawSmallStations(name: "Пролетарская",x: 300,y: 620, color: .green, id: 62)
         drawSmallStations(name: "Обухово",x: 300,y: 650, color: .green, id: 63)
         drawSmallStations(name: "Рыбацкое",x: 300,y: 680, color: .green, id: 64)
-        // MARK: рисуем оранжевую ветку - станции
+        // MARK: draw orange line - stations
         drawBigStations(name: "Спасская",x: 155, y: 344, color: .orange, id: 65)
         drawBigStations(name: "Достоевская", x: 235, y: 344, color: .orange, id: 66)
         drawSmallStations(name: "Лиговский проспект",x: 265,y: 375, color: .orange, id: 67)
@@ -97,7 +97,7 @@ final class BezierCurves: UIView {
         drawSmallStations(name: "Проспект Большевиков",x: 310,y: 500, color: .orange, id: 71)
         drawSmallStations(name: "Дыбенко",x: 310,y: 540, color: .orange, id: 72)
         
-        // MARK: рисуем синюю ветку - пути
+        // MARK: draw blue line itself
         let edgeBlue = UIBezierPath()
         edgeBlue.move(to: CGPoint(x: 165,y: 26))
         edgeBlue.addLine(to: CGPoint(x: 165,y: 54))
@@ -106,7 +106,7 @@ final class BezierCurves: UIView {
         edgeBlue.addLine(to: CGPoint(x: 165,y: 144))
         edgeBlue.addLine(to: CGPoint(x: 165,y: 174))
         edgeBlue.addLine(to: CGPoint(x: 165,y: 224))
-        edgeBlue.addLine(to: CGPoint(x: 165,y: 254)) // Горьковская
+        edgeBlue.addLine(to: CGPoint(x: 165,y: 254))
         edgeBlue.addLine(to: CGPoint(x: 165,y: 294))
         edgeBlue.addLine(to: CGPoint(x: 165,y: 344))
         edgeBlue.addLine(to: CGPoint(x: 165,y: 450))
@@ -121,7 +121,7 @@ final class BezierCurves: UIView {
         UIColor.blue.setStroke()
         edgeBlue.lineWidth = 4.0
         edgeBlue.stroke()
-        // MARK: рисуем красную ветку - пути
+        // MARK: draw red line itself
         let edgeRed = UIBezierPath()
         edgeRed.move(to: CGPoint(x: 255,y: 52))
         edgeRed.addLine(to: CGPoint(x: 255,y: 80))
@@ -132,11 +132,11 @@ final class BezierCurves: UIView {
         edgeRed.addLine(to: CGPoint(x: 255,y: 220))
         edgeRed.addLine(to: CGPoint(x: 255,y: 240))
         edgeRed.addLine(to: CGPoint(x: 255,y: 260))
-        edgeRed.addLine(to: CGPoint(x: 255,y: 305)) // Площадь Восстания
-        edgeRed.addLine(to: CGPoint(x: 247,y: 350)) // Владимирская
-        edgeRed.addLine(to: CGPoint(x: 225,y: 410)) // Пушкинская
-        edgeRed.addLine(to: CGPoint(x: 160,y: 465)) // Техн инст 1
-        edgeRed.addLine(to: CGPoint(x: 85,y: 490)) // Балтийская
+        edgeRed.addLine(to: CGPoint(x: 255,y: 305))
+        edgeRed.addLine(to: CGPoint(x: 247,y: 350))
+        edgeRed.addLine(to: CGPoint(x: 225,y: 410))
+        edgeRed.addLine(to: CGPoint(x: 160,y: 465))
+        edgeRed.addLine(to: CGPoint(x: 85,y: 490))
         edgeRed.addLine(to: CGPoint(x: 85,y: 510))
         edgeRed.addLine(to: CGPoint(x: 85,y: 535))
         edgeRed.addLine(to: CGPoint(x: 85,y: 570))
@@ -146,51 +146,51 @@ final class BezierCurves: UIView {
         UIColor.red.setStroke()
         edgeRed.lineWidth = 4.0
         edgeRed.stroke()
-        // MARK: рисуем фиолетовую ветку - пути
+        // MARK: draw purple line itself
         let edgePurple = UIBezierPath()
         edgePurple.move(to: CGPoint(x: 85, y: 122))
         edgePurple.addLine(to: CGPoint(x: 85, y: 150))
         edgePurple.addLine(to: CGPoint(x: 85, y: 170))
         edgePurple.addLine(to: CGPoint(x: 85, y: 190))
-        edgePurple.addLine(to: CGPoint(x: 85, y: 215)) // Спортивная
-        edgePurple.addLine(to: CGPoint(x: 125, y: 325)) // адмиралтейская
-        edgePurple.addLine(to: CGPoint(x: 160, y: 350)) // садовая
-        edgePurple.addLine(to: CGPoint(x: 220, y: 405)) // Звенигородская
-        edgePurple.addLine(to: CGPoint(x: 241, y: 442)) // Обводный канал
+        edgePurple.addLine(to: CGPoint(x: 85, y: 215))
+        edgePurple.addLine(to: CGPoint(x: 125, y: 325))
+        edgePurple.addLine(to: CGPoint(x: 160, y: 350))
+        edgePurple.addLine(to: CGPoint(x: 220, y: 405))
+        edgePurple.addLine(to: CGPoint(x: 241, y: 442))
         edgePurple.addLine(to: CGPoint(x: 241, y: 510))
         edgePurple.addLine(to: CGPoint(x: 241, y: 540))
         edgePurple.addLine(to: CGPoint(x: 241, y: 570))
         edgePurple.addLine(to: CGPoint(x: 241, y: 600))
         edgePurple.addLine(to: CGPoint(x: 241, y: 630))
-        edgePurple.addLine(to: CGPoint(x: 241, y: 660)) // шушары
+        edgePurple.addLine(to: CGPoint(x: 241, y: 660))
         UIColor.purple.setFill()
         UIColor.purple.setStroke()
         edgePurple.lineWidth = 4.0
         edgePurple.stroke()
-        // MARK: рисуем зеленую ветку - пути
+        // MARK: draw green line itself
         let edgeGreen = UIBezierPath()
         edgeGreen.move(to: CGPoint(x: 13, y: 226)) // Беговая
         edgeGreen.addLine(to: CGPoint(x: 22, y: 244))
         edgeGreen.addLine(to: CGPoint(x: 33, y: 266))
         edgeGreen.addLine(to: CGPoint(x: 45, y: 294))
         edgeGreen.addLine(to: CGPoint(x: 160, y: 303))
-        edgeGreen.addLine(to: CGPoint(x: 255, y: 303)) // Маяковская
+        edgeGreen.addLine(to: CGPoint(x: 255, y: 303))
         edgeGreen.addLine(to: CGPoint(x: 305, y: 380))
-        edgeGreen.addLine(to: CGPoint(x: 305, y: 560)) // елизаровская
+        edgeGreen.addLine(to: CGPoint(x: 305, y: 560))
         edgeGreen.addLine(to: CGPoint(x: 305, y: 590))
         edgeGreen.addLine(to: CGPoint(x: 305, y: 620))
         edgeGreen.addLine(to: CGPoint(x: 305, y: 650))
-        edgeGreen.addLine(to: CGPoint(x: 305, y: 680)) // рыбацкое
+        edgeGreen.addLine(to: CGPoint(x: 305, y: 680))
         UIColor.green.setFill()
         UIColor.green.setStroke()
         edgeGreen.lineWidth = 4.0
         edgeGreen.stroke()
-        // MARK: рисуем оранжевую ветку - пути
+        // MARK: draw orange line itself
         let edgeOrange = UIBezierPath()
-        edgeOrange.move(to: CGPoint(x: 160, y: 354)) // Спасская
-        edgeOrange.addLine(to: CGPoint(x: 245, y: 354)) // Достоевская
-        edgeOrange.addLine(to: CGPoint(x: 270, y: 380)) // Лиговский проспект
-        edgeOrange.addLine(to: CGPoint(x: 305, y: 385)) // площадь Ал Невского 2
+        edgeOrange.move(to: CGPoint(x: 160, y: 354))
+        edgeOrange.addLine(to: CGPoint(x: 245, y: 354))
+        edgeOrange.addLine(to: CGPoint(x: 270, y: 380))
+        edgeOrange.addLine(to: CGPoint(x: 305, y: 385))
         edgeOrange.addLine(to: CGPoint(x: 315, y: 450))
         edgeOrange.addLine(to: CGPoint(x: 315, y: 480))
         edgeOrange.addLine(to: CGPoint(x: 315, y: 500))
@@ -200,7 +200,7 @@ final class BezierCurves: UIView {
         edgeOrange.lineWidth = 4.0
         edgeOrange.stroke()
         
-        //  MARK: спрячем пересечения линий за станциями:
+        //  MARK: let's hide lines crossings
         hide(165, 352, 7)
         hide(165, 303, 5)
         hide(165, 459, 5)
@@ -209,7 +209,7 @@ final class BezierCurves: UIView {
         hide(305, 384, 5)
         hide(224, 409, 5)
         
-        // MARK: создание графа и ребер
+        // MARK: create graph and edges 
         createGraph()
     }
     func hide(_ x: Int,_ y: Int,_ radius: CGFloat) {

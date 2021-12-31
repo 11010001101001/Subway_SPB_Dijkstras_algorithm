@@ -5,7 +5,7 @@ import UIKit
 @available(iOS 15.0, *)
 extension BezierCurves {
     
-    // MARK: рисуем большие станции с переходами
+    // MARK: draw big stations with connections to other ones 
     func drawBigStations(name: String,x: CGFloat, y:CGFloat,color: UIColor, id: Int) {
         
         let station = UIButton()

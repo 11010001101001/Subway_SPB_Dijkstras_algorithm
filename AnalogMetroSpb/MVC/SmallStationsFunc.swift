@@ -6,7 +6,7 @@ import UIKit
 @available(iOS 15.0, *)
 extension BezierCurves {
     
-    // MARK: рисуем мал станции
+    // MARK: small(no other stations connected i mean) stations drawing
     func drawSmallStations(name: String,x:CGFloat, y:CGFloat, color: UIColor, id: Int) {
         
         let station = UIButton(frame: CGRect(x: x, y: y, width: 10, height: 10))
@@ -41,7 +41,7 @@ extension BezierCurves {
         self.addSubview(station)
         self.addSubview(stationName)
     }
-    // MARK: закидываем в массив станции по id "поветочно"
+    // MARK: adding to arr stations filtered by id according to their lines
     func cleverAddingToStationsArr(id: Int, station: Station) {
         if id <= 18 {
             blueStationsArr.append(station)

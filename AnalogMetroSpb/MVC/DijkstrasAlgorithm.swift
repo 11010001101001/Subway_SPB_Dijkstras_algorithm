@@ -3,7 +3,7 @@ import Foundation
 
 
 extension AdjacencyList {
-    // MARK: Dijkstra's Algorithm - открываем, например, объяснение алгоритма профессором из Московского энергетического университета(для меня оказалось самым понятным), пишем сначала на листке по действиям что будем делать, потом переносим в код - тоже по действиям. Я использовал хеш таблицы практически для всех действий - быстро, удобно.  Изначально стартовая вершина это 0. Расстояние от нее до нее 0. Расстояние до других вершин неизвестное число, например, бесконечность. Далее двигаемся по ребрам, пока не посетим все вершины. Задача - на каждой итерации рассматривать соседние непосещенные вершины графа и улучшать, если это возможно, расстояние до них.
+    // MARK: Dijkstra's Algorithm 
     
     func dijkstrasAlgorithm(from: Vertex<Station>, to: Vertex<Station>) {
         
@@ -30,11 +30,11 @@ extension AdjacencyList {
                     if newDistance < (oldDistance ?? 0) {
                         self?.distancies[edge.destination] = newDistance
                         self?.distanciesCopy[edge.destination] = newDistance
-                        // MARK: Добавляем предыдущую вершину согласно кратчайшего пути
+                        // MARK: let's add previous vertex according to the shortest path
                         self?.pathDict[edge.destination] = edge.source
                     }
                 }
-                // MARK: помечаем вершину как посещенную удаляя ее:
+                // MARK: let's mark visited vertex by it's deleting from dict
                 self?.distancies.removeValue(forKey: smallestOne)
             }
         }
