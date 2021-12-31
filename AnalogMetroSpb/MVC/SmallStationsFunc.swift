@@ -13,7 +13,7 @@ extension BezierCurves {
         station.tag = id
         let stationZ = Station(id: id, name: name)
         cleverAddingToStationsArr(id: id, station: stationZ)
-        let newVertex = Vertex(data: stationZ, visited: false)
+        let newVertex = Vertex(data: stationZ)
         Singleton.allVertexes.append(newVertex)
         Singleton.graph.info[id] = name 
         
@@ -41,7 +41,7 @@ extension BezierCurves {
         self.addSubview(station)
         self.addSubview(stationName)
     }
-    
+    // MARK: закидываем в массив станции по id "поветочно"
     func cleverAddingToStationsArr(id: Int, station: Station) {
         if id <= 18 {
             blueStationsArr.append(station)

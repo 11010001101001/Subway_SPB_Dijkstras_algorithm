@@ -1,6 +1,6 @@
 import UIKit
 
-@available(iOS 15.0, *)
+
 final class DetailsViewController: UIViewController {
 
     var dataArr = [String]()
@@ -38,10 +38,6 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataArr.count 
     }
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        myTableView.deselectRow(at: indexPath, animated: true)
-//    }
 }
 
 final class CustomCell: UITableViewCell {

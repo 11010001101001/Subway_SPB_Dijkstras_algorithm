@@ -9,7 +9,6 @@ struct Station : Hashable {
 
 struct Vertex<T> {
     let data: T
-    var visited: Bool? = false 
 }
 
 struct Edge<T> {
@@ -27,7 +26,7 @@ extension Vertex : CustomStringConvertible {
 }
 
 
-@available(iOS 15.0, *)
+
 struct Singleton {
     
     static let vc = ViewController()

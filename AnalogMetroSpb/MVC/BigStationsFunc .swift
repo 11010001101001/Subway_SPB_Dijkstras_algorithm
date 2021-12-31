@@ -46,7 +46,7 @@ extension BezierCurves {
         station.tag = id
         let stationZ = Station(id: id, name: name)
         cleverAddingToStationsArr(id: id, station: stationZ)
-        let newVertex = Vertex(data: stationZ, visited: false)
+        let newVertex = Vertex(data: stationZ)
         Singleton.allVertexes.append(newVertex)
         Singleton.graph.bigStationsArrIds.insert(id)
         Singleton.graph.info[id] = name 

@@ -4,6 +4,7 @@ import UIKit
 
 @available(iOS 15.0, *)
 extension BezierCurves {
+    // MARK: Добавляем в граф вершины и ребра:
     func addVertexesAndEdgesToGraph(arrStations:[Station], arrWeights: [Int]) {
         for (index,value) in arrStations.enumerated() {
             let nextIndex = index + 1

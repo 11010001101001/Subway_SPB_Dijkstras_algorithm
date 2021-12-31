@@ -1,7 +1,7 @@
 import UIKit
 import Foundation
 
-@available(iOS 15.0, *)
+
 final class ViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var mapScrollView: UIScrollView!
@@ -15,7 +15,7 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
         stack.distribution = .fillEqually
         return stack
     }()
-    
+    // MARK: построение кратчайшего пути и его анимация:
     private let builtPathbutton: UIButton = {
         let btn = UIButton()
         btn.setTitle("Построить", for: .normal)
@@ -112,7 +112,9 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        removeAnimations()
+        Singleton.pathWay.removeAll()
+        Singleton.graph.path.removeAll()
+        Singleton.graph.detailsInfoArr.removeAll()
     }
     
     private func animatePath() {

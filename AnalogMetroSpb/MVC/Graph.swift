@@ -7,7 +7,7 @@ protocol Graph {
     func add(from source: Vertex<Element>, to destination: Vertex<Element>, weight: Int)
 }
 
-@available(iOS 15.0, *)
+
 final class AdjacencyList <T:Hashable>: Graph {
     
     var adjacencies: [Vertex<Station>:[Edge<Station>]] = [:]
