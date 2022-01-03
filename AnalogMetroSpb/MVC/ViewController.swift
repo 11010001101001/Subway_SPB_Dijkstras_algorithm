@@ -28,7 +28,7 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
     }()
     
     @objc private func findPath() {
-        if Singleton.pathWay.count == 2 {
+        if Singleton.pathWay.count == 2 && Singleton.graph.path.isEmpty {
             let fromId = Singleton.pathWay[0]
             let toId = Singleton.pathWay[1]
             Singleton.graph.dijkstrasAlgorithm(from: Vertex(data: Station(id: fromId,
@@ -51,13 +51,15 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
     }()
     
     @objc private func removeAnimations() {
-        for subview in map.subviews {
-            subview.layer.removeAllAnimations()
+        if !Singleton.pathWay.isEmpty {
+            for subview in map.subviews {
+                subview.layer.removeAllAnimations()
+            }
+            cancelButton.pulsate()
+            Singleton.pathWay.removeAll()
+            Singleton.graph.path.removeAll()
+            Singleton.graph.detailsInfoArr.removeAll()
         }
-        cancelButton.pulsate()
-        Singleton.pathWay.removeAll()
-        Singleton.graph.path.removeAll()
-        Singleton.graph.detailsInfoArr.removeAll()
     }
     // MARK: if we make popover presenting without NavVC - its one behavior, but for now - another, you can play with that by yourself 
     private let detailsButton: UIButton = {
@@ -86,9 +88,30 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
         menuStackView.addArrangedSubview(cancelButton)
         view.addSubview(menuStackView)
         view.addSubview(detailsButton)
+        setDoubleTap()
     }
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return map
+    }
+    private func setDoubleTap() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                          action: #selector(tap))
+        tapGestureRecognizer.numberOfTapsRequired = 2
+        map.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc private func tap() {
+        if self.mapScrollView.zoomScale == 1.0 {
+            UIView.animate(withDuration: 0.25,
+                           animations: {
+                self.mapScrollView.zoomScale = 2.0
+            })
+        } else {
+            UIView.animate(withDuration: 0.25,
+                           animations: {
+                self.mapScrollView.zoomScale = 1.0
+            })
+        }
     }
     
     override func viewDidLayoutSubviews() {

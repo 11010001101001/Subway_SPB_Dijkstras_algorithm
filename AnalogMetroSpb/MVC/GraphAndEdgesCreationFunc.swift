@@ -2,7 +2,7 @@ import Foundation
 
 
 
-@available(iOS 15.0, *)
+
 extension BezierCurves {
     // MARK: "union" func for all stuff
     func createGraph() {

@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 
-@available(iOS 15.0, *)
+
 extension BezierCurves {
     
     // MARK: draw big stations with connections to other ones 

@@ -1,6 +1,6 @@
 import UIKit
 
-@available(iOS 15.0, *)
+
 final class BezierCurves: UIView {
     
     // MARK: weights arrays from 1 to 72nd station - real data  from yandex maps in minutes
@@ -209,8 +209,10 @@ final class BezierCurves: UIView {
         hide(305, 384, 5)
         hide(224, 409, 5)
         
-        // MARK: create graph and edges 
-        createGraph()
+        // MARK: create graph and edges
+        if Singleton.allVertexes.count == 72 {
+            createGraph()
+        }
     }
     func hide(_ x: Int,_ y: Int,_ radius: CGFloat) {
         let circlePath = UIBezierPath(arcCenter: CGPoint(x: x, y: y),

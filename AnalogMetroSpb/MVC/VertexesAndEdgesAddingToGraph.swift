@@ -2,10 +2,11 @@ import Foundation
 import UIKit
 
 
-@available(iOS 15.0, *)
+
 extension BezierCurves {
     // MARK: Adding to graph vertexes and edges
     func addVertexesAndEdgesToGraph(arrStations:[Station], arrWeights: [Int]) {
+    
         for (index,value) in arrStations.enumerated() {
             let nextIndex = index + 1
             if nextIndex != arrStations.count {

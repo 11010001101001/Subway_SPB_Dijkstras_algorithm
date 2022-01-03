@@ -32,7 +32,8 @@ struct Singleton {
     static let vc = ViewController()
     // MARK: graph
     static let graph = AdjacencyList<Station>()
-    // MARK: all vertexes array 
+    // MARK: all vertexes array
+    static let map = BezierCurves()
     static var allVertexes: [Vertex<Station>] = []
     static var pathWay: [Int] = [] { 
         didSet {

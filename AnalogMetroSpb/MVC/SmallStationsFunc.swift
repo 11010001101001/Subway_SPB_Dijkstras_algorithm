@@ -3,7 +3,7 @@ import UIKit
 
 
 
-@available(iOS 15.0, *)
+
 extension BezierCurves {
     
     // MARK: small(no other stations connected i mean) stations drawing
