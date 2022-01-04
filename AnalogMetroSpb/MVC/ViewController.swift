@@ -89,6 +89,7 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
         view.addSubview(menuStackView)
         view.addSubview(detailsButton)
         setDoubleTap()
+        mapScrollView.contentInsetAdjustmentBehavior = .always
     }
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return map
@@ -116,16 +117,15 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        let inset: CGFloat = 10
-        menuStackView.frame = CGRect(x: view.bounds.minX + 10,
+        menuStackView.frame = CGRect(x: view.bounds.minX + view.safeAreaInsets.left,
                                      y: view.bounds.height/8*6,
-                                     width: view.bounds.width - inset*2,
-                                     height: view.bounds.height/8 - inset)
+                                     width: view.bounds.width - view.safeAreaInsets.left - view.safeAreaInsets.right,
+                                     height: view.bounds.height/8)
         menuStackView.setCustomSpacing(10, after: cancelButton)
-        detailsButton.frame = CGRect(x: view.bounds.minX + 10,
+        detailsButton.frame = CGRect(x: view.bounds.minX + view.safeAreaInsets.left,
                                      y: view.bounds.height/8*7,
-                                     width: view.bounds.width - inset*2,
-                                     height: view.bounds.height/8 - inset)
+                                     width: view.bounds.width - view.safeAreaInsets.left - view.safeAreaInsets.right,
+                                     height: view.bounds.height/8)
         menuStackView.layer.opacity = 0.5
         detailsButton.layer.opacity = 0.5
         builtPathbutton.layer.borderWidth = 2.0
