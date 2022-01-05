@@ -51,6 +51,9 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
     }()
     
     @objc private func removeAnimations() {
+        for subview in map.subviews {
+            subview.transform = .identity
+        }
         if !Singleton.pathWay.isEmpty {
             for subview in map.subviews {
                 subview.layer.removeAllAnimations()
@@ -159,7 +162,7 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
                                        delay: 0,
                                        options: [.autoreverse,.repeat,.curveEaseOut],
                                        animations: {
-                            view.transform = CGAffineTransform(scaleX: 3.0, y: 3.0)
+                            view.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
                         }, completion: { finished in
                             view.transform = .identity
                         })
@@ -180,3 +183,4 @@ extension UIButton {
         self.layer.add(animation, forKey: nil)
     }
 }
+

@@ -9,7 +9,7 @@ extension BezierCurves {
     // MARK: small(no other stations connected i mean) stations drawing
     func drawSmallStations(name: String,x:CGFloat, y:CGFloat, color: UIColor, id: Int) {
         
-        let station = UIButton(frame: CGRect(x: x, y: y, width: 10, height: 10))
+        let station = UIButton(frame: CGRect(x: x-2.5, y: y-2.5, width: 15, height: 15))
         station.tag = id
         let stationZ = Station(id: id, name: name)
         cleverAddingToStationsArr(id: id, station: stationZ)
@@ -26,12 +26,16 @@ extension BezierCurves {
             stationName.frame = CGRect(x: x-57, y: y, width: 65, height: 10)
         } else if name == "Лиговский проспект" {
             stationName.frame = CGRect(x: x - 25, y: y+10, width: 65, height: 10)
+            stationName.textColor = .orange
+        } else if name == "Московские ворота" {
+            stationName.frame = CGRect(x: x+13, y: y+2, width: 55, height: 10)
+            stationName.numberOfLines = 0
         } else {
-            stationName.frame = CGRect(x: x+12, y: y+2, width: 65, height: 10)
+            stationName.frame = CGRect(x: x+13, y: y+2, width: 65, height: 10)
         }
         station.backgroundColor = color
         station.layer.cornerRadius = station.frame.size.height/2
-        station.layer.borderWidth = 2
+        station.layer.borderWidth = 3
         station.layer.borderColor = UIColor.white.cgColor
         stationName.text = name
         stationName.numberOfLines = 0

@@ -233,17 +233,12 @@ final class BezierCurves: UIView {
         super.point(inside: point, with: event)
         for view in subviews {
             if view.frame.contains(point) && view.tag != 0 && !Singleton.pathWay.contains(view.tag) {
-                UIView.animate(withDuration: 0.5,
+                UIView.animate(withDuration: 0.25,
                                delay: 0,
                                options: .curveEaseIn,
                                animations: { 
                     view.transform = CGAffineTransform(scaleX: 3.0, y: 3.0)
                     Singleton.pathWay.append(view.tag)
-                }, completion: { finished in
-                    UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut,
-                                   animations: {
-                        view.transform = .identity
-                    })
                 })
             }
         }
