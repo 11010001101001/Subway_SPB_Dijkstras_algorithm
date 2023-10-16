@@ -7,7 +7,7 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var mapScrollView: UIScrollView!
     @IBOutlet weak var map: UIView!
     
-    private let menuStackView: UIStackView = {
+    private lazy var menuStackView: UIStackView = {
         let stack = UIStackView()
         stack.backgroundColor = .black
         stack.axis = .horizontal
@@ -16,19 +16,25 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
         return stack
     }()
     // MARK: building the shortest way plus launching its animation
-    private let builtPathbutton: UIButton = {
-        let btn = UIButton()
-        btn.setTitle("Построить", for: .normal)
-        btn.titleLabel?.font = .systemFont(ofSize: 20, weight: .heavy)
-        btn.backgroundColor = .darkGray
-        btn.addTarget(self,
-                      action: #selector(findPath),
-                      for: .touchUpInside)
-        return btn
+    private lazy var builtPathbutton: UILabel = {
+        let label = UILabel()
+        label.text = "Построить"
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.backgroundColor = .darkGray
+        label.isUserInteractionEnabled = true
+        
+        let gesture = UILongPressGestureRecognizer(target: self, action: #selector(findPath))
+        gesture.minimumPressDuration = .zero
+        label.addGestureRecognizer(gesture)
+        return label
     }()
     
-    @objc private func findPath() {
-        if Singleton.pathWay.count == 2 && Singleton.graph.path.isEmpty {
+    @objc private func findPath(gesture: UILongPressGestureRecognizer) {
+        
+        if gesture.state == .began,
+           Singleton.pathWay.count == 2 && Singleton.graph.path.isEmpty
+        {
             let fromId = Singleton.pathWay[0]
             let toId = Singleton.pathWay[1]
             Singleton.graph.dijkstrasAlgorithm(from: Vertex(data: Station(id: fromId,
@@ -36,10 +42,10 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
                                                to: Vertex(data: Station(id: toId,
                                                                         name: Singleton.graph.info[toId]!)))
             animatePath()
-            builtPathbutton.pulsate()
+//            builtPathbutton.pulsate()
         }
     }
-    private let cancelButton: UIButton = {
+    private lazy var cancelButton: UIButton = {
         let btn = UIButton()
         btn.setTitle("Сброс", for: .normal)
         btn.titleLabel?.font = .systemFont(ofSize: 20, weight: .heavy)
@@ -58,14 +64,14 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
             for subview in map.subviews {
                 subview.layer.removeAllAnimations()
             }
-            cancelButton.pulsate()
+//            cancelButton.pulsate()
             Singleton.pathWay.removeAll()
             Singleton.graph.path.removeAll()
             Singleton.graph.detailsInfoArr.removeAll()
         }
     }
-    // MARK: if we make popover presenting without NavVC - its one behavior, but for now - another, you can play with that by yourself 
-    private let detailsButton: UIButton = {
+     
+    private lazy var detailsButton: UIButton = {
         let btn = UIButton()
         btn.setTitle("Подробнее (ಠ_ಠ)", for: .normal)
         btn.titleLabel?.font = .systemFont(ofSize: 20, weight: .heavy)
@@ -79,7 +85,7 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
     @objc private func showDetailsPath() {
         self.navigationController?.pushViewController(DetailsViewController(),
                                                       animated: true)
-        detailsButton.pulsate()
+//        detailsButton.pulsate()
     }
     
     override func viewDidLoad() {
@@ -94,9 +100,11 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
         setDoubleTap()
         mapScrollView.contentInsetAdjustmentBehavior = .always
     }
+    
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return map
     }
+    
     private func setDoubleTap() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self,
                                                           action: #selector(tap))
@@ -153,7 +161,7 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
                                        delay: 0,
                                        options: [.autoreverse,.repeat,.curveEaseIn],
                                        animations: {
-                            view.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
+                            view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
                         }, completion: { finished in
                             view.transform = .identity
                         })
@@ -162,7 +170,7 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
                                        delay: 0,
                                        options: [.autoreverse,.repeat,.curveEaseOut],
                                        animations: {
-                            view.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
+                            view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
                         }, completion: { finished in
                             view.transform = .identity
                         })
@@ -170,17 +178,6 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
                 }
             }
         }
-    }
-}
-
-extension UIButton {
-    func pulsate() {
-        let animation = CASpringAnimation(keyPath: "transform.scale")
-        animation.fromValue = 0.96
-        animation.toValue = 1.0
-        animation.duration = 0.1
-        animation.damping = 1.0
-        self.layer.add(animation, forKey: nil)
     }
 }
 

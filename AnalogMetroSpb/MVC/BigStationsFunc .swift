@@ -1,14 +1,13 @@
 import Foundation
 import UIKit
 
-
-
 extension BezierCurves {
     
-    // MARK: draw big stations with connections to other ones 
+    /// draw big stations with connections to other ones
     func drawBigStations(name: String,x: CGFloat, y:CGFloat,color: UIColor, id: Int) {
-        
         let station = UIButton()
+        let stationName = UILabel()
+        
         if name == "Невский проспект" {
             station.frame = CGRect(x: x+2.5, y: y-7, width: 15, height: 15)
         } else if name == "Гостиный двор" {
@@ -44,14 +43,16 @@ extension BezierCurves {
         }
         
         station.tag = id
+        
         let stationZ = Station(id: id, name: name)
         cleverAddingToStationsArr(id: id, station: stationZ)
+        
         let newVertex = Vertex(data: stationZ)
+        
         Singleton.allVertexes.append(newVertex)
         Singleton.graph.bigStationsArrIds.insert(id)
-        Singleton.graph.info[id] = name 
+        Singleton.graph.info[id] = name
         
-        let stationName = UILabel()
         if name == "Невский проспект" {
             stationName.frame = CGRect(x: x+20, y: y-10, width: 50, height: 10)
             stationName.textColor = .blue
@@ -112,16 +113,7 @@ extension BezierCurves {
         stationName.numberOfLines = 0
         stationName.font = .boldSystemFont(ofSize: 6)
         stationName.sizeToFit()
-        self.addSubview(station)
-        self.addSubview(stationName)
-    }
-    func makeStackView(frame: CGRect) -> UIStackView {
-        let stackView = UIStackView(frame: frame)
-        stackView.axis = .vertical
-        stackView.spacing = 2.0
-        stackView.distribution = .fillEqually
-        stackView.backgroundColor = .white
-        stackView.layer.cornerRadius = stackView.frame.height/2
-        return stackView
+        addSubview(station)
+        addSubview(stationName)
     }
 }

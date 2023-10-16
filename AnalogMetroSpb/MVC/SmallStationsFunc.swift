@@ -1,23 +1,20 @@
 import Foundation
 import UIKit
 
-
-
-
 extension BezierCurves {
-    
-    // MARK: small(no other stations connected i mean) stations drawing
+    /// small(no other stations connected i mean) stations drawing
     func drawSmallStations(name: String,x:CGFloat, y:CGFloat, color: UIColor, id: Int) {
-        
+        let stationName = UILabel()
         let station = UIButton(frame: CGRect(x: x-2.5, y: y-2.5, width: 15, height: 15))
         station.tag = id
+        
         let stationZ = Station(id: id, name: name)
         cleverAddingToStationsArr(id: id, station: stationZ)
+        
         let newVertex = Vertex(data: stationZ)
         Singleton.allVertexes.append(newVertex)
         Singleton.graph.info[id] = name 
         
-        let stationName = UILabel()
         if name == "Василеостровская" {
             stationName.frame = CGRect(x: x+6, y: y-7, width: 65, height: 10)
         } else if name == "Балтийская" {
@@ -33,6 +30,7 @@ extension BezierCurves {
         } else {
             stationName.frame = CGRect(x: x+13, y: y+2, width: 65, height: 10)
         }
+        
         station.backgroundColor = color
         station.layer.cornerRadius = station.frame.size.height/2
         station.layer.borderWidth = 3
@@ -42,8 +40,8 @@ extension BezierCurves {
         stationName.tintColor = UIColor.black
         stationName.font = .boldSystemFont(ofSize: 6)
         stationName.sizeToFit()
-        self.addSubview(station)
-        self.addSubview(stationName)
+        addSubview(station)
+        addSubview(stationName)
     }
     // MARK: adding to arr stations filtered by id according to their lines
     func cleverAddingToStationsArr(id: Int, station: Station) {

@@ -6,17 +6,17 @@ import UIKit
 extension BezierCurves {
     // MARK: Adding to graph vertexes and edges
     func addVertexesAndEdgesToGraph(arrStations:[Station], arrWeights: [Int]) {
-    
         for (index,value) in arrStations.enumerated() {
             let nextIndex = index + 1
+            
             if nextIndex != arrStations.count {
-                // MARK: one direction
+                /// one direction
                 Singleton.graph.add(from: Vertex(data: Station(id: value.id,
                                                      name: arrStations[index].name)),
                           to: Vertex(data: Station(id: value.id + 1,
                                                    name: arrStations[nextIndex].name)),
                           weight: arrWeights[index])
-                // MARK: another directions
+                /// another directions
                 Singleton.graph.add(from: Vertex(data: Station(id: value.id + 1,
                                                      name: arrStations[nextIndex].name)),
                           to: Vertex(data: Station(id: value.id,
@@ -26,7 +26,7 @@ extension BezierCurves {
         }
     }
     func addTransitionWays() {
-        // MARK: let's add stations connections - important - for both directions 
+        /// let's add stations connections - important - for both directions
         Singleton.graph.add(from: Vertex(data: Station(id: 9, name: "Невский проспект")),
                   to: Vertex(data: Station(id: 57, name: "Гостиный двор")),
                   weight: 4)

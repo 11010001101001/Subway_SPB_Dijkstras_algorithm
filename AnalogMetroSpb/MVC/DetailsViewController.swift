@@ -2,48 +2,44 @@ import UIKit
 
 
 final class DetailsViewController: UIViewController {
-
-    var dataArr = [String]()
     
-    private let myTableView: UITableView = {
-       let tbl = UITableView()
-        tbl.register(CustomCell.self,
-                     forCellReuseIdentifier: "cell")
-        return tbl
+    private var dataArr = [String]()
+    
+    private lazy var pathLogList: UITableView = {
+        let pathLogList = UITableView()
+        pathLogList.register(CustomCell.self, forCellReuseIdentifier: "cell")
+        pathLogList.delegate = self
+        pathLogList.dataSource = self
+        pathLogList.frame = view.bounds
+        return pathLogList
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(myTableView)
-        myTableView.delegate = self
-        myTableView.dataSource = self
-        Singleton.graph.detailsInfoArr.isEmpty ? dataArr.append("Машинист отдыхает...🚇") : (dataArr = Singleton.graph.detailsInfoArr)
-        
-    }
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        myTableView.frame = view.bounds
+        view.addSubview(pathLogList)
+        Singleton.graph.detailsInfoArr.isEmpty ? dataArr.append("🚇 Машинист отдыхает... 💤") : (dataArr = Singleton.graph.detailsInfoArr)
     }
 }
 
 @available(iOS 15.0, *)
 extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = myTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
+        guard let cell = pathLogList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CustomCell else { return
+            UITableViewCell(frame: .zero)
+        }
         cell.stationLabel.text = dataArr[indexPath.row]
         cell.selectionStyle = .none
         return cell
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataArr.count 
+        dataArr.count
     }
 }
 
 final class CustomCell: UITableViewCell {
-    
     let stationLabel: UILabel = {
-       let lbl = UILabel()
+        let lbl = UILabel()
         lbl.numberOfLines = 0
         lbl.font = .systemFont(ofSize: 15, weight: .heavy)
         lbl.adjustsFontSizeToFitWidth = true

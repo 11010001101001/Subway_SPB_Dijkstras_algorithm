@@ -1,15 +1,12 @@
 import Foundation
 import UIKit
 
-
 protocol Graph {
     associatedtype Element
     func add(from source: Vertex<Element>, to destination: Vertex<Element>, weight: Int)
 }
 
-
 final class AdjacencyList <T:Hashable>: Graph {
-    
     var adjacencies: [Vertex<Station>:[Edge<Station>]] = [:]
     var pathDict: [Vertex<Station>: Vertex<Station>] = [:]
     var path: [Vertex<Station>] = []
@@ -24,7 +21,9 @@ final class AdjacencyList <T:Hashable>: Graph {
     func add(from source:Vertex<Station>, to destination: Vertex<Station>, weight: Int) {
         let edge = Edge(source: source, destination: destination, weight: weight)
         var arr: [Edge<Station>] = []
+        
         arr.append(edge)
+        
         if adjacencies.keys.contains(source) {
             adjacencies[source]?.append(edge)
         } else {
