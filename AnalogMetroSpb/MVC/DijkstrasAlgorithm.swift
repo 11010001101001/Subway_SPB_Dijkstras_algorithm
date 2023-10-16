@@ -65,13 +65,15 @@ extension AdjacencyList {
         /// logging path info
         let makePathDetailsOperaion = BlockOperation { [weak self] in
             guard let self,
-                  let firstStation = path.first else { return }
+                  let startStation = path.first else { return }
             
-            detailsInfoArr.append(firstStation.data.name)
+            detailsInfoArr.append("🏁 СТАРТ: \(startStation.data.name)")
             
             for (key,value) in distanciesCopy.sorted(by: {$0.value < $1.value}) {
                 if path.contains(key) && !detailsInfoArr.contains(key.data.name) {
-                    detailsInfoArr.append("-- \(value) мин --> \(key.data.name)")
+                    let isFinishStation = key == to
+                    let finishMessage = isFinishStation ? "✅ ФИНИШ: " : ""
+                    detailsInfoArr.append("\(finishMessage) \(value)' до станции \(key.data.name)")
                 }
             }
         }
