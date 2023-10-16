@@ -1,13 +1,11 @@
 import UIKit
 
-
 final class DetailsViewController: UIViewController {
-    
     private var dataArr = [String]()
     
     private lazy var pathLogList: UITableView = {
         let pathLogList = UITableView()
-        pathLogList.register(CustomCell.self, forCellReuseIdentifier: "cell")
+        pathLogList.register(PathLogCell.self, forCellReuseIdentifier: "cell")
         pathLogList.delegate = self
         pathLogList.dataSource = self
         pathLogList.frame = view.bounds
@@ -17,14 +15,14 @@ final class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(pathLogList)
-        Singleton.graph.detailsInfoArr.isEmpty ? dataArr.append("🚇 Машинист отдыхает... 💤") : (dataArr = Singleton.graph.detailsInfoArr)
+        Singleton.graph.pathDetails.isEmpty ? dataArr.append("🚇 Машинист отдыхает... 💤") : (dataArr = Singleton.graph.pathDetails)
     }
 }
 
 @available(iOS 15.0, *)
 extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = pathLogList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CustomCell else { return
+        guard let cell = pathLogList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? PathLogCell else { return
             UITableViewCell(frame: .zero)
         }
         cell.stationLabel.text = dataArr[indexPath.row]
@@ -37,30 +35,26 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-final class CustomCell: UITableViewCell {
-    let stationLabel: UILabel = {
-        let lbl = UILabel()
-        lbl.numberOfLines = 0
-        lbl.font = .systemFont(ofSize: 15, weight: .heavy)
-        lbl.adjustsFontSizeToFitWidth = true
-        return lbl
+final class PathLogCell: UITableViewCell {
+    lazy var stationLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 15, weight: .heavy)
+        label.adjustsFontSizeToFitWidth = true
+        return label
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(stationLabel)
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
         let inset: CGFloat = 10
         stationLabel.frame = CGRect(x: contentView.bounds.minX + inset,
                                     y: contentView.bounds.minY + inset,
                                     width: contentView.bounds.width - inset*2,
                                     height: contentView.bounds.height - inset*2)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
     }
 }

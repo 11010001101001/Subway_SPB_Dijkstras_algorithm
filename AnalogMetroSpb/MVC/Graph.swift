@@ -14,7 +14,7 @@ final class AdjacencyList <T:Hashable>: Graph {
     var info: [Int: String] = [:]
     var distancies: [Vertex<Station>: Int] = [:]
     var distanciesCopy: [Vertex<Station>: Int] = [:]
-    var detailsInfoArr = [String]()
+    var pathDetails = [String]()
     
     init() {}
     

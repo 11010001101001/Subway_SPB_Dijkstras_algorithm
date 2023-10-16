@@ -1,9 +1,7 @@
 import UIKit
 import Foundation
 
-
 final class ViewController: UIViewController, UIScrollViewDelegate {
-    
     @IBOutlet weak var mapScrollView: UIScrollView!
     @IBOutlet weak var map: UIView!
     
@@ -15,7 +13,7 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
         stack.distribution = .fillEqually
         return stack
     }()
-    // MARK: building the shortest way plus launching its animation
+    
     private lazy var builtPathbutton: UILabel = {
         let label = UILabel()
         label.text = "Построить"
@@ -67,7 +65,7 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
 //            cancelButton.pulsate()
             Singleton.pathWay.removeAll()
             Singleton.graph.path.removeAll()
-            Singleton.graph.detailsInfoArr.removeAll()
+            Singleton.graph.pathDetails.removeAll()
         }
     }
      
@@ -88,21 +86,23 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
 //        detailsButton.pulsate()
     }
     
+    // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Метро СПБ"
-        mapScrollView.minimumZoomScale = 1.0
-        mapScrollView.maximumZoomScale = 6.0
-        menuStackView.addArrangedSubview(builtPathbutton)
-        menuStackView.addArrangedSubview(cancelButton)
-        view.addSubview(menuStackView)
-        view.addSubview(detailsButton)
+        setupUI()
         setDoubleTap()
-        mapScrollView.contentInsetAdjustmentBehavior = .always
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Singleton.pathWay.removeAll()
+        Singleton.graph.path.removeAll()
+        Singleton.graph.pathDetails.removeAll()
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return map
+        map
     }
     
     private func setDoubleTap() {
@@ -126,8 +126,13 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    private func setupUI() {
+        configureMap()
+        menuStackView.addArrangedSubview(builtPathbutton)
+        menuStackView.addArrangedSubview(cancelButton)
+        view.addSubview(menuStackView)
+        view.addSubview(detailsButton)
+        
         menuStackView.frame = CGRect(x: view.bounds.minX + view.safeAreaInsets.left,
                                      y: view.bounds.height/8*6,
                                      width: view.bounds.width - view.safeAreaInsets.left - view.safeAreaInsets.right,
@@ -145,11 +150,10 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
         cancelButton.layer.borderColor = UIColor.white.cgColor
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        Singleton.pathWay.removeAll()
-        Singleton.graph.path.removeAll()
-        Singleton.graph.detailsInfoArr.removeAll()
+    private func configureMap() {
+        mapScrollView.minimumZoomScale = 1.0
+        mapScrollView.maximumZoomScale = 6.0
+        mapScrollView.contentInsetAdjustmentBehavior = .always
     }
     
     private func animatePath() {
@@ -166,6 +170,7 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
                             view.transform = .identity
                         })
                     } else {
+                        view.transform = .identity
                         UIView.animate(withDuration: 0.15,
                                        delay: 0,
                                        options: [.autoreverse,.repeat,.curveEaseOut],

@@ -235,8 +235,8 @@ final class BezierCurves: UIView {
                 UIView.animate(withDuration: 0.25,
                                delay: 0,
                                options: .curveEaseIn,
-                               animations: { 
-                    view.transform = CGAffineTransform(scaleX: 3.0, y: 3.0)
+                               animations: {
+                    view.transform = CGAffineTransform(scaleX: 1.6, y: 1.6)
                     Singleton.pathWay.append(view.tag)
                 })
             }

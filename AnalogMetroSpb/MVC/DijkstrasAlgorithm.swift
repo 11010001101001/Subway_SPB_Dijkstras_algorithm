@@ -67,13 +67,13 @@ extension AdjacencyList {
             guard let self,
                   let startStation = path.first else { return }
             
-            detailsInfoArr.append("🏁 СТАРТ: \(startStation.data.name)")
+            pathDetails.append("🏁 СТАРТ: \(startStation.data.name)")
             
             for (key,value) in distanciesCopy.sorted(by: {$0.value < $1.value}) {
-                if path.contains(key) && !detailsInfoArr.contains(key.data.name) {
+                if path.contains(key) && !pathDetails.contains(key.data.name) {
                     let isFinishStation = key == to
                     let finishMessage = isFinishStation ? "✅ ФИНИШ: " : ""
-                    detailsInfoArr.append("\(finishMessage) \(value)' до станции \(key.data.name)")
+                    pathDetails.append("\(finishMessage) \(value)' до станции \(key.data.name)")
                 }
             }
         }
