@@ -1,83 +1,103 @@
 import Foundation
 
-
-
 extension AdjacencyList {
-    // MARK: Dijkstra's Algorithm 
-    
     func dijkstrasAlgorithm(from: Vertex<Station>, to: Vertex<Station>) {
+        var shortestPath = [Vertex<Station>: Int]()
         
-        var shortestPath: [Vertex<Station>: Int] = [:]
-        let operation1 = BlockOperation { [weak self] in
-            self?.distancies[from] = 0
-            for vertex in Singleton.allVertexes {
-                if vertex != from {
-                    self?.distancies[vertex] = 1000_000
-                }
+        /// Setting max distancies to all vertexes except `from` vertex
+        let setMaxDistanciesOperation = BlockOperation { [weak self] in
+            guard let self else { return }
+            
+            distancies[from] = .zero
+            
+            for vertex in Singleton.allVertexes where vertex != from {
+                distancies[vertex] = Constants.maxDistance
             }
         }
-        let operation2 = BlockOperation { [weak self] in
-            while ((self?.distancies.values.contains(1000_000)) != nil) {
-                guard
-                    let smallestOne = self?.distancies
-                        .sorted(by: {$0.value < $1.value}).first?.key else { return }
-                shortestPath[smallestOne] = self?.distancies[smallestOne]
-                guard
-                    let edges = self?.adjacencies[smallestOne] else { return }
+        
+        /// Visiting all vertexes to find the shortest path and mark visited ones
+        let visitingVertexesOperation = BlockOperation { [weak self] in
+            guard let self else { return }
+            
+            while distancies.values.contains(Constants.maxDistance) {
+                
+                guard let smallestOne = distancies.sorted(by: {$0.value < $1.value}).first?.key,
+                      let edges = adjacencies[smallestOne]
+                else { return }
+                
+                shortestPath[smallestOne] = distancies[smallestOne]
+                
                 for edge in edges {
-                    let oldDistance = self?.distancies[edge.destination]
-                    let newDistance = (self?.distancies[smallestOne] ?? 0) + edge.weight
-                    if newDistance < (oldDistance ?? 0) {
-                        self?.distancies[edge.destination] = newDistance
-                        self?.distanciesCopy[edge.destination] = newDistance
-                        // MARK: let's add previous vertex according to the shortest path
-                        self?.pathDict[edge.destination] = edge.source
+                    let oldDistance = distancies[edge.destination] ?? .zero
+                    let newDistance = (distancies[smallestOne] ?? .zero) + edge.weight
+                    
+                    if newDistance < oldDistance {
+                        distancies[edge.destination] = newDistance
+                        distanciesCopy[edge.destination] = newDistance
+                        // let's add previous vertex according to the shortest path
+                        pathDict[edge.destination] = edge.source
                     }
                 }
-                // MARK: let's mark visited vertex by it's deleting from dict
-                self?.distancies.removeValue(forKey: smallestOne)
+                
+                // let's mark visited vertex by it's deleting from dict
+                distancies.removeValue(forKey: smallestOne)
             }
         }
-        let operation3 = BlockOperation { [self] in
-            // MARK: find shortest path
+        
+        /// finding the shortest path, reversing the path to get right direction
+        let findShortestPathOperation = BlockOperation { [weak self] in
+            guard let self else { return}
+            
             path.append(to)
+            
             for _ in 0...pathDict.count {
-                if path.last != from {
-                    guard
-                        let previousVertex = self.pathDict[path.last!] else { return }
+                if let lastStation = path.last,
+                   lastStation != from,
+                   let previousVertex = pathDict[lastStation]
+                {
                     path.append(previousVertex)
                 }
             }
-        }
-        let operation4 = BlockOperation { [self] in
-            var shortestPath1 = path
-            shortestPath1.reverse()
-            path = shortestPath1
-            print(path)
+            
+            path.reverse()
         }
         
-        let operation5 = BlockOperation { [self] in
-            detailsInfoArr.append((path.first?.data.name)!)
+        /// logging path info
+        let makePathDetailsOperaion = BlockOperation { [weak self] in
+            guard let self,
+                  let firstStation = path.first else { return }
+            
+            detailsInfoArr.append(firstStation.data.name)
+            
             for (key,value) in distanciesCopy.sorted(by: {$0.value < $1.value}) {
                 if path.contains(key) && !detailsInfoArr.contains(key.data.name) {
                     detailsInfoArr.append("-- \(value) мин --> \(key.data.name)")
                 }
             }
-            print(detailsInfoArr)
         }
         
-        let queue: OperationQueue = {
+        lazy var queue: OperationQueue = {
             let queue = OperationQueue()
             queue.maxConcurrentOperationCount = 1
-            queue.qualityOfService = .userInitiated
+            queue.qualityOfService = .userInteractive
             return queue
         }()
         
-        operation2.addDependency(operation1)
-        operation3.addDependency(operation2)
-        operation4.addDependency(operation3)
-        operation5.addDependency(operation4)
-
-        queue.addOperations([operation1,operation2,operation3,operation4, operation5], waitUntilFinished: true)
+        visitingVertexesOperation.addDependency(setMaxDistanciesOperation)
+        findShortestPathOperation.addDependency(visitingVertexesOperation)
+        makePathDetailsOperaion.addDependency(findShortestPathOperation)
+        
+        lazy var operations = [
+            setMaxDistanciesOperation,
+            visitingVertexesOperation,
+            findShortestPathOperation,
+            makePathDetailsOperaion
+        ]
+        
+        queue.addOperations(operations, waitUntilFinished: true)
     }
+}
+
+private enum Constants {
+    static let maxDistance = 1000_000
 }
