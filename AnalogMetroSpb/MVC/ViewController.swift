@@ -29,18 +29,27 @@ final class ViewController: UIViewController, UIScrollViewDelegate {
     }()
     
     @objc private func findPath(gesture: UILongPressGestureRecognizer) {
-        
         if gesture.state == .began,
            Singleton.pathWay.count == 2 && Singleton.graph.path.isEmpty
         {
+            builtPathbutton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            builtPathbutton.backgroundColor = .lightGray
+        } else {
+            builtPathbutton.transform = .identity
+            builtPathbutton.backgroundColor = .darkGray
+            
+            guard Singleton.pathWay[0] != nil && Singleton.pathWay[1] != nil else { return }
+            
             let fromId = Singleton.pathWay[0]
             let toId = Singleton.pathWay[1]
-            Singleton.graph.dijkstrasAlgorithm(from: Vertex(data: Station(id: fromId,
-                                                                          name: Singleton.graph.info[fromId]!)),
-                                               to: Vertex(data: Station(id: toId,
-                                                                        name: Singleton.graph.info[toId]!)))
-            animatePath()
-//            builtPathbutton.pulsate()
+            
+                
+                Singleton.graph.dijkstrasAlgorithm(from: Vertex(data: Station(id: fromId,
+                                                                              name: Singleton.graph.info[fromId]!)),
+                                                   to: Vertex(data: Station(id: toId,
+                                                                            name: Singleton.graph.info[toId]!)))
+                animatePath()
+    //            builtPathbutton.pulsate()
         }
     }
     private lazy var cancelButton: UIButton = {
