@@ -46,10 +46,12 @@ final class MapViewController: UIViewController {
         guard !Singleton.pathWay.isEmpty else { return }
         
         proceedGestureAction(gesture: gesture, button: cancelButton, action: { [weak self] in
-            self?.map.subviews.forEach {
-                $0.layer.removeAllAnimations()
-                $0.transform = .identity
-                $0.removeShadow()
+            self?.map.subviews.forEach { view in
+                view.withAnimation(action: {
+                    view.layer.removeAllAnimations()
+                    view.transform = .identity
+                    view.removeShadow()
+                })
             }
             
             Singleton.pathWay.removeAll()
@@ -170,13 +172,7 @@ final class MapViewController: UIViewController {
         for view in map.subviews {
             for vertex in Singleton.graph.path {
                 if vertex.data.id == view.tag {
-                    view.transform = .identity
-                    view.removeShadow()
-                    
-                    UIView.animate(withDuration: 0.15,
-                                   delay: 0,
-                                   options: .curveEaseIn,
-                                   animations: {
+                    view.withAnimation(action: {
                         view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
                         view.applyShadow()
                     })
