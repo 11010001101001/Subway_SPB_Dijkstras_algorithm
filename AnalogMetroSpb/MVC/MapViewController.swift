@@ -5,6 +5,8 @@ final class MapViewController: UIViewController {
     @IBOutlet weak var mapScrollView: UIScrollView!
     @IBOutlet weak var map: UIView!
     
+    private let vibrateManager = VibrateManager()
+    
     private lazy var builtPathbutton = makeButton(title: "Построить", action: #selector(builtPathTapped))
     private lazy var cancelButton = makeButton(title: "Сброс", action: #selector(cancelButtonTapped))
     private lazy var detailsButton = makeButton(title: "Подробнее", action: #selector(showDetailsTapped))
@@ -91,6 +93,7 @@ final class MapViewController: UIViewController {
                                       button: UILabel,
                                       action: Action?) {
         if gesture.state == .began {
+            vibrateManager.vibrateSelection()
             button.withAnimation(action: {
                 button.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
             })
@@ -111,7 +114,7 @@ final class MapViewController: UIViewController {
         label.textAlignment = .center
         label.isUserInteractionEnabled = true
         label.layer.opacity = 0.5
-        label.layer.borderWidth = 0.5
+        label.layer.borderWidth = 1
         label.layer.borderColor = UIColor.darkGray.cgColor
         label.layer.cornerRadius = 16
         label.translatesAutoresizingMaskIntoConstraints = false
