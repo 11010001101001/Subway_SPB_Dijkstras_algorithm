@@ -10,6 +10,7 @@ final class DetailsViewController: UIViewController {
         list.dataSource = self
         list.rowHeight = UITableView.automaticDimension
         list.estimatedRowHeight = 10
+        list.separatorStyle = .none
         list.frame = view.bounds
         return list
     }()
