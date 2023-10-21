@@ -72,6 +72,7 @@ final class MapViewController: UIViewController {
         title = "Метро СПБ"
         setupUI()
         setZoomTap()
+        mapScrollView.zoomScale = 0.9
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -132,7 +133,7 @@ final class MapViewController: UIViewController {
         let rect = CGRect(origin: point, size: CGSize(width: mapScrollView.frame.width / 2,
                                                       height: mapScrollView.frame.height / 2))
         
-        if mapScrollView.zoomScale == 1.0 {
+        if mapScrollView.zoomScale == 0.9 {
             UIView.animate(withDuration: 0.25,
                            animations: {
                 self.mapScrollView.zoom(to: rect, animated: true)
@@ -140,7 +141,7 @@ final class MapViewController: UIViewController {
         } else {
             UIView.animate(withDuration: 0.25,
                            animations: {
-                self.mapScrollView.zoomScale = 1.0
+                self.mapScrollView.zoomScale = 0.9
             })
         }
     }
@@ -158,9 +159,10 @@ final class MapViewController: UIViewController {
     }
     
     private func configureMap() {
-        mapScrollView.minimumZoomScale = 1.0
+        mapScrollView.minimumZoomScale = 0.9
         mapScrollView.maximumZoomScale = 6.0
         mapScrollView.contentInsetAdjustmentBehavior = .always
+        mapScrollView.contentInset = .init(top: .zero, left: 20, bottom: 160, right: 20)
         mapScrollView.contentInset.bottom = 160
         mapScrollView.contentSize = CGSize(width: view.frame.width * 2,
                                            height: view.frame.height * 2)
