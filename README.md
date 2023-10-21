@@ -7,7 +7,7 @@
 ![_-HVh_VPAPlm8ltvh38zgOrtIy4-960](https://github.com/fresh-Blood/Metro_SPB_Dijkstras_algorithm/assets/88098218/ece8e44a-e27b-4cee-a699-b2573deccf42)
 
 ## Update 🎉 
-- some code cleaing, UI & behavior boosting done, but the main part, like hand made map i mean) left the same. Let it be. 
+- some code cleaning with UI & behavior boosting done, but the main part, like hand made map i mean) left the same. Let it be. 
 
 ![MyCollages](https://github.com/fresh-Blood/Metro_SPB_Dijkstras_algorithm/assets/88098218/982e433c-cbed-4309-9d08-a51d656013e2)
 
