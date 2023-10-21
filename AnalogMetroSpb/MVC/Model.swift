@@ -16,7 +16,7 @@ struct Edge<T> {
 }
 
 struct Singleton {
-    static let vc = ViewController()
+    static let vc = MapViewController()
     static let graph = AdjacencyList<Station>()
     static let map = BezierCurves()
     static var allVertexes: [Vertex<Station>] = []

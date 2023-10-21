@@ -222,22 +222,24 @@ final class BezierCurves: UIView {
         shapeLayer.path = circlePath.cgPath
         UIColor.white.setFill()
         UIColor.darkGray.setStroke()
-        circlePath.lineWidth = 2.0
+        circlePath.lineWidth = 1.0
         circlePath.fill()
         circlePath.stroke()
     }
     
     override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         super.point(inside: point, with: event)
-        
-        for view in subviews {
+        guard Singleton.pathWay.count < 2 else { return false }
+    
+        subviews.forEach { view in
             if view.frame.contains(point) && view.tag != 0 && !Singleton.pathWay.contains(view.tag) {
+                Singleton.pathWay.append(view.tag)
                 UIView.animate(withDuration: 0.25,
                                delay: 0,
                                options: .curveEaseIn,
                                animations: {
-                    view.transform = CGAffineTransform(scaleX: 1.6, y: 1.6)
-                    Singleton.pathWay.append(view.tag)
+                    view.transform = CGAffineTransform(scaleX: 1.4, y: 1.4)
+                    view.applyShadow()
                 })
             }
         }

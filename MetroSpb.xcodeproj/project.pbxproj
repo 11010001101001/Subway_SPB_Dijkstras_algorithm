@@ -10,7 +10,7 @@
 		843C8D26277C94F70011F30E /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C8D25277C94F70011F30E /* DetailsViewController.swift */; };
 		845E5D0426C692E8009BFB0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E5D0326C692E8009BFB0B /* AppDelegate.swift */; };
 		845E5D0626C692E8009BFB0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E5D0526C692E8009BFB0B /* SceneDelegate.swift */; };
-		845E5D0826C692E8009BFB0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E5D0726C692E8009BFB0B /* ViewController.swift */; };
+		845E5D0826C692E8009BFB0B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E5D0726C692E8009BFB0B /* MapViewController.swift */; };
 		845E5D0B26C692E9009BFB0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845E5D0926C692E9009BFB0B /* Main.storyboard */; };
 		845E5D0E26C692E9009BFB0B /* AnalogMetroSpb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 845E5D0C26C692E9009BFB0B /* AnalogMetroSpb.xcdatamodeld */; };
 		845E5D1026C692EC009BFB0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845E5D0F26C692EC009BFB0B /* Assets.xcassets */; };
@@ -23,6 +23,9 @@
 		84E88D002778BB2400878C39 /* VertexesAndEdgesAddingToGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E88CFF2778BB2400878C39 /* VertexesAndEdgesAddingToGraph.swift */; };
 		84E88D022778D6D900878C39 /* GraphAndEdgesCreationFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E88D012778D6D900878C39 /* GraphAndEdgesCreationFunc.swift */; };
 		84E88D042778D80400878C39 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E88D032778D80400878C39 /* Graph.swift */; };
+		C48D4D622AE396EC00E7A39A /* UIView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48D4D612AE396EC00E7A39A /* UIView+extensions.swift */; };
+		C48D4D642AE3B2A800E7A39A /* PathCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48D4D632AE3B2A800E7A39A /* PathCell.swift */; };
+		C48D4D662AE3B70200E7A39A /* UINavigationBar+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48D4D652AE3B70200E7A39A /* UINavigationBar+extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +33,7 @@
 		845E5D0026C692E8009BFB0B /* MetroSpb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetroSpb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		845E5D0326C692E8009BFB0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		845E5D0526C692E8009BFB0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		845E5D0726C692E8009BFB0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		845E5D0726C692E8009BFB0B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		845E5D0A26C692E9009BFB0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		845E5D0D26C692E9009BFB0B /* AnalogMetroSpb.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AnalogMetroSpb.xcdatamodel; sourceTree = "<group>"; };
 		845E5D0F26C692EC009BFB0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -44,6 +47,9 @@
 		84E88CFF2778BB2400878C39 /* VertexesAndEdgesAddingToGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VertexesAndEdgesAddingToGraph.swift; sourceTree = "<group>"; };
 		84E88D012778D6D900878C39 /* GraphAndEdgesCreationFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphAndEdgesCreationFunc.swift; sourceTree = "<group>"; };
 		84E88D032778D80400878C39 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		C48D4D612AE396EC00E7A39A /* UIView+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extensions.swift"; sourceTree = "<group>"; };
+		C48D4D632AE3B2A800E7A39A /* PathCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathCell.swift; sourceTree = "<group>"; };
+		C48D4D652AE3B70200E7A39A /* UINavigationBar+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,8 +97,9 @@
 		84E88CF82778A1A900878C39 /* MVC */ = {
 			isa = PBXGroup;
 			children = (
-				845E5D0726C692E8009BFB0B /* ViewController.swift */,
+				845E5D0726C692E8009BFB0B /* MapViewController.swift */,
 				843C8D25277C94F70011F30E /* DetailsViewController.swift */,
+				C48D4D632AE3B2A800E7A39A /* PathCell.swift */,
 				84A7B39726CBAF8300476A60 /* BezierCurves.swift */,
 				84E88CFB2778A67B00878C39 /* SmallStationsFunc.swift */,
 				84E88CF92778A51600878C39 /* BigStationsFunc .swift */,
@@ -101,6 +108,8 @@
 				84A7B37026CB9A4400476A60 /* Model.swift */,
 				84E88D032778D80400878C39 /* Graph.swift */,
 				8486D312277D2EBA004AED60 /* DijkstrasAlgorithm.swift */,
+				C48D4D612AE396EC00E7A39A /* UIView+extensions.swift */,
+				C48D4D652AE3B70200E7A39A /* UINavigationBar+extensions.swift */,
 			);
 			path = MVC;
 			sourceTree = "<group>";
@@ -175,15 +184,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C48D4D622AE396EC00E7A39A /* UIView+extensions.swift in Sources */,
 				84E88D022778D6D900878C39 /* GraphAndEdgesCreationFunc.swift in Sources */,
+				C48D4D662AE3B70200E7A39A /* UINavigationBar+extensions.swift in Sources */,
 				84A7B39826CBAF8300476A60 /* BezierCurves.swift in Sources */,
-				845E5D0826C692E8009BFB0B /* ViewController.swift in Sources */,
+				845E5D0826C692E8009BFB0B /* MapViewController.swift in Sources */,
 				845E5D0E26C692E9009BFB0B /* AnalogMetroSpb.xcdatamodeld in Sources */,
 				845E5D0426C692E8009BFB0B /* AppDelegate.swift in Sources */,
 				84E88D042778D80400878C39 /* Graph.swift in Sources */,
 				84E88CFA2778A51600878C39 /* BigStationsFunc .swift in Sources */,
 				8486D313277D2EBA004AED60 /* DijkstrasAlgorithm.swift in Sources */,
 				84E88D002778BB2400878C39 /* VertexesAndEdgesAddingToGraph.swift in Sources */,
+				C48D4D642AE3B2A800E7A39A /* PathCell.swift in Sources */,
 				84A7B37126CB9A4400476A60 /* Model.swift in Sources */,
 				84E88CFC2778A67B00878C39 /* SmallStationsFunc.swift in Sources */,
 				845E5D0626C692E8009BFB0B /* SceneDelegate.swift in Sources */,

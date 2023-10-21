@@ -33,7 +33,7 @@ extension BezierCurves {
         
         station.backgroundColor = color
         station.layer.cornerRadius = station.frame.size.height/2
-        station.layer.borderWidth = 3
+        station.layer.borderWidth = 1
         station.layer.borderColor = UIColor.white.cgColor
         stationName.text = name
         stationName.numberOfLines = 0
