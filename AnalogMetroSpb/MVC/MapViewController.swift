@@ -14,6 +14,7 @@ final class MapViewController: UIViewController {
         stack.axis = .horizontal
         stack.alignment = .fill
         stack.distribution = .fillEqually
+        stack.spacing = 8
         return stack
     }()
     
@@ -23,8 +24,7 @@ final class MapViewController: UIViewController {
         stack.alignment = .fill
         stack.distribution = .fillEqually
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.clipsToBounds = true
-        stack.layer.cornerRadius = 16
+        stack.spacing = 8
         return stack
     }()
 
@@ -69,7 +69,7 @@ final class MapViewController: UIViewController {
     // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Метро СПБ"
+        title = "Метро СПБ 2021"
         setupUI()
         setZoomTap()
         mapScrollView.zoomScale = 0.9
@@ -93,12 +93,10 @@ final class MapViewController: UIViewController {
         if gesture.state == .began {
             button.withAnimation(action: {
                 button.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-                button.backgroundColor = .lightGray
             })
         } else if gesture.state == .ended {
             button.withAnimation(action: {
                 button.transform = .identity
-                button.backgroundColor = .darkGray
             })
             
             action?()
@@ -109,11 +107,13 @@ final class MapViewController: UIViewController {
         let label = UILabel()
         label.text = title
         label.font = .systemFont(ofSize: 20, weight: .light)
-        label.backgroundColor = .darkGray
+        label.backgroundColor = .black
         label.textAlignment = .center
         label.isUserInteractionEnabled = true
         label.layer.opacity = 0.5
-        label.layer.borderWidth = 1.0
+        label.layer.borderWidth = 0.5
+        label.layer.borderColor = UIColor.darkGray.cgColor
+        label.layer.cornerRadius = 16
         label.translatesAutoresizingMaskIntoConstraints = false
         
         let gesture = UILongPressGestureRecognizer(target: self, action: action)
@@ -151,10 +151,10 @@ final class MapViewController: UIViewController {
         view.addSubview(vStackView)
         
         NSLayoutConstraint.activate([
-            vStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            vStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            vStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            vStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             vStackView.heightAnchor.constraint(equalToConstant: 150),
-            vStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            vStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
         ])
     }
     
