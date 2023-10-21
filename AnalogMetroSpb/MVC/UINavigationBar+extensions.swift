@@ -12,7 +12,7 @@ extension UINavigationController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         navigationBar.titleTextAttributes = [
-            .font : UIFont.systemFont(ofSize: 20, weight: .light),
+            .font : UIFont.systemFont(ofSize: Constants.navBarFontSize, weight: .light),
             .foregroundColor: UIColor.white
         ]
     }

@@ -12,8 +12,8 @@ typealias Action = (() -> Void)
 
 extension UIView {
     func withAnimation(action: Action?) {
-        UIView.animate(withDuration: 0.2,
-                       delay: 0,
+        UIView.animate(withDuration: Constants.animationDuration,
+                       delay: .zero,
                        options: .curveLinear,
                        animations: {
             action?()
@@ -22,9 +22,9 @@ extension UIView {
     
     func applyShadow() {
         layer.shadowColor = UIColor.white.cgColor
-        layer.shadowOpacity = 1
-        layer.shadowOffset = .zero
-        layer.shadowRadius = 10
+        layer.shadowOpacity = Constants.shadowOpacity
+        layer.shadowOffset = Constants.shadowOffset
+        layer.shadowRadius = Constants.shadowRadius
     }
     
     func removeShadow() {
@@ -38,7 +38,7 @@ extension UIView {
     }
     
     func select() {
-        transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        transform = CGAffineTransform(scaleX: Constants.scale, y: Constants.scale)
         applyShadow()
     }
 }

@@ -23,7 +23,6 @@ final class DetailsViewController: UIViewController {
     }
 }
 
-@available(iOS 15.0, *)
 extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = pathList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? PathCell else { return

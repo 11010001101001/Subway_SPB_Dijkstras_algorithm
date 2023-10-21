@@ -16,7 +16,7 @@ final class MapViewController: UIViewController {
         stack.axis = .horizontal
         stack.alignment = .fill
         stack.distribution = .fillEqually
-        stack.spacing = 8
+        stack.spacing = Constants.stackSpacing
         return stack
     }()
     
@@ -26,12 +26,12 @@ final class MapViewController: UIViewController {
         stack.alignment = .fill
         stack.distribution = .fillEqually
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.spacing = 8
+        stack.spacing = Constants.stackSpacing
         return stack
     }()
 
     @objc private func builtPathTapped(gesture: UILongPressGestureRecognizer) {
-        guard Singleton.pathWay.count == 2,
+        guard Singleton.pathWay.count == Constants.minStationsPathCount,
               Singleton.graph.path.isEmpty else { return }
         
         proceedGestureAction(gesture: gesture, button: builtPathbutton, action: { [weak self] in
@@ -64,7 +64,7 @@ final class MapViewController: UIViewController {
         title = "Метро СПБ 2021"
         setupUI()
         setZoomTap()
-        mapScrollView.zoomScale = 0.9
+        mapScrollView.zoomScale = Constants.minZoomScale
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,7 +81,7 @@ final class MapViewController: UIViewController {
         if gesture.state == .began {
             vibrateManager.vibrateSelection()
             button.withAnimation(action: {
-                button.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+                button.transform = CGAffineTransform(scaleX: Constants.minZoomScale, y: Constants.minZoomScale)
             })
         } else if gesture.state == .ended {
             button.withAnimation(action: {
@@ -122,15 +122,15 @@ final class MapViewController: UIViewController {
         let rect = CGRect(origin: point, size: CGSize(width: mapScrollView.frame.width / 2,
                                                       height: mapScrollView.frame.height / 2))
         
-        if mapScrollView.zoomScale == 0.9 {
-            UIView.animate(withDuration: 0.25,
+        if mapScrollView.zoomScale == Constants.minZoomScale {
+            UIView.animate(withDuration: Constants.animationDuration,
                            animations: {
                 self.mapScrollView.zoom(to: rect, animated: true)
             })
         } else {
-            UIView.animate(withDuration: 0.25,
+            UIView.animate(withDuration: Constants.animationDuration,
                            animations: {
-                self.mapScrollView.zoomScale = 0.9
+                self.mapScrollView.zoomScale = Constants.minZoomScale
             })
         }
     }
@@ -148,8 +148,8 @@ final class MapViewController: UIViewController {
     }
     
     private func configureMap() {
-        mapScrollView.minimumZoomScale = 0.9
-        mapScrollView.maximumZoomScale = 6.0
+        mapScrollView.minimumZoomScale = Constants.minZoomScale
+        mapScrollView.maximumZoomScale = Constants.maxZoomScale
         mapScrollView.contentInsetAdjustmentBehavior = .always
         mapScrollView.contentInset = .init(top: .zero, left: 20, bottom: 160, right: 20)
         mapScrollView.contentInset.bottom = 160

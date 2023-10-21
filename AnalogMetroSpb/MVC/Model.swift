@@ -23,7 +23,7 @@ struct Singleton {
     static var pathWay: [Int] = [] {
         didSet {
             print("Строим путь для:\(pathWay)")
-            if pathWay.count > 2 {
+            if pathWay.count > Constants.minStationsPathCount {
                 pathWay.removeAll()
                 graph.path.removeAll()
             }
@@ -39,9 +39,5 @@ struct Singleton {
 
 extension Vertex : Hashable where T : Hashable {}
 extension Vertex : Equatable where T : Equatable {}
-extension Vertex : CustomStringConvertible {
-    var description : String {
-        "\(data)"
-    }
-}
+extension Vertex : CustomStringConvertible { var description : String { "\(data)" } }
 

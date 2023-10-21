@@ -64,17 +64,25 @@ extension AdjacencyList {
         
         /// logging path info
         let makePathDetailsOperaion = BlockOperation { [weak self] in
-            guard let self,
-                  let startStation = path.first else { return }
+            guard let self, let startStation = path.first else { return }
             
             pathDetails.append("🏁 СТАРТ: \(startStation.data.name)")
+            path.removeFirst()
             
-            for (key,value) in distanciesCopy.sorted(by: {$0.value < $1.value}) {
-                if path.contains(key) && !pathDetails.contains(key.data.name) {
-                    let isFinishStation = key == to
-                    let finishMessage = isFinishStation ? "✅ ФИНИШ: " : ""
-                    guard key.data.name != from.data.name else { return }
-                    pathDetails.append("\(finishMessage) \(value)' до станции \(key.data.name)")
+            var sortedDistancies = distanciesCopy.sorted(by: {$0.value < $1.value})
+
+            sortedDistancies.forEach { distance in
+                let station = distance.key
+                let stationName = station.data.name
+                let distanceToStation = distance.value
+                let destinationStationName = to.data.name
+                let startStationName = from.data.name
+                let isStartStation = stationName == startStationName
+                let isFinishStation = stationName == destinationStationName
+                
+                if self.path.contains(station) && !self.pathDetails.contains(stationName) {
+                    var message = isFinishStation ? "✅ ФИНИШ: " : ""
+                    self.pathDetails.append("\(message) \(distanceToStation)' до станции \(stationName)")
                 }
             }
         }
@@ -99,8 +107,4 @@ extension AdjacencyList {
         
         queue.addOperations(operations, waitUntilFinished: true)
     }
-}
-
-private enum Constants {
-    static let maxDistance = 1000_000
 }

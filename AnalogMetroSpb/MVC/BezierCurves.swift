@@ -216,7 +216,7 @@ final class BezierCurves: UIView {
         let circlePath = UIBezierPath(arcCenter: CGPoint(x: x, y: y),
                                       radius: radius,
                                       startAngle: 0,
-                                      endAngle: CGFloat(Double.pi*2),
+                                      endAngle: CGFloat(Double.pi * 2),
                                       clockwise: true)
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = circlePath.cgPath
@@ -229,7 +229,7 @@ final class BezierCurves: UIView {
     
     override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         super.point(inside: point, with: event)
-        guard Singleton.pathWay.count < 2 else { return false }
+        guard Singleton.pathWay.count < Constants.minStationsPathCount else { return false }
     
         subviews.forEach { view in
             if view.frame.contains(point) && view.tag != 0 && !Singleton.pathWay.contains(view.tag) {
