@@ -48,7 +48,7 @@ final class MapViewController: UIViewController {
         guard !Singleton.pathWay.isEmpty else { return }
         proceedGestureAction(gesture: gesture, button: cancelButton, action: { [weak self] in
             self?.map.subviews.forEach { view in view.withAnimation(action: { view.deselect() }) }
-            Singleton.clear()
+            Singleton.clearPath()
         })
     }
     
@@ -69,7 +69,7 @@ final class MapViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        Singleton.clear()
+        Singleton.clearPath()
         map.subviews.forEach {
             $0.deselect()
         }

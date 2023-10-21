@@ -30,7 +30,7 @@ struct Singleton {
         }
     }
     
-    static func clear() {
+    static func clearPath() {
         pathWay.removeAll()
         graph.path.removeAll()
         graph.pathDetails.removeAll()

@@ -73,6 +73,7 @@ extension AdjacencyList {
                 if path.contains(key) && !pathDetails.contains(key.data.name) {
                     let isFinishStation = key == to
                     let finishMessage = isFinishStation ? "✅ ФИНИШ: " : ""
+                    guard key.data.name != from.data.name else { return }
                     pathDetails.append("\(finishMessage) \(value)' до станции \(key.data.name)")
                 }
             }
