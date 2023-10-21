@@ -1,6 +1,6 @@
 # Subway's map of Saint - Petersburg city, 2021
 
-- implemented Dijkstra's algorithm to calculate the shortest path with weighted multidirectional graph
+- implemented Dijkstra's algorithm to calculate the shortest path in weighted multidirectional graph
 
 ![MyCollages-2](https://user-images.githubusercontent.com/88098218/149635591-a2fd2aaf-a326-44e7-8669-c0569f95a882.jpg)
 
