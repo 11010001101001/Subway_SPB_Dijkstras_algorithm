@@ -29,6 +29,12 @@ struct Singleton {
             }
         }
     }
+    
+    static func clear() {
+        pathWay.removeAll()
+        graph.path.removeAll()
+        graph.pathDetails.removeAll()
+    }
 }
 
 extension Vertex : Hashable where T : Hashable {}

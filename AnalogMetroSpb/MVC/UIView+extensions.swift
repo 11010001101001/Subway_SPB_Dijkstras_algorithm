@@ -21,13 +21,24 @@ extension UIView {
     }
     
     func applyShadow() {
-        self.layer.shadowColor = UIColor.white.cgColor
-        self.layer.shadowOpacity = 1
-        self.layer.shadowOffset = .zero
-        self.layer.shadowRadius = 10
+        layer.shadowColor = UIColor.white.cgColor
+        layer.shadowOpacity = 1
+        layer.shadowOffset = .zero
+        layer.shadowRadius = 10
     }
     
     func removeShadow() {
-        self.layer.shadowColor = UIColor.clear.cgColor
+        layer.shadowColor = UIColor.clear.cgColor
+    }
+    
+    func deselect() {
+        layer.removeAllAnimations()
+        transform = .identity
+        removeShadow()
+    }
+    
+    func select() {
+        transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        applyShadow()
     }
 }

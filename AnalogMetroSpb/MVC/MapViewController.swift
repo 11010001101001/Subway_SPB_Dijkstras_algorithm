@@ -46,19 +46,9 @@ final class MapViewController: UIViewController {
     
     @objc private func cancelButtonTapped(gesture: UILongPressGestureRecognizer) {
         guard !Singleton.pathWay.isEmpty else { return }
-        
         proceedGestureAction(gesture: gesture, button: cancelButton, action: { [weak self] in
-            self?.map.subviews.forEach { view in
-                view.withAnimation(action: {
-                    view.layer.removeAllAnimations()
-                    view.transform = .identity
-                    view.removeShadow()
-                })
-            }
-            
-            Singleton.pathWay.removeAll()
-            Singleton.graph.path.removeAll()
-            Singleton.graph.pathDetails.removeAll()
+            self?.map.subviews.forEach { view in view.withAnimation(action: { view.deselect() }) }
+            Singleton.clear()
         })
     }
     
@@ -79,13 +69,9 @@ final class MapViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        Singleton.pathWay.removeAll()
-        Singleton.graph.path.removeAll()
-        Singleton.graph.pathDetails.removeAll()
-        
+        Singleton.clear()
         map.subviews.forEach {
-            $0.transform = .identity
-            $0.removeShadow()
+            $0.deselect()
         }
     }
     
@@ -178,8 +164,7 @@ final class MapViewController: UIViewController {
             for vertex in Singleton.graph.path {
                 if vertex.data.id == view.tag {
                     view.withAnimation(action: {
-                        view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-                        view.applyShadow()
+                        view.select()
                     })
                 }
             }
