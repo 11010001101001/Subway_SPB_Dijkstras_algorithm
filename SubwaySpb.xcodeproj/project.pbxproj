@@ -86,14 +86,13 @@
 		845E5D0226C692E8009BFB0B /* SubwaySpb */ = {
 			isa = PBXGroup;
 			children = (
-				845E5D0326C692E8009BFB0B /* AppDelegate.swift */,
-				845E5D0526C692E8009BFB0B /* SceneDelegate.swift */,
-				84E88CF82778A1A900878C39 /* MVC */,
+				845E5D0C26C692E9009BFB0B /* AnalogMetroSpb.xcdatamodeld */,
 				845E5D0926C692E9009BFB0B /* Main.storyboard */,
 				845E5D1126C692EC009BFB0B /* LaunchScreen.storyboard */,
 				845E5D0F26C692EC009BFB0B /* Assets.xcassets */,
 				845E5D1426C692EC009BFB0B /* Info.plist */,
-				845E5D0C26C692E9009BFB0B /* AnalogMetroSpb.xcdatamodeld */,
+				C4C469FC2AE597C200CC9440 /* AppDelegates */,
+				84E88CF82778A1A900878C39 /* MVC */,
 			);
 			path = SubwaySpb;
 			sourceTree = "<group>";
@@ -118,6 +117,15 @@
 				C4233A7B2AE3FE520067BD44 /* Constants.swift */,
 			);
 			path = MVC;
+			sourceTree = "<group>";
+		};
+		C4C469FC2AE597C200CC9440 /* AppDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				845E5D0326C692E8009BFB0B /* AppDelegate.swift */,
+				845E5D0526C692E8009BFB0B /* SceneDelegate.swift */,
+			);
+			path = AppDelegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
