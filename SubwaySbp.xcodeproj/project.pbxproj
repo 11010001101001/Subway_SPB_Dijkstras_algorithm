@@ -31,7 +31,7 @@
 
 /* Begin PBXFileReference section */
 		843C8D25277C94F70011F30E /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
-		845E5D0026C692E8009BFB0B /* Метро.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Метро.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		845E5D0026C692E8009BFB0B /* SubwaySbp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SubwaySbp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		845E5D0326C692E8009BFB0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		845E5D0526C692E8009BFB0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		845E5D0726C692E8009BFB0B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 		845E5D0126C692E8009BFB0B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				845E5D0026C692E8009BFB0B /* Метро.app */,
+				845E5D0026C692E8009BFB0B /* SubwaySbp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,9 +128,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		845E5CFF26C692E8009BFB0B /* Метро */ = {
+		845E5CFF26C692E8009BFB0B /* SubwaySbp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 845E5D1726C692EC009BFB0B /* Build configuration list for PBXNativeTarget "Метро" */;
+			buildConfigurationList = 845E5D1726C692EC009BFB0B /* Build configuration list for PBXNativeTarget "SubwaySbp" */;
 			buildPhases = (
 				845E5CFC26C692E8009BFB0B /* Sources */,
 				845E5CFD26C692E8009BFB0B /* Frameworks */,
@@ -140,9 +140,9 @@
 			);
 			dependencies = (
 			);
-			name = "Метро";
+			name = SubwaySbp;
 			productName = AnalogMetroSpb;
-			productReference = 845E5D0026C692E8009BFB0B /* Метро.app */;
+			productReference = 845E5D0026C692E8009BFB0B /* SubwaySbp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -159,7 +159,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 845E5CFB26C692E8009BFB0B /* Build configuration list for PBXProject "Метро" */;
+			buildConfigurationList = 845E5CFB26C692E8009BFB0B /* Build configuration list for PBXProject "SubwaySbp" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -172,7 +172,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				845E5CFF26C692E8009BFB0B /* Метро */,
+				845E5CFF26C692E8009BFB0B /* SubwaySbp */,
 			);
 		};
 /* End PBXProject section */
@@ -359,12 +359,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 62XGY8QWW9;
 				INFOPLIST_FILE = SubwaySpb/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Метро";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "-77.AnalogMetroSpb";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -378,12 +381,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 62XGY8QWW9;
 				INFOPLIST_FILE = SubwaySpb/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Метро";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "-77.AnalogMetroSpb";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -394,7 +400,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		845E5CFB26C692E8009BFB0B /* Build configuration list for PBXProject "Метро" */ = {
+		845E5CFB26C692E8009BFB0B /* Build configuration list for PBXProject "SubwaySbp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				845E5D1526C692EC009BFB0B /* Debug */,
@@ -403,7 +409,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		845E5D1726C692EC009BFB0B /* Build configuration list for PBXNativeTarget "Метро" */ = {
+		845E5D1726C692EC009BFB0B /* Build configuration list for PBXNativeTarget "SubwaySbp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				845E5D1826C692EC009BFB0B /* Debug */,
