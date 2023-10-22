@@ -70,7 +70,7 @@
 		845E5CF726C692E8009BFB0B = {
 			isa = PBXGroup;
 			children = (
-				845E5D0226C692E8009BFB0B /* AnalogMetroSpb */,
+				845E5D0226C692E8009BFB0B /* SubwaySpb */,
 				845E5D0126C692E8009BFB0B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -83,7 +83,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		845E5D0226C692E8009BFB0B /* AnalogMetroSpb */ = {
+		845E5D0226C692E8009BFB0B /* SubwaySpb */ = {
 			isa = PBXGroup;
 			children = (
 				845E5D0326C692E8009BFB0B /* AppDelegate.swift */,
@@ -95,7 +95,7 @@
 				845E5D1426C692EC009BFB0B /* Info.plist */,
 				845E5D0C26C692E9009BFB0B /* AnalogMetroSpb.xcdatamodeld */,
 			);
-			path = AnalogMetroSpb;
+			path = SubwaySpb;
 			sourceTree = "<group>";
 		};
 		84E88CF82778A1A900878C39 /* MVC */ = {
@@ -356,7 +356,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 62XGY8QWW9;
-				INFOPLIST_FILE = AnalogMetroSpb/Info.plist;
+				INFOPLIST_FILE = SubwaySpb/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -375,7 +375,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 62XGY8QWW9;
-				INFOPLIST_FILE = AnalogMetroSpb/Info.plist;
+				INFOPLIST_FILE = SubwaySpb/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
