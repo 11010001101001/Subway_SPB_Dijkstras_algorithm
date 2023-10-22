@@ -133,6 +133,8 @@ final class MapViewController: UIViewController {
                 self.mapScrollView.zoomScale = Constants.minZoomScale
             })
         }
+        
+        vibrateManager.vibrateFeedback(style: .rigid)
     }
     
     private func setupUI() {
@@ -163,9 +165,7 @@ final class MapViewController: UIViewController {
         for view in map.subviews {
             for vertex in Singleton.graph.path {
                 if vertex.data.id == view.tag {
-                    view.withAnimation(action: {
-                        view.select()
-                    })
+                    view.withAnimation(action: { view.select() })
                 }
             }
         }
