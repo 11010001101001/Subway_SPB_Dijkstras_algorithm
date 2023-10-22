@@ -32,7 +32,7 @@
 
 /* Begin PBXFileReference section */
 		843C8D25277C94F70011F30E /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
-		845E5D0026C692E8009BFB0B /* MetroSpb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetroSpb.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		845E5D0026C692E8009BFB0B /* SubwaySpb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SubwaySpb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		845E5D0326C692E8009BFB0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		845E5D0526C692E8009BFB0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		845E5D0726C692E8009BFB0B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 		845E5D0126C692E8009BFB0B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				845E5D0026C692E8009BFB0B /* MetroSpb.app */,
+				845E5D0026C692E8009BFB0B /* SubwaySpb.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -123,9 +123,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		845E5CFF26C692E8009BFB0B /* MetroSpb */ = {
+		845E5CFF26C692E8009BFB0B /* SubwaySpb */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 845E5D1726C692EC009BFB0B /* Build configuration list for PBXNativeTarget "MetroSpb" */;
+			buildConfigurationList = 845E5D1726C692EC009BFB0B /* Build configuration list for PBXNativeTarget "SubwaySpb" */;
 			buildPhases = (
 				845E5CFC26C692E8009BFB0B /* Sources */,
 				845E5CFD26C692E8009BFB0B /* Frameworks */,
@@ -135,9 +135,9 @@
 			);
 			dependencies = (
 			);
-			name = MetroSpb;
+			name = SubwaySpb;
 			productName = AnalogMetroSpb;
-			productReference = 845E5D0026C692E8009BFB0B /* MetroSpb.app */;
+			productReference = 845E5D0026C692E8009BFB0B /* SubwaySpb.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -154,7 +154,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 845E5CFB26C692E8009BFB0B /* Build configuration list for PBXProject "MetroSpb" */;
+			buildConfigurationList = 845E5CFB26C692E8009BFB0B /* Build configuration list for PBXProject "SubwaySpb" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -167,7 +167,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				845E5CFF26C692E8009BFB0B /* MetroSpb */,
+				845E5CFF26C692E8009BFB0B /* SubwaySpb */,
 			);
 		};
 /* End PBXProject section */
@@ -390,7 +390,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		845E5CFB26C692E8009BFB0B /* Build configuration list for PBXProject "MetroSpb" */ = {
+		845E5CFB26C692E8009BFB0B /* Build configuration list for PBXProject "SubwaySpb" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				845E5D1526C692EC009BFB0B /* Debug */,
@@ -399,7 +399,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		845E5D1726C692EC009BFB0B /* Build configuration list for PBXNativeTarget "MetroSpb" */ = {
+		845E5D1726C692EC009BFB0B /* Build configuration list for PBXNativeTarget "SubwaySpb" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				845E5D1826C692EC009BFB0B /* Debug */,
